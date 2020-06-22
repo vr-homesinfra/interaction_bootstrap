@@ -3,8 +3,9 @@
 require 'config/config.php';
 include("includes/classes/User.php");
 
-if(isset($_GET['q'])) {
-	$query = $_GET['q'];
+$str="in";
+if(isset($_GET['profile'])&& isset($_GET['city'])) {
+	 $query = $_GET['profile']." ".$str." ".rtrim($_GET['city']);
 }
 else {
 	$query = "";
@@ -89,16 +90,16 @@ else {
 			
 //If there are three words (for architects), assume they are profile and location names respectively			
 			if(count($names) == 3)
-				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[2]%') OR (profile LIKE '$names[0]%' AND location LIKE '$names[2]%') AND user_closed='no'");
-			//If query has one word only, search first names or last names 
-			else if(count($names) == 2)
-				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no'");
+            $usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[2]%') AND user_closed='no' LIMIT 8");
+			// //If query has one word only, search first names or last names 
+			// else if(count($names) == 2)
+			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' AND last_name LIKE '$names[1]%') AND user_closed='no'");
 			
 				//If there are four words (for interior designer), assume they are profile and location names respectively
 			else if(count($names) == 4)
 				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
-			else 
-				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
+			// else 
+			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
 		}
 
 		// Check if results were found 

@@ -1,5 +1,7 @@
 <?php
   require 'config/config.php';
+  $site_url = 'http://'.$_SERVER['HTTP_HOST'].'/';
+$str="";
 ?>
 <!DOCTYPE html>
 <html>
@@ -103,37 +105,34 @@
                             <fieldset>
                             <p class="text-dark">Select Architect or Interior Designer :</p>
                                 <div class="toggle mb-2">
-                                    <input type="radio" id="cond_new" name="bike_cond" checked="checked">
-                                    <label title="Select Architect" data-toggle="tooltip" data-placement="top" class="text-center d-block cursor-pointer " for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="bike_cond">
+                                    <input type="radio" id="cond_new" checked="checked">
+                                    <label title="Select Architect" class="text-center d-block cursor-pointer" for="cond_new">Architect</label>
+                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
                                     <label title="Select Interrior Designer" class="text-center d-block cursor-pointer" for="cond_used">Interior Designer</label>
+
+
                                 </div>
                             </fieldset>
                         </div>
                     </div>
                     <div class="row mb-0 m-auto" style="max-width: 552px;">
 
-                        <?php
-                            if (isset($_POST['find_creatives'])) {
-                                if(isset($_POST['bike_cond']))
-                                {
-                                echo "You have selected :".$_POST['bike_cond'];  //  Displaying Selected Value
-                                }
-                            }
-                        ?>
                         <div class="col-12 p-0">
                             <div class="input-group px-0 px-sm-0 col-lg-12">
                                 <!-- Search Input -->
-                                <input type="text" class="shadow-sm form-control" name='q' placeholder="Enter City"
+                                <input type="text" class="shadow-sm form-control" placeholder="Enter City"
                                     autocomplete="off" id="search_text_input"
-                                    onkeyup="getExtLiveSearchUsers(this.value)" />
-                                <div class=" input-group-append">
+                                    onkeyup="getExtLiveSearchUsers(this.value)" name="city" />
+                                <div class="input-group-append">
                                     <span class="input-group-text bg-success">
+
                                         <!-- Orange Button -->
                                         <button class="text-white btn p-0 " type="submit"><i class="fas fa-search "
-                                                name="find_creatives"></i>
+                                                name="find_creatives" id="find_creatives"></i>
                                         </button>
 
+                                        <!-- <a name="find_creative" id="" class="btn btn-primary" role="button"><i
+                                                class="fas fa-search" name="find_creatives" id="find_creatives"></i></a> -->
                                     </span>
                                 </div> <!-- Orange Button End -->
                             </div>

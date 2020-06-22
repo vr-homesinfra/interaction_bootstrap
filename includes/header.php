@@ -274,7 +274,8 @@ else {
                                         aria-labelledby="alertsDropdown">
                                     </div>
                                 </li> -->
-                                <div class="d-none d-sm-block topbar-divider"></div>
+                                <div class="d-none d-sm-block topbar-divider">
+                                </div>
                                 <li class="nav-item dropdown no-arrow" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
                                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"

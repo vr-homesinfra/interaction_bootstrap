@@ -5,8 +5,7 @@ $query = $_POST['query'];
 
 //If query contains an underscore, assume user is searching for usernames
 	$usersReturnedQuery = mysqli_query($con, "SELECT city_name FROM cities WHERE city_name LIKE '$query%' LIMIT 5");	
-	
-
+	// <p id='rdx-".$i."' class='card-test mb-0 city'>" . $row['city_name']." </p>
 if($query != ""){
 $i=1;
 if(isset($usersReturnedQuery)){
@@ -18,7 +17,9 @@ if(isset($usersReturnedQuery)){
                                     
                                     <div class='col-10'>
                                         <div class='card-body p-2'>
-                                            <p id='rdx-".$i."' class='card-test mb-0 city'>" . $row['city_name']." </p>
+                                        <p id='rdx-".$i."' class='card-test mb-0 city'>" . $row['city_name']." </p>
+                                        
+                                       
                                         </div>
                                     </div>
 								</div>                            		
