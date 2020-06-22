@@ -73,8 +73,7 @@ $row = mysqli_fetch_array($result);
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
                                     Upload</button>
-                                <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
-                                    Upload</button>
+
                             </div>
                         </form>
                     </div>
