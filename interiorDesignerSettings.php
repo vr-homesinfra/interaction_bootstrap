@@ -3,6 +3,7 @@ include("includes/header.php");
 include("includes/form_handlers/settings_handler.php");
 $profile_pic = $user['profile_pic'];
 
+
 //profile pic upload section start
 
 if(isset($_POST['change_profile_pic_button'])){

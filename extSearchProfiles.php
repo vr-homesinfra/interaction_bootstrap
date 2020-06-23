@@ -1,11 +1,10 @@
 <?php
-
 require 'config/config.php';
 include("includes/classes/User.php");
 
 $str="in";
 if(isset($_GET['profile'])&& isset($_GET['city'])) {
-	 $query = $_GET['profile']." ".$str." ".rtrim($_GET['city']);
+    $query = $_GET['profile']." ".$str." ".rtrim($_GET['city']);
 }
 else {
 	$query = "";
@@ -100,7 +99,7 @@ else {
 			// else 
 			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
 		}
-
+$read_more="...";
 		// Check if results were found 
 		if(mysqli_num_rows($usersReturnedQuery) == 0)
 			echo "We can't find anyone with a " . $type . " like: " .$query;
@@ -136,25 +135,29 @@ else {
 //     </div>		
 // </div>
 // </div>
-        
+       $extSearchUname=$row['username'];     
+       $extSearchCity=rtrim($_GET['city']);     
+       $extSearchProfile=rtrim($_GET['profile']);     
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
         <div class='card'>
             <img src='". $row['profile_pic'] ."' class='card-img-top' alt='...'>
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
-            <p class='small text-muted font-italic'>". $row['about_me'] ."</p>
+            <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
                 <div class='btn-group'>
-                    <a class=' mr-2 btn btn-primary float-left btn-sm' href='#'>Visit Profile</a>
-                    <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>
-                </div>
+                    
+                    <a class=' mr-2 btn btn-primary float-left btn-sm' href='addToCart.php?uname=$extSearchUname&city=$extSearchCity&profile=$extSearchProfile'>Visit
+                Profile</a>
+                <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>
             </div>
         </div>
-    </div>
-";
-}	
-    }
-?>
+        </div>
+        </div>
+        ";
+        }
+        }
+        ?>
 
             </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

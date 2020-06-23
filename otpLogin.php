@@ -1,6 +1,6 @@
 <?php
 require "config/config.php";
-
+ 
 $userLoggedIn="";
 $fname = ""; //First name
 $lname = ""; //Last name
@@ -14,6 +14,12 @@ $agent = "";
 $rand = "";
 $otp_success="";
 $otp_failure="";
+
+if (isset($_SESSION['uname'])) {
+    # code...
+    $check=($_SESSION['uname']);
+    // print_r($check);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,9 +57,7 @@ $otp_failure="";
                                             <h4 class="text-dark mb-4">Welcome Back to HomesInfra</h4>
                                         </div>
                                         <?php
-                                        
                                     if (isset($_POST['send_otp'])){ 
-                                        
                                         // $textlocal = new Textlocal('false','false',API_KEY);
                                         
                                         $mobile_no = strip_tags($_POST['enter_mobile_no']); //Remove html tags
