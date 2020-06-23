@@ -109,23 +109,25 @@ $str="";
 
                             </style>
                             <fieldset>
-<<<<<<< HEAD
-                            <p class="text-dark">Select Architect or Interior Designer :</p>
+                                <p class="text-dark">Select Architect or Interior Designer :</p>
                                 <div class="toggle mb-2">
                                     <input type="radio" id="cond_new" checked="checked">
-                                    <label title="Select Architect" class="text-center d-block cursor-pointer" for="cond_new">Architect</label>
+                                    <label title="Select Architect" class="text-center d-block cursor-pointer"
+                                        for="cond_new">Architect</label>
                                     <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interrior Designer" class="text-center d-block cursor-pointer" for="cond_used">Interior Designer</label>
+                                    <label title="Select Interrior Designer" class="text-center d-block cursor-pointer"
+                                        for="cond_used">Interior
+                                        Designer</label>
 
 
-=======
-                                <div class="toggle  mb-2">
-                                    <input type="radio" id="cond_new" name="bike_cond" checked="checked">
-                                    <label class="text-center d-block" for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="bike_cond">
-                                    <label class="text-center d-block" for="cond_used">Interior Designer</label>
->>>>>>> parent of 4b749bc... bootstrap changes
-                                </div>
+
+                                    <div class="toggle  mb-2">
+                                        <input type="radio" id="cond_new" name="bike_cond" checked="checked">
+                                        <label class="text-center d-block" for="cond_new">Architect</label>
+                                        <input type="radio" id="cond_used" name="bike_cond">
+                                        <label class="text-center d-block" for="cond_used">Interior Designer</label>
+
+                                    </div>
                             </fieldset>
                         </div>
                     </div>
