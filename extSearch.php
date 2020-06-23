@@ -105,12 +105,10 @@ $str="";
                             <fieldset>
                             <p class="text-dark">Select Architect or Interior Designer :</p>
                                 <div class="toggle mb-2">
-                                    <input type="radio" id="cond_new" checked="checked">
+                                <input type="radio" id="cond_new" name="bike_cond" checked="checked">
                                     <label title="Select Architect" class="text-center d-block cursor-pointer" for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
+                                    <input type="radio" id="cond_used" name="bike_cond" value="interior designer">
                                     <label title="Select Interrior Designer" class="text-center d-block cursor-pointer" for="cond_used">Interior Designer</label>
-
-
                                 </div>
                             </fieldset>
                         </div>
