@@ -17,7 +17,7 @@ $str="";
         </script>
 
         <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+            href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="rd/assets/css/styles.min.css?h=2cfe18d2d8a32b71eadff2883706ad0e">
         <link rel="stylesheet" href="assets/css/switchStyles.min.css">
@@ -25,13 +25,13 @@ $str="";
 
     <body>
         <nav class="navbar fixed-top navbar-light bg-light">
-            <nav class="navbar navbar-light fixed-top bg-light off-canvas" data-right-drawer="0" data-open-drawer="0">
+            <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
                 <div class="container-fluid flex-column">
-                    <button class="mt-2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
+                    <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
                             class="fas fa-bars"></i>
                     </button>
                     <div class="d-flex justify-content-between brand-line">
-                        <button class="btn btn-light" type="button" data-dismiss="drawer">
+                        <button class="btn btn-primary" type="button" data-dismiss="drawer">
                             <span class="sr-only">Toggle
                                 Navigation </span><i class="fas fa-times"></i>
 
@@ -64,7 +64,7 @@ $str="";
                     </ul>
                 </div>
             </nav>
-            <a class="navbar-brand ml-4">
+            <a class="navbar-brand p-0 ml-4">
                 <img width="40px;" src="rd/assets/img/logo-hi.svg" alt="">
             </a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
