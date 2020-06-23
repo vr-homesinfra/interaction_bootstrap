@@ -35,6 +35,7 @@ else {
         <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
+        <link rel="stylesheet" href="assets/css/switchStyles.min.css">
     </head>
 
     <body id="page-top" class="">
@@ -125,9 +126,24 @@ else {
                                 <form
                                     class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
                                     action="search.php" method="GET" name="search_form">
+
+
                                     <div class="input-group">
 
                                         <!--desktop view search box  -->
+
+                                        <fieldset style="width:300px">
+                                <div class="toggle">
+                                    <input type="radio" id="cond_new" name="profile" checked="checked"
+                                        value="architect">
+                                    <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
+                                        for="cond_new">Architect</label>
+                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
+                                    <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
+                                        for="cond_used">Interior Designer</label>
+                                </div>
+
+                            </fieldset>
                                         <input class="bg-light form-control border-0 small" type="text"
                                             placeholder="Search architects in lucknow/pune..."
                                             onkeyup="getLiveSearchUsers(this.value,' <?php echo $userLoggedIn;?>')"
@@ -151,6 +167,27 @@ else {
                                         aria-labelledby="searchDropdown">
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
                                             method="GET" name="search_form">
+
+                                            <div class="row mx-auto">
+                                                <div class="col-12 ">
+                                                <fieldset style="width:290px">
+                                <p class="text-dark">Select Architect or Interior Designer :</p>
+                                <div class="toggle mb-2">
+                                    <input type="radio" id="cond_new" name="profile" checked="checked"
+                                        value="architect">
+                                    <label title="Select Architect" class="text-center d-block cursor-pointer"
+                                        for="cond_new">Architect</label>
+                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
+                                    <label title="Select Interior Designer" class="text-center d-block cursor-pointer"
+                                        for="cond_used">Interior Designer</label>
+                                </div>
+
+                            </fieldset>
+                                                </div>
+                                            </div>
+
+
+
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->

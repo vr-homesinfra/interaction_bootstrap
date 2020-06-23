@@ -37,7 +37,7 @@ $otp_failure="";
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
-                    <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card o-hidden border-0 my-5">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-flex">
@@ -171,11 +171,11 @@ if (isset($_POST['verify_otp'])){
                                             <div class="form-group">
                                                 <!-- enter mobile no. for checking db & otp -->
                                                 <input class="form-control form-control-user" id="exampleInputPassword"
-                                                    placeholder="Enter registered mobile no." name="enter_mobile_no"
+                                                    placeholder="Enter Registered Mobile No." name="enter_mobile_no"
                                                     minlength="10" maxlength="10" autocomplete="off" type="text">
                                             </div>
                                             <!--send otp button -->
-                                            <button class="btn btn-outline-info active btn-block text-white btn-user"
+                                            <button class="btn btn-outline-primary active btn-block text-white btn-user"
                                                 type="submit" name="send_otp">Send OTP</button>
                                             <div id="otp_sent" class="text-center">
                                                 <?php
@@ -200,7 +200,7 @@ if (isset($_POST['verify_otp'])){
                                             <!-- validate mobile no. in db & otp -->
                                             <!-- & then redirect to profile page -->
                                             <button
-                                                class="btn btn-outline-info active btn-block text-white btn-facebook btn-user"
+                                                class="btn btn-outline-primary active btn-block text-white btn-user"
                                                 type="submit" name="verify_otp">Verify & Login</button>
                                             <div id="verify_sent_otp" class="text-center">
                                                 <?php
@@ -215,7 +215,7 @@ if (isset($_POST['verify_otp'])){
                                             </script>
                                             <hr>
                                         </form>
-                                        <div class="text-center">
+                                        <div class="text-center text-secondary">
                                             <a class="small" href="otpRegister.php">Visiting first
                                                 time?&nbspCreate an
                                                 Account!</a>
