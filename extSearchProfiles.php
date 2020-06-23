@@ -72,7 +72,6 @@ else {
         <div class="container mt-5">
             <div class="row border-right-0 border-left-0 border p-4">
                 <div class="col">
-                    <h2>Search Query Title</h2>
                 </div>
             </div>
             <div class="row">

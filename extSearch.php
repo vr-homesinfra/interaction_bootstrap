@@ -116,7 +116,7 @@ $str="";
                                     <label title="Select Architect" class="text-center d-block cursor-pointer"
                                         for="cond_new">Architect</label>
                                     <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interrior Designer" class="text-center d-block cursor-pointer"
+                                    <label title="Select Interior Designer" class="text-center d-block cursor-pointer"
                                         for="cond_used">Interior Designer</label>
                                 </div>
 
