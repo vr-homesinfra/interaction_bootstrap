@@ -24,7 +24,7 @@ $str="";
     </head>
 
     <body>
-        <nav class="navbar fixed-top navbar-light bg-light">
+        <nav class="navbar fixed-top topbar navbar-dark shadow bg-white">
             <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
                 <div class="container-fluid flex-column">
                     <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
@@ -53,8 +53,6 @@ $str="";
                         </li>
                         <li role="presentation" class="nav-item"></li>
                         <li role="presentation" class="nav-item"></li>
-                    </ul>
-                    <ul class="nav navbar-nav flex-column bottom-nav">
                         <li role="presentation" class="nav-item"><a class="nav-link active"
                                 href="https://homesinfra.com/about-us/">About Us</a></li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
@@ -70,7 +68,7 @@ $str="";
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
             </ul>
-            <a style="border-radius:24px;" class="btn bg-orange my-2 my-sm-0"
+            <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
                 href="http://homesinfra.com/interact/otpLogin.php">Login</a>
 
         </nav>
@@ -82,7 +80,8 @@ $str="";
         </style>
         <div class="container py-5" id="main-container">
             <div id="img-logo" class="text-center pt-5">
-                <img src="rd/assets/img/logo-hi.svg" style="width: 200px;">
+                <img class="img-fluid d-lg-none d-sm-block w-50" src="rd/assets/img/logo-hi.svg">
+                <img class="img-fluid d-none d-lg-inline w-25" src="rd/assets/img/logo-hi.svg">
             </div>
 
             <div id="search-system" class="">

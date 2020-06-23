@@ -144,7 +144,7 @@ else {
                                 </div>
 
                             </fieldset>
-                                        <input class="bg-light form-control border-0 small" type="text"
+                                        <input class="bg-light ml-2 form-control border-0 small" type="text"
                                             placeholder="Search architects in lucknow/pune..."
                                             onkeyup="getLiveSearchUsers(this.value,' <?php echo $userLoggedIn;?>')"
                                             name="q" autocomplete="off">
