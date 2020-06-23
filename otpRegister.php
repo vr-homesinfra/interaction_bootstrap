@@ -75,6 +75,10 @@ $otp_failure="";
                                         //Remove html tags
                                         $user_profile = str_replace(' ', '', $user_profile); 
                                         //remove spaces
+                                        if ($user_profile!="architect" && $user_profile!="Interior Designer") {
+                                            $user_profile="customer";
+                                        } 
+                                        
                                         $_SESSION['user_profile'] = $user_profile; 
                                         //Stores user_profile into session variable
                                         
@@ -247,7 +251,7 @@ $otp_failure="";
                                                 <select class="border rounded form-control custom-select"
                                                     id="profile_dropdown-1" name="user_profile">
                                                     <option value="choose profile" selected="">choose profile</option>
-                                                    <option value="Customer">Customer</option>
+                                                    <!-- <option value="Customer">Customer</option> -->
                                                     <option value="Architect">Architect</option>
                                                     <option value="Interior Designer">Interior Designer</option>
                                                 </select>

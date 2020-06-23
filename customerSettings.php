@@ -2,7 +2,13 @@
 include("includes/header.php");  
 include("includes/form_handlers/settings_handler.php");
 $profile_pic = $user['profile_pic'];
-
+if (isset($_SESSION['uname'])) {
+    # code...
+    $check=($_SESSION['uname']);
+    print_r($check);
+    header('Location:http://localhost/interaction_bootstrap/'.$check);
+    unset($_SESSION["uname"]);
+}
 //profile pic upload section start
 
 if(isset($_POST['change_profile_pic_button'])){
