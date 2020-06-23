@@ -27,9 +27,11 @@ $str="";
         <nav class="navbar fixed-top topbar navbar-dark shadow bg-white">
             <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
                 <div class="container-fluid flex-column">
+                    <div class="d-flex justify-content-between brand-line">
                     <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
                             class="fas fa-bars"></i>
                     </button>
+                    </div>
                     <div class="d-flex justify-content-between brand-line">
                         <button class="btn btn-primary" type="button" data-dismiss="drawer">
                             <span class="sr-only">Toggle
@@ -63,7 +65,7 @@ $str="";
                 </div>
             </nav>
             <a class="navbar-brand p-0 ml-4">
-                <img width="40px;" src="rd/assets/img/logo-hi.svg" alt="">
+                <img width="60px;" src="rd/assets/img/logo-hi.svg" alt="">
             </a>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
@@ -108,7 +110,7 @@ $str="";
 
                             </style>
                             <fieldset>
-                                <p class="text-dark">Select Architect or Interior Designer :</p>
+                                <p class=" text-center mb-1 text-dark">Select a Professional :</p>
                                 <div class="toggle mb-2">
                                     <input type="radio" id="cond_new" name="profile" checked="checked"
                                         value="architect">
