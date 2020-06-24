@@ -95,7 +95,10 @@ else {
 			
 				//If there are four words (for interior designer), assume they are profile and location names respectively
 			else if(count($names) == 4)
-				$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
+                $usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
+                //for added_profile query result
+                $usersReturnedQueryAdded = mysqli_query($con, "SELECT * FROM users WHERE (added_profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
+                
 			// else 
 			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
 		}
@@ -137,7 +140,8 @@ $read_more="...";
 // </div>
        $extSearchUname=$row['username'];     
        $extSearchCity=rtrim($_GET['city']);     
-       $extSearchProfile=rtrim($_GET['profile']);     
+       $extSearchProfile=rtrim($_GET['profile']);  
+       
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
         <div class='card'>
@@ -145,8 +149,59 @@ echo "
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-                <div class='btn-group'>
+                <div class='btn-group'>                    
+                    <a class=' mr-2 btn btn-primary float-left btn-sm' href='addToCart.php?uname=$extSearchUname&city=$extSearchCity&profile=$extSearchProfile'>Visit
+                Profile</a>
+                <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>
+            </div>
+        </div>
+        </div>
+        </div>
+        ";
+        }
+
+        while($row = mysqli_fetch_array($usersReturnedQueryAdded)) {
+			// $user_obj = new User($con, $user['username']);
+
+			//to display the verified tick
+			$blank_space="&nbsp";
+			$coa_verified = $row['coa_verified'];
+		if ($coa_verified=="yes") {
+			$coa_stat= "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+				</i>";
+			} else {
+				$coa_stat= "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+				</i>";
+		}
+
+//         <div class='col-lg-3 col-md-3 mb-4 mb-lg-0'>
+//         <div class='card rounded shadow-sm border-0'>
+//             <div class='card-body p-4'>
+//             <img
+//             src='". $row['profile_pic'] ."'
+//             alt='' class='img-fluid d-block mx-auto mb-3'>
+//             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
+//             <p class='small text-muted font-italic'>Lorem ipsum dolor sit amet,
+//                 consectetur adipisicing elit.</p>
                     
+//                 <div class='text-center mt-2'>
+//                 <a name='' id='' class='btn btn-primary' href='" . $row['username'] ."' role='button'>Visit Profile</a>
+//                 </div>
+//     </div>		
+// </div>
+// </div>
+       $extSearchUname=$row['username'];     
+       $extSearchCity=rtrim($_GET['city']);     
+       $extSearchProfile=rtrim($_GET['profile']);  
+       
+echo "
+<div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
+        <div class='card'>
+            <img src='". $row['profile_pic'] ."' class='card-img-top' alt='...'>
+            <div class='card-body px-2 text-center'>
+            <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
+            <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
+                <div class='btn-group'>                    
                     <a class=' mr-2 btn btn-primary float-left btn-sm' href='addToCart.php?uname=$extSearchUname&city=$extSearchCity&profile=$extSearchProfile'>Visit
                 Profile</a>
                 <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>

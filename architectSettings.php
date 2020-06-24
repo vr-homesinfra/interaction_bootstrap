@@ -102,8 +102,9 @@ $row = mysqli_fetch_array($result);
         $office_no=$_POST['office_no'];
         $residential_address=$_POST['residential_address'];
         $office_address=$_POST['office_address'];   
+        $reg_as_int_des=$_POST['reg_as_int_des'];   
         
-            $query = mysqli_query($con, "UPDATE users SET email='$email', office_no='$office_no', residential_address='$residential_address',office_address='$office_address' WHERE username='$userLoggedIn'");             
+            $query = mysqli_query($con, "UPDATE users SET email='$email', office_no='$office_no', residential_address='$residential_address',office_address='$office_address',added_profile='$reg_as_int_des' WHERE username='$userLoggedIn'");             
         }
     
         if(isset($_POST['about_me_submit'])) {  
@@ -152,6 +153,15 @@ $row = mysqli_fetch_array($result);
                                     <input class="form-control" type="text" placeholder="Office Address"
                                         name="office_address">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="reg_as_int_des" id=""
+                                        value="interior designer" unchecked>
+                                    also register as Interior Designer
+                                </label>
                             </div>
                         </div>
                         <div class="form-group">
