@@ -15,7 +15,8 @@
 else {
 	header("Location: otpLogin.php");
 }
-
+$result=$con->query("SELECT profile_pic FROM users WHERE username='$userLoggedIn'");
+$row = mysqli_fetch_array($result); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -118,14 +119,16 @@ else {
             <div class="d-flex flex-column" id="content-wrapper">
                 <div id="content">
                     <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                        <div class="container-fluid checkTest"><button
-                                class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
-                                type="button"><i class="fas fa-bars"></i></button>
+                        <div class="container-fluid checkTest">
+                            <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
+                                type="button"><i class="fas fa-bars"></i>
+                            </button>
+
                             <div class="search">
 
                                 <form
                                     class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                                    action="search.php" method="GET" name="search_form">
+                                    form method="GET" role="search" action="search.php" name="desktop_search_form">
 
 
                                     <div class="input-group">
@@ -133,21 +136,23 @@ else {
                                         <!--desktop view search box  -->
 
                                         <fieldset style="width:300px">
-                                <div class="toggle">
-                                    <input type="radio" id="cond_new" name="profile" checked="checked"
-                                        value="architect">
-                                    <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
-                                        for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
-                                        for="cond_used">Interior Designer</label>
-                                </div>
+                                            <div class="toggle">
+                                                <input type="radio" id="cond_new" name="profile" checked="checked"
+                                                    value="architect">
+                                                <label title="Select Architect"
+                                                    class="p-2 text-center d-block cursor-pointer"
+                                                    for="cond_new">Architect</label>
+                                                <input type="radio" id="cond_used" name="profile"
+                                                    value="interior designer">
+                                                <label title="Select Interior Designer"
+                                                    class="p-2 text-center d-block cursor-pointer"
+                                                    for="cond_used">Interior Designer</label>
+                                            </div>
 
-                            </fieldset>
+                                        </fieldset>
                                         <input class="bg-light ml-2 form-control border-0 small" type="text"
                                             placeholder="Search architects in lucknow/pune..."
-                                            onkeyup="getLiveSearchUsers(this.value,' <?php echo $userLoggedIn;?>')"
-                                            name="q" autocomplete="off">
+                                            onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
 
                                         <div class="input-group-append">
                                             <button class="btn btn-primary py-0 btn-block" type="submit"
@@ -156,8 +161,26 @@ else {
                                             </button>
                                         </div>
                                     </div>
+
                                 </form>
+                                <div class="row profiles-list">
+                                    <div class="col-md-6 m-auto border-0 search_results">
+
+                                        <!-- Loop from here -->
+
+                                        <!-- Loop till here -->
+
+                                    </div>
+                                </div>
                             </div>
+
+                            <script>
+                            $(document).on("click", ".city", function() {
+                                var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                $('#search_text_input').val(clickedBtnID);
+                            });
+                            </script>
+
                             <ul class="nav navbar-nav flex-nowrap ml-auto">
                                 <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                         data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search">
@@ -170,19 +193,22 @@ else {
 
                                             <div class="row mx-auto">
                                                 <div class="col-12 ">
-                                                <fieldset style="width:290px">
-                                <p class="text-dark">Select Architect or Interior Designer :</p>
-                                <div class="toggle mb-2">
-                                    <input type="radio" id="cond_new" name="profile" checked="checked"
-                                        value="architect">
-                                    <label title="Select Architect" class="text-center d-block cursor-pointer"
-                                        for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interior Designer" class="text-center d-block cursor-pointer"
-                                        for="cond_used">Interior Designer</label>
-                                </div>
+                                                    <fieldset style="width:290px">
+                                                        <p class="text-dark">Select Architect or Interior Designer :</p>
+                                                        <div class="toggle mb-2">
+                                                            <input type="radio" id="cond_new" name="profile"
+                                                                checked="checked" value="architect">
+                                                            <label title="Select Architect"
+                                                                class="text-center d-block cursor-pointer"
+                                                                for="cond_new">Architect</label>
+                                                            <input type="radio" id="cond_used" name="profile"
+                                                                value="interior designer">
+                                                            <label title="Select Interior Designer"
+                                                                class="text-center d-block cursor-pointer"
+                                                                for="cond_used">Interior Designer</label>
+                                                        </div>
 
-                            </fieldset>
+                                                    </fieldset>
                                                 </div>
                                             </div>
 
@@ -313,6 +339,7 @@ else {
                                 </li> -->
                                 <div class="d-none d-sm-block topbar-divider">
                                 </div>
+
                                 <li class="nav-item dropdown no-arrow" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
                                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
@@ -320,9 +347,12 @@ else {
                                             <span class="d-none d-lg-inline mr-2 text-gray-600 small">
                                                 <?php
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
-                                                ?></span><img class="border rounded-circle img-profile" src="<?php
-                                                  echo $user['profile_pic'];  
-                                                ?>"></a>
+                                                ?>
+                                            </span>
+                                            <img class="border rounded-circle img-profile" src="<?php
+                                                        echo $row['profile_pic'];  
+                                                ?>">
+                                        </a>
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
                                             role="menu">
                                             <!-- <a class="dropdown-item" role="presentation" href="#"> -->

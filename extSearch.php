@@ -16,8 +16,7 @@ $str="";
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
         </script>
 
-        <link rel="stylesheet"
-            href="rd/assets/css/main.css">
+        <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="rd/assets/css/styles.min.css?h=2cfe18d2d8a32b71eadff2883706ad0e">
         <link rel="stylesheet" href="assets/css/switchStyles.min.css">

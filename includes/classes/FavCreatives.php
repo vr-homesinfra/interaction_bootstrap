@@ -33,7 +33,7 @@ class FavCreatives {
 					$last_name = $row['last_name'];
 					$profile_pic = $row['profile_pic'];
                     $user_name = $row['username'];
-                    $about_me = $row['about_me'];
+                    $about_me = substr($row['about_me'],0,100);
                     $coa_verified = $row['coa_verified'];
                     $msg="messages.php?u=";
                     $blank_space="&nbsp";
@@ -53,7 +53,7 @@ class FavCreatives {
                                     <img src='". $profile_pic ."'
                                     alt='' class='img-fluid d-block mx-auto mb-3'>
                                     <h5> <a href='" . $user_name ."' class='text-dark data-toggle title=''>" . $first_name . " " . $last_name .$blank_space.$coa_stat. "</a></h5>
-                                    <p class='small text-muted font-italic'>$about_me</p>
+                                    <p class='small text-muted font-italic'>$about_me...</p>
                                     
                                     <div class='form-row'>                                
                                             <div class='col'>

@@ -82,7 +82,11 @@ if(isset($_POST['upload_project_file'])) {
        ?>
         <h4 class="small font-weight-bold">
             <?php
+                        echo "Filename:";
                         echo $row['filename']; 
+                        echo "  ";
+                        echo "Uploaded on:";
+                        echo $row['uploaded_on']; 
                             ?>
         </h4>
 
