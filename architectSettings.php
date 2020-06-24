@@ -68,7 +68,7 @@ $row = mysqli_fetch_array($result);
                                 <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
                                     name="fileToUpload1">
                                 <div class="text-center">
-                                    <label id="user_group_label" for="user_group_logo">
+                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow" for="user_group_logo">
                                         <i class="fas fa-upload"></i> Upload Picture</label>
 
                                 </div>

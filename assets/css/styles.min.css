@@ -156,14 +156,6 @@ p.hero-subtitle {
   padding: 10px 15px;
   color: #fff;
 }
-#user_group_label {
-  cursor: pointer;
-  margin-bottom: 0;
-  padding: 12px;
-  border: 2px solid #d3394c;
-  color: #d3394c;
-  font-weight: 700;
-}
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
