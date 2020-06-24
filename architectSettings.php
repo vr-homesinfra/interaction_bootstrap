@@ -69,7 +69,7 @@ $row = mysqli_fetch_array($result);
                                     name="fileToUpload1">
                                 <div class="text-center">
                                     <label id="user_group_label" for="user_group_logo">
-                                        <i class="fas fa-upload"></i>&nbsp;Profile Pic(max. 1mb)</label>
+                                        <i class="fas fa-upload"></i> Upload Picture</label>
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
                                     Upload</button>

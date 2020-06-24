@@ -132,18 +132,18 @@ else {
 
                                         <!--desktop view search box  -->
 
-                                        <fieldset style="width:300px">
-                                <div class="toggle">
-                                    <input type="radio" id="cond_new" name="profile" checked="checked"
+                                    <fieldset style="width:300px">
+                                        <div class="toggle">
+                                            <input type="radio" id="cond_new" name="profile" checked="checked"
                                         value="architect">
-                                    <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
+                                            <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
                                         for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
+                                            <input type="radio" id="cond_used" name="profile" value="interior designer">
+                                            <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
                                         for="cond_used">Interior Designer</label>
-                                </div>
+                                        </div>
 
-                            </fieldset>
+                                    </fieldset>
                                         <input class="bg-light ml-2 form-control border-0 small" type="text"
                                             placeholder="Search architects in lucknow/pune..."
                                             onkeyup="getLiveSearchUsers(this.value,' <?php echo $userLoggedIn;?>')"
@@ -167,27 +167,26 @@ else {
                                         aria-labelledby="searchDropdown">
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
                                             method="GET" name="search_form">
+    <div class="row mx-auto">
+        <div class="col-12">
+            <fieldset style="width:290px">
+                <p class="text-dark">Select Architect or Interior Designer :</p>
+                <div class="toggle mb-2">
+                    <input type="radio" id="condd_new" name="profile"
+                        checked="checked" value="architect">
+                    <label title="Select Architect"
+                        class="text-center d-block cursor-pointer"
+                        for="condd_new">Architect</label>
+                    <input type="radio" id="condd_used" name="profile"
+                        value="interior designer">
+                    <label title="Select Interior Designer"
+                        class="text-center d-block cursor-pointer"
+                        for="condd_used">Interior Designer</label>
+                </div>
 
-                                            <div class="row mx-auto">
-                                                <div class="col-12 ">
-                                                <fieldset style="width:290px">
-                                <p class="text-dark">Select Architect or Interior Designer :</p>
-                                <div class="toggle mb-2">
-                                    <input type="radio" id="cond_new" name="profile" checked="checked"
-                                        value="architect">
-                                    <label title="Select Architect" class="text-center d-block cursor-pointer"
-                                        for="cond_new">Architect</label>
-                                    <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                    <label title="Select Interior Designer" class="text-center d-block cursor-pointer"
-                                        for="cond_used">Interior Designer</label>
-                                </div>
-
-                            </fieldset>
-                                                </div>
-                                            </div>
-
-
-
+            </fieldset>
+        </div>
+    </div>
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->
@@ -203,7 +202,7 @@ else {
                                         </form>
                                     </div>
                                 </li>
-                                </a>
+                                
 
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
