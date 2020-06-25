@@ -5,7 +5,7 @@ $email = false;
 $office_no = false;
 $residential_address = false;
 $office_address = false;
-// $reg_as_int_des = false;
+$reg_as_int_des = false;
 
 //About Me variables
   $coa_no = false;
@@ -22,7 +22,8 @@ $office_address = false;
     $residential_address = $_POST['residential_address'];
     $office_address = $_POST['office_address'];
     // $reg_as_int_des = $_POST['reg_as_int_des'];
-$query = mysqli_query($con, "UPDATE users SET email='$email',office_no='$office_no',residential_address='$residential_address',office_address='$office_address' WHERE username='$userLoggedIn'"); 
+    $reg_as_int_des = isset($_POST['reg_as_int_des']) ? 1 : 0;
+$query = mysqli_query($con, "UPDATE users SET email='$email',office_no='$office_no',residential_address='$residential_address',office_address='$office_address',	added_profile='$reg_as_int_des' WHERE username='$userLoggedIn'"); 
 } 
 //About Me process
   if(isset($_POST['isPressed'])){

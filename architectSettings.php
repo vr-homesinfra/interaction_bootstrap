@@ -139,7 +139,7 @@ $row = mysqli_fetch_array($result);
                         <div class="form-check">
                             <label class="form-check-label">
                                 <input type="checkbox" class="form-check-input" id="reg_as_int_des" value="interior"
-                                    checked>
+                                    <?php if ($user['added_profile'] == "interior") { echo "checked='checked'"; } ?>>
                                 also register as Interior Designer
                             </label>
                         </div>
@@ -246,7 +246,7 @@ $(document).ready(function() {
         var office_no = $('#office_no').val();
         var residential_address = $('#residential_address').val();
         var office_address = $('#office_address').val();
-        // var reg_as_int_des = $('#reg_as_int_des').val();
+        var reg_as_int_des = $('#reg_as_int_des').val();
 
         $.ajax({
             type: "POST",
@@ -256,8 +256,8 @@ $(document).ready(function() {
                 email: email,
                 office_no: office_no,
                 residential_address: residential_address,
-                office_address: office_address
-                // reg_as_int_des: reg_as_int_des
+                office_address: office_address,
+                reg_as_int_des: reg_as_int_des
             },
             success: function(data) {
 
