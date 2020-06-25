@@ -40,10 +40,16 @@ if (isset($_SESSION['uname'])) {
     </head>
 
     <body class="">
+    <nav class="navbar shadow navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60" alt="homesinfra logo"></a>
+      <a class="btn btn-primary " href="#">Sign In</a>
+    </div>
+  </nav>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
-                    <div class="card o-hidden border-0 my-5">
+                    <div class="card o-hidden border my-5">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-flex">
@@ -54,7 +60,7 @@ if (isset($_SESSION['uname'])) {
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h4 class="text-dark mb-4">Welcome Back to HomesInfra</h4>
+                                            <h4 class="text-dark mb-4">Welcome to HomesInfra</h4>
                                         </div>
                                         <?php
                                     if (isset($_POST['send_otp'])){ 

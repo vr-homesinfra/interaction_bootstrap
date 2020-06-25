@@ -21,9 +21,7 @@ $otp_failure="";
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Register - HomesInfra</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet"
@@ -33,10 +31,16 @@ $otp_failure="";
     </head>
 
     <body class="">
+<nav class="navbar shadow navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60" alt="homesinfra logo"></a>
+      <a class="btn btn-primary " href="#">Sign In</a>
+    </div>
+  </nav>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
-                    <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card border  o-hidden border my-5">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-flex">
@@ -44,10 +48,11 @@ $otp_failure="";
                                         style="background-image: url(&quot;assets/img/dogs/chuttersnap-WkIm3eZJLr0-unsplash.jpg&quot;);">
                                     </div>
                                 </div>
+                                
                                 <div class="col-lg-6">
-                                    <div class="p-5">
+                                    <div class="p-4">
                                         <div class="text-center">
-                                            <h4 class="text-dark mb-4">Create an Account</h4>
+                                            <h4 class="text-gray-900 mb-4">Create an Account</h4>
                                         </div>
 
                                         <?php
@@ -248,9 +253,9 @@ $otp_failure="";
                                    ?>
                                         <form class="user" method="POST" action="otpRegister.php">
                                             <div class="form-group">
-                                                <select class="border rounded form-control custom-select"
+                                                <select class=" border rounded form-control custom-select"
                                                     id="profile_dropdown-1" name="user_profile">
-                                                    <option value="choose profile" selected="">choose profile</option>
+                                                    <option value="choose profile" selected="">Choose Profile</option>
                                                     <!-- <option value="Customer">Customer</option> -->
                                                     <option value="Architect">Architect</option>
                                                     <option value="Interior Designer">Interior Designer</option>
@@ -258,8 +263,8 @@ $otp_failure="";
                                             </div>
 
                                             <div class="form-group row">
-                                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input class="form-control form-control-user" type="text"
+                                                <div class="col-sm-6 mb-3  mb-sm-0">
+                                                    <input class="form-control  form-control-user" type="text"
                                                         id="textboxFirstName" placeholder="First Name" name="reg_fname"
                                                         value="<?php
                                                 if (isset($_SESSION['reg_fname'])) {
@@ -269,7 +274,7 @@ $otp_failure="";
 
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input class="form-control form-control-user" type="text"
+                                                    <input class="form-control  form-control-user" type="text"
                                                         id="textboxLastName" placeholder="Last Name" name="reg_lname"
                                                         value="<?php
                                                   if(isset($_SESSION['reg_lname']))  {
@@ -282,7 +287,7 @@ $otp_failure="";
 
                                             <div class="form-group">
                                                 <!--enter valid mobile no. textbox  -->
-                                                <input class="form-control form-control-user" type="text"
+                                                <input class="form-control  form-control-user" type="text"
                                                     id="exampleInputPassword" placeholder="Enter valid mobile no."
                                                     name="register_mobile_no" minlength="10" maxlength="10"
                                                     autocomplete="off" value="<?php
@@ -292,7 +297,7 @@ $otp_failure="";
                                                 ?>">
                                             </div>
                                             <!--send otp to entered mobile no. button  -->
-                                            <button class="btn btn-outline-info active btn-block text-white btn-user"
+                                            <button class="  btn btn-primary bg-gradient-primary btn-block btn-user"
                                                 type="submit" name="send_otp">Send OTP</button>
                                             <div id="otp_sent" class="text-center">
                                                 <?php
@@ -309,7 +314,7 @@ $otp_failure="";
                                             <hr>
                                             <div id="verify_sent_otp" class="text-center">
                                                 <?php
-                                                echo $otp_failure;  
+                                                echo $otp_failure;
                                                 ?>
                                             </div>
                                             <script>
@@ -319,19 +324,19 @@ $otp_failure="";
                                             setTimeout(fade_out, 3000);
                                             </script>
                                             <div class="form-group">
-                                                <input class="form-control form-control-user" type="text"
+                                                <input class="form-control  form-control-user" type="text"
                                                     id="exampleInputPassword" placeholder="Enter received OTP"
                                                     name="recvd_otp" minlength="6" maxlength="6" autocomplete="off">
                                             </div>
                                             <button
-                                                class="btn btn-outline-info active btn-block text-white btn-facebook btn-user"
+                                                class="btn  btn-outline-primary btn-block btn-user"
                                                 type="submit" name="verify_otp">Verify</button>
 
                                             <hr>
                                         </form>
                                         <div class="text-center">
                                             <a class="small" href="otpLogin.php">Already have an
-                                                Account?&nbspLogin</a>
+                                                Account ? Login</a>
                                         </div>
                                     </div>
                                 </div>

@@ -41,7 +41,7 @@ $row = mysqli_fetch_array($result);
     <body id="page-top" class="">
         <div id="wrapper">
             <nav
-                class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 toggled">
+                class="navbar navbar-light border align-items-start sidebar sidebar-light accordion bg-light p-0 toggled">
                 <div class="container-fluid d-flex flex-column p-0">
                     <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                         <div class="sidebar-brand-icon">
@@ -104,7 +104,7 @@ $row = mysqli_fetch_array($result);
                                     class="fas fa-exclamation-circle"></i><span>Interactions</span></a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="logout.php"><i
-                                    class="fas fa-window-maximize"></i><span>Logout</span></a></li>
+                                    class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
                     </ul>
                     <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
                             id="sidebarToggle" type="button"></button></div>
@@ -122,7 +122,6 @@ $row = mysqli_fetch_array($result);
                             <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
                                 type="button"><i class="fas fa-bars"></i>
                             </button>
-
                             <div class="search">
 
                                 <form
@@ -131,7 +130,7 @@ $row = mysqli_fetch_array($result);
 
 
                                     <div class="input-group">
-
+                             
                                         <!--desktop view search box  -->
 
                                     <fieldset style="width:300px">
@@ -144,27 +143,27 @@ $row = mysqli_fetch_array($result);
                                             <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
                                         for="cond_used">Interior Designer</label>
                                         </div>
-
                                     </fieldset>
 
-                                        <input class="bg-light ml-2 form-control border-0 small" type="text"
-                                            placeholder="Search architects in lucknow/pune..."
-                                            onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
 
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary py-0 btn-block" type="submit"
-                                                name="search_creatives_desktop" value="">
-                                                <i class="fas fa-search"></i>
-                                            </button>
-                                        </div>
+<input class="bg-light ml-2 form-control border-0 small" type="text" placeholder="Search architects in lucknow/pune..." onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
+<div class="input-group-append">
+    <button class="btn btn-primary py-0 btn-block" type="submit" name="search_creatives_desktop" value="">
+        <i class="fas fa-search"></i>
+    </button>
+</div>
+
+
+
+
+
                                     </div>
-
                                 </form>
-                                <div class="row profiles-list">
+                                <div class="row profiles-list dropdown-menu">
                                     <div class="col-md-6 m-auto border-0 search_results">
 
                                         <!-- Loop from here -->
-
+                                    
                                         <!-- Loop till here -->
 
                                     </div>
