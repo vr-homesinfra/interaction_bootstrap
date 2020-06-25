@@ -99,7 +99,7 @@ $row = mysqli_fetch_array($result);
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Office No." id="office_no"
+                                <input class="form-control" type="text" placeholder="Office Number" id="office_no"
                                     value="<?php echo $user['office_no'];?>" maxlength="11">
                             </div>
                         </div>
@@ -118,18 +118,12 @@ $row = mysqli_fetch_array($result);
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" id="reg_as_int_des" value="interior"
-                                    checked>
-                                also register as Interior Designer
-                            </label>
+                    <div class="custom-control custom-checkbox mb-3">
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" name="reg_as_int_des" value="interior designer">
+                            <label class="custom-control-label" for="customCheck1">Register as an Interior Designer also</label>
                         </div>
-                    </div>
-                    <div class=" form-group">
-
-                        <button class="btn btn-primary mt-2" type="submit">
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-sm mt-2" type="submit">
                             Save Settings</button>
                     </div>
                 </div>
