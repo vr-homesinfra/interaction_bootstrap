@@ -52,10 +52,7 @@ $row = mysqli_fetch_array($result);
 //profile pic upload section ends
 ?>
 <div class="container-fluid">
-    <h3 class="text-dark mb-4">Profile: <?php
-      echo $row['profile'];  
-    ?>
-    </h3>
+    <h3 class="text-gray-900 mb-4">Profile: <?php echo $row['profile'];?></h3>
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card mb-3">
@@ -82,26 +79,12 @@ $row = mysqli_fetch_array($result);
                     </div>
                 </div>
             </div>
-            <div class="card shadow">
-
-                <!-- <div class="card-body">
-
-                </div> -->
-            </div>
-
-            <div class=" card shadow mb-4">
-
-                <!-- <div class="card-body">
-
-
-                </div> -->
-            </div>
         </div>
 
         <div class="col-lg-8">
-            <div class="card shadow">
+            <div class="card shadow mb-3">
                 <div class="card-header py-3">
-                    <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
+                    <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                 </div>
                 <div class="card-body">
                     <div class="form-row">
@@ -110,13 +93,13 @@ $row = mysqli_fetch_array($result);
                                 <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
                                     value="isPressedContactSettings">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="email" id="email"
+                                    <input class="form-control" type="email" placeholder="Email" name="email"
                                         value="<?php echo $user['email'];?>">
                                 </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Office No." id="office_no"
+                                <input class="form-control" type="text" placeholder="Office Number" id="office_no"
                                     value="<?php echo $user['office_no'];?>" maxlength="11">
                             </div>
                         </div>
@@ -135,18 +118,14 @@ $row = mysqli_fetch_array($result);
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" id="reg_as_int_des" value="interior"
-                                    <?php if ($user['added_profile'] == "interior") { echo "checked='checked'"; } ?>>
-                                also register as Interior Designer
-                            </label>
-                        </div>
-                    </div>
-                    <div class=" form-group">
 
-                        <button class="btn btn-primary mt-2" type="submit">
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input type="checkbox" class="custom-control-input" id="reg_as_int_des" value="interior">
+                        <label class="custom-control-label" for="reg_as_int_des">Register as an Interior Designer
+                            also</label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-sm mt-2" type="submit">
                             Save Settings</button>
                     </div>
                 </div>
@@ -155,7 +134,7 @@ $row = mysqli_fetch_array($result);
             </form>
             <div class="card shadow">
                 <div class="card-header py-3">
-                    <p class="text-primary m-0 font-weight-bold">About Me</p>
+                    <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
                 </div>
                 <div class="card-body">
                     <form id="about_me_settings">
