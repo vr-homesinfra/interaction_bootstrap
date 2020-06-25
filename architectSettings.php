@@ -60,7 +60,7 @@ $row = mysqli_fetch_array($result);
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form action="" method="POST" enctype="multipart/form-data" name="profile_upload">
                             <div class="text-center">
                                 <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
                                     name="fileToUpload1">
@@ -109,18 +109,19 @@ $row = mysqli_fetch_array($result);
                     <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="" method="POST" name="contact_settings">
 
                         <div class="form-row">
                             <div class="col">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Email" name="email" value="">
+                                    <input class="form-control" type="email" placeholder="Email" name="email"
+                                        value="<?php echo $user['email'];?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Office Number" name="office_no"
-                                        maxlength="11">
+                                    <input class="form-control" type="text" placeholder="Office No." name="office_no"
+                                        value="<?php echo $user['office_no'];?>" maxlength="11">
                                 </div>
                             </div>
                         </div>
@@ -128,13 +129,13 @@ $row = mysqli_fetch_array($result);
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Residential Address"
-                                        name="residential_address">
+                                        name="residential_address" value="<?php echo $user['residential_address'];?>">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Office Address"
-                                        name="office_address">
+                                        name="office_address" value="<?php echo $user['office_address'];?>">
                                 </div>
                             </div>
                         </div>
@@ -156,17 +157,18 @@ $row = mysqli_fetch_array($result);
                     <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="" method="POST" name="about_me">
                         <div class="form-row">
                             <div class="col">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="COA No." name="coa_no">
+                                    <input class="form-control" type="text" placeholder="COA No." name="coa_no"
+                                        value="<?php echo $user['coa_no'];?>" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <textarea class="form-control" placeholder="About Me" name="about_me"
-                                        rows="2"></textarea>
+                                        rows="2"><?php echo $user['about_me'];?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -174,26 +176,27 @@ $row = mysqli_fetch_array($result);
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Instagram Id."
-                                        name="instagram_id">
+                                        name="instagram_id" value="<?php echo $user['instagram_id'];?>" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Facebook Id."
-                                        name="facebook_id">
+                                        name="facebook_id" value="<?php echo $user['facebook_id'];?>" />
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Youtube Id." name="youtube_id">
+                                    <input class="form-control" type="text" placeholder="Youtube Id." name="youtube_id"
+                                        value="<?php echo $user['youtube_id'];?>" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Linkedin Id."
-                                        name="linkedin_id">
+                                        name="linkedin_id" value="<?php echo $user['linkedin_id'];?>" />
                                 </div>
                             </div>
                         </div>
