@@ -98,7 +98,7 @@ $row = mysqli_fetch_array($result);
                         if ($user['profile']=="Architect") {
                             echo "<a class='nav-link' href='project_mgmt.php'><i class='fas fa-table'></i><span>Upload/Track Poject</span>
                             </a></li>";
-                        }elseif ($user['profile']=="InteriorDesigner") {
+                        }elseif ($user['profile']=="interior") {
                             echo "<a class='nav-link' href='project_mgmt.php'><i class='fas fa-table'></i><span>Upload/Track Poject</span>
                             </a></li>";
                         }else{
@@ -139,22 +139,30 @@ $row = mysqli_fetch_array($result);
                                 type="button"><i class="fas fa-bars"></i>
                             </button>
                             <div class="search dropdown d-none d-sm-block">
-                                <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" role="search" action="search.php" name="desktop_search_form">
+                                <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" role="search"
+                                    action="search.php" name="desktop_search_form">
                                     <div class="input-group">
                                         <!--desktop view search box  -->
                                         <fieldset style="width:300px">
                                             <div class="toggle">
-                                                <input type="radio" id="cond_new" name="profile" checked="checked" value="architect">
-                                                <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
+                                                <input type="radio" id="cond_new" name="profile" checked="checked"
+                                                    value="architect">
+                                                <label title="Select Architect"
+                                                    class="p-2 text-center d-block cursor-pointer"
                                                     for="cond_new">Architect</label>
-                                                <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                                <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
+                                                <input type="radio" id="cond_used" name="profile"
+                                                    value="interior designer">
+                                                <label title="Select Interior Designer"
+                                                    class="p-2 text-center d-block cursor-pointer"
                                                     for="cond_used">Interior Designer</label>
                                             </div>
                                         </fieldset>
-                                        <input class="bg-light ml-2 form-control border-0 small" id="top-search" type="text" placeholder="Search architects in lucknow/pune..." onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
+                                        <input class="bg-light ml-2 form-control border-0 small" id="top-search"
+                                            type="text" placeholder="Search architects in lucknow/pune..."
+                                            onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary py-0 btn-block" type="submit" name="search_creatives_desktop" value="">
+                                            <button class="btn btn-primary py-0 btn-block" type="submit"
+                                                name="search_creatives_desktop" value="">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
@@ -243,7 +251,8 @@ $row = mysqli_fetch_array($result);
 
                                 <li class="nav-item dropdown no-arrow" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
-                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"  href="#">
+                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
+                                            href="#">
                                             <span class="d-none d-lg-inline mr-2 text-gray-600 small">
                                                 <?php
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
