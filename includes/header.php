@@ -262,10 +262,9 @@ $row = mysqli_fetch_array($result);
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <img id="profile_img" class="border rounded-circle img-profile" src="<?php
-                                            
+                                            <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php
                                                         echo $row['profile_pic'];     
-                                                ?>">
+                                                ?>"> -->
                                         </a>
 
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
