@@ -39,6 +39,7 @@ $row = mysqli_fetch_array($result);
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
     </head>
 
+
     <body id="page-top" class="">
         <div id="wrapper">
             <nav
@@ -60,7 +61,7 @@ $row = mysqli_fetch_array($result);
                             if ($user['profile']=="Architect") {
                                 echo "<a class='nav-link' href='architectSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                 </a></li>";
-                            }elseif ($user['profile']=="InteriorDesigner") {
+                            }elseif ($user['profile']=="interior") {
                                 echo "<a class='nav-link' href='interiorDesignerSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                 </a></li>";
                             }else{
@@ -77,10 +78,10 @@ $row = mysqli_fetch_array($result);
                             <?php
                                 
                                 // $type_of_creative=$_SESSION['profile'];
-                                if ($user['profile']=="Architect") {
+                                if ($user['profile']=="architect") {
                                     // echo "<a class='nav-link' href='architectSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                     // </a></li>";
-                                }elseif ($user['profile']=="InteriorDesigner") {
+                                }elseif ($user['profile']=="interior") {
                                     // echo "<a class='nav-link' href='interiorDesignerSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                     // </a></li>";
                                 }else{
@@ -95,7 +96,7 @@ $row = mysqli_fetch_array($result);
                             <?php
                             
                         // $type_of_creative=$_SESSION['profile'];
-                        if ($user['profile']=="Architect") {
+                        if ($user['profile']=="architect") {
                             echo "<a class='nav-link' href='project_mgmt.php'><i class='fas fa-table'></i><span>Upload/Track Poject</span>
                             </a></li>";
                         }elseif ($user['profile']=="interior") {

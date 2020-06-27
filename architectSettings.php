@@ -54,6 +54,7 @@ $row = mysqli_fetch_array($result);
 
 //profile pic upload section ends
 ?>
+
 <div class="container-fluid">
     <h3 class="text-gray-900 mb-4">Profile: <?php echo $row['profile'];?></h3>
     <div class="row mb-3">
@@ -75,10 +76,11 @@ $row = mysqli_fetch_array($result);
 
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button"
-                                    value="change_profile_pic_button">
+                                    value="change_profile_pic_button" id="change_profile_pic_button">
                                     Upload</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
