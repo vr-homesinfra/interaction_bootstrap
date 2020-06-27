@@ -170,14 +170,11 @@ $row = mysqli_fetch_array($result);
                                     </div>
                                 </form>
                                 <!-- Dropdown Menu -->
-                                <div class="profiles-list dropdown-menu dropdown-menu-animated dropdown-lg">
-                                    <div class="col-md-6 m-auto border-0 search_results">
-
+                                <div class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
                                         <!-- Loop from here -->
 
                                         <!-- Loop till here -->
 
-                                    </div>
                                 </div>
                             </div>
 
@@ -220,9 +217,9 @@ $row = mysqli_fetch_array($result);
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->
-                                                <input class="bg-light form-control border-0 small" type="text"
+                                                <input class="bg-light dropdown form-control border-0 small" id="mobile-search" type="text"
                                                     placeholder="Search architects in lucknow/pune..."
-                                                    onkeyup="getLiveSearchUsers(this.value,'<?php echo $userLoggedIn;?>')"
+                                                    onkeyup="getExtLiveSearchUsers(this.value)"
                                                     name="q" autocomplete="off">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary btn-sm py-0" type="submit">
@@ -230,6 +227,12 @@ $row = mysqli_fetch_array($result);
                                                 </div>
                                             </div>
                                         </form>
+                                        <div class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
+                                            <!-- Loop from here -->
+    
+                                            <!-- Loop till here -->
+    
+                                    </div>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
