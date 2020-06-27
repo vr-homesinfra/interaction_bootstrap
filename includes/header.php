@@ -26,6 +26,7 @@ $row = mysqli_fetch_array($result);
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>HomesInfra</title>
         <script src="assets/js/demo.js"></script>
+        <script src="assets/js/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -130,28 +131,34 @@ $row = mysqli_fetch_array($result);
 
 
                                     <div class="input-group">
-                             
+
                                         <!--desktop view search box  -->
 
-                                    <fieldset style="width:300px">
-                                        <div class="toggle">
-                                            <input type="radio" id="cond_new" name="profile" checked="checked"
-                                        value="architect">
-                                            <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
-                                        for="cond_new">Architect</label>
-                                            <input type="radio" id="cond_used" name="profile" value="interior designer">
-                                            <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
-                                        for="cond_used">Interior Designer</label>
+                                        <fieldset style="width:300px">
+                                            <div class="toggle">
+                                                <input type="radio" id="cond_new" name="profile" checked="checked"
+                                                    value="architect">
+                                                <label title="Select Architect"
+                                                    class="p-2 text-center d-block cursor-pointer"
+                                                    for="cond_new">Architect</label>
+                                                <input type="radio" id="cond_used" name="profile"
+                                                    value="interior designer">
+                                                <label title="Select Interior Designer"
+                                                    class="p-2 text-center d-block cursor-pointer"
+                                                    for="cond_used">Interior Designer</label>
+                                            </div>
+                                        </fieldset>
+
+
+                                        <input class="bg-light ml-2 form-control border-0 small" type="text"
+                                            placeholder="Search architects in lucknow/pune..."
+                                            onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary py-0 btn-block" type="submit"
+                                                name="search_creatives_desktop" value="">
+                                                <i class="fas fa-search"></i>
+                                            </button>
                                         </div>
-                                    </fieldset>
-
-
-<input class="bg-light ml-2 form-control border-0 small" type="text" placeholder="Search architects in lucknow/pune..." onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
-<div class="input-group-append">
-    <button class="btn btn-primary py-0 btn-block" type="submit" name="search_creatives_desktop" value="">
-        <i class="fas fa-search"></i>
-    </button>
-</div>
 
 
 
@@ -163,7 +170,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="col-md-6 m-auto border-0 search_results">
 
                                         <!-- Loop from here -->
-                                    
+
                                         <!-- Loop till here -->
 
                                     </div>
@@ -187,25 +194,25 @@ $row = mysqli_fetch_array($result);
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
                                             method="GET" name="search_form">
                                             <!--mobile view search box  -->
-    <div class="row mx-auto">
-        <div class="col-12">
-            <fieldset style="width:290px">
-                <p class="text-dark">Select Architect or Interior Designer :</p>
-                <div class="toggle mb-2">
-                    <input type="radio" id="condd_new" name="profile"
-                        checked="checked" value="architect">
-                    <label title="Select Architect"
-                        class="text-center d-block cursor-pointer"
-                        for="condd_new">Architect</label>
-                    <input type="radio" id="condd_used" name="profile"
-                        value="interior designer">
-                    <label title="Select Interior Designer"
-                        class="text-center d-block cursor-pointer"
-                        for="condd_used">Interior Designer</label>
-                </div>
-            </fieldset>
-        </div>
-    </div>
+                                            <div class="row mx-auto">
+                                                <div class="col-12">
+                                                    <fieldset style="width:290px">
+                                                        <p class="text-dark">Select Architect or Interior Designer :</p>
+                                                        <div class="toggle mb-2">
+                                                            <input type="radio" id="condd_new" name="profile"
+                                                                checked="checked" value="architect">
+                                                            <label title="Select Architect"
+                                                                class="text-center d-block cursor-pointer"
+                                                                for="condd_new">Architect</label>
+                                                            <input type="radio" id="condd_used" name="profile"
+                                                                value="interior designer">
+                                                            <label title="Select Interior Designer"
+                                                                class="text-center d-block cursor-pointer"
+                                                                for="condd_used">Interior Designer</label>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
 
                                             <div class="input-group">
 
@@ -222,7 +229,7 @@ $row = mysqli_fetch_array($result);
                                         </form>
                                     </div>
                                 </li>
-                                
+
 
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
@@ -236,7 +243,7 @@ $row = mysqli_fetch_array($result);
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in dropdown_data_window"
                                             role="menu" style="height:0px; border:none;overflow-y:scroll;">
-                                            <script>
+                                            <!-- <script>
                                             var userLoggedIn = '<?php echo $userLoggedIn; ?>';
                                             $(document).ready(function() {
 
@@ -300,7 +307,7 @@ $row = mysqli_fetch_array($result);
 
                                                 }); //End (window).scroll(function())
                                             });
-                                            </script>
+                                            </script> -->
                                         </div>
 
                                     </div>
@@ -342,10 +349,11 @@ $row = mysqli_fetch_array($result);
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <img class="border rounded-circle img-profile" src="<?php
-                                                        echo $row['profile_pic'];  
-                                                ?>">
+                                            <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php
+                                                        echo $row['profile_pic'];     
+                                                ?>"> -->
                                         </a>
+
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
                                             role="menu">
                                             <!-- <a class="dropdown-item" role="presentation" href="#"> -->
@@ -365,5 +373,3 @@ $row = mysqli_fetch_array($result);
                             </ul>
                         </div>
                     </nav>
-
-                    <input type="hidden" id="dropdown_data_type" value="">
