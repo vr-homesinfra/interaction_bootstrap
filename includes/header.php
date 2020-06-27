@@ -170,14 +170,11 @@ $row = mysqli_fetch_array($result);
                                     </div>
                                 </form>
                                 <!-- Dropdown Menu -->
-                                <div class="profiles-list dropdown-menu dropdown-menu-animated dropdown-lg">
-                                    <div class="col-md-6 m-auto border-0 search_results">
-
+                                <div class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
                                         <!-- Loop from here -->
 
                                         <!-- Loop till here -->
 
-                                    </div>
                                 </div>
                             </div>
 
