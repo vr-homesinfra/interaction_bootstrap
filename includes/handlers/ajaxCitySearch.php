@@ -18,8 +18,7 @@ if(isset($usersReturnedQuery)){
                                     <div class='col-10'>
                                         <div class='card-body p-2'>
                                         <p id='rdx-".$i."' class='card-test mb-0 city'>" . $row['city_name']." </p>
-                                        
-                                       
+        
                                         </div>
                                     </div>
 								</div>                            		

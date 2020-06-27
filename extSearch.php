@@ -27,9 +27,9 @@ $str="";
             <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
                 <div class="container-fluid flex-column">
                     <div class="d-flex justify-content-between brand-line">
-                    <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
-                            class="fas fa-bars"></i>
-                    </button>
+                        <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
+                                class="fas fa-bars"></i>
+                        </button>
                     </div>
                     <div class="d-flex justify-content-between brand-line">
                         <button class="btn btn-primary" type="button" data-dismiss="drawer">

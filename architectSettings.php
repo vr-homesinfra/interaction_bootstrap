@@ -3,6 +3,8 @@ include("includes/header.php");
 // include("includes/form_handlers/settings_handler.php");
 $profile_pic = $user['profile_pic'];
 $user_profile = $user['profile'];
+ $added_profile = $user['added_profile'];
+
 //profile pic upload section start
 
 if(isset($_POST['change_profile_pic_button'])){
@@ -49,6 +51,7 @@ if(isset($_POST['change_profile_pic_button'])){
 //gallery images upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
+
 //profile pic upload section ends
 ?>
 <div class="container-fluid">
@@ -93,7 +96,7 @@ $row = mysqli_fetch_array($result);
                                 <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
                                     value="isPressedContactSettings">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Email" name="email"
+                                    <input class="form-control" type="email" placeholder="Email" name="email" id="email"
                                         value="<?php echo $user['email'];?>">
                                 </div>
                         </div>
@@ -120,7 +123,16 @@ $row = mysqli_fetch_array($result);
                     </div>
 
                     <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="reg_as_int_des" value="interior">
+                        <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
+                            if ($added_profile == "interior") { 
+                                echo "checked='checked'"; 
+                                echo "value='no'";  
+                            } 
+                            // elseif($added_profile == "no"){
+                            //     echo "value='interior'";                                    
+                            //     echo "checked='unchecked'"; 
+                            //     }
+                                ?>>
                         <label class="custom-control-label" for="reg_as_int_des">Register as an Interior Designer
                             also</label>
                     </div>
@@ -214,6 +226,7 @@ $row = mysqli_fetch_array($result);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
+
 <!-- contact settings section -->
 <script>
 $(document).ready(function() {
@@ -239,7 +252,6 @@ $(document).ready(function() {
                 reg_as_int_des: reg_as_int_des
             },
             success: function(data) {
-
                 alert("updated successfully");
             }
         });

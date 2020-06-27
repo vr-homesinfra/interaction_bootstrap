@@ -26,6 +26,7 @@ $row = mysqli_fetch_array($result);
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>HomesInfra</title>
         <script src="assets/js/demo.js"></script>
+        <script src="assets/js/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -149,7 +150,7 @@ $row = mysqli_fetch_array($result);
                                     <div class="col-md-6 m-auto border-0 search_results">
 
                                         <!-- Loop from here -->
-                                    
+
                                         <!-- Loop till here -->
 
                                     </div>
@@ -233,10 +234,11 @@ $row = mysqli_fetch_array($result);
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <img class="border rounded-circle img-profile" src="<?php
-                                                        echo $row['profile_pic'];  
-                                                ?>">
+                                            <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php
+                                                        echo $row['profile_pic'];     
+                                                ?>"> -->
                                         </a>
+
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
                                             role="menu">
                                             <a class="dropdown-item" role="presentation" href="logout.php"><i
@@ -247,5 +249,3 @@ $row = mysqli_fetch_array($result);
                             </ul>
                         </div>
                     </nav>
-
-                    <input type="hidden" id="dropdown_data_type" value="">
