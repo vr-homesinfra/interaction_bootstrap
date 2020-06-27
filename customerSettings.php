@@ -184,7 +184,6 @@ $(document).ready(function() {
         var residential_address = $('#residential_address').val();
         var office_address = $('#office_address').val();
         var mobile_no2 = $('#mobile_no2').val();
-        alert(customer_is_pressed);
         $.ajax({
             type: "POST",
             url: 'customerSettingsSubmit.php',
