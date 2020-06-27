@@ -49,34 +49,35 @@ if(isset($_POST['gallery_image_upload'])) {
 $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLoggedIn' ORDER BY id DESC");
 ?>
 
-<div class="card shadow mb-3">
-    <div class="card-header py-3">
-        <p class="text-primary m-0 font-weight-bold">Upload an image</p>
-    </div>
-    <div class="card-body">
-        <form method='post' action='' enctype='multipart/form-data'>
-            <div class=" text-center">
-                <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*" name="fileToUpload3">
-                <div class="text-center">
-                    <label id="user_group_label" for="user_group_logo">
-                        <i class="fas fa-upload"></i>&nbsp;Choose an
-                        image...</label>
-                </div>
-                <div class="text-center mt-2">
-                    <button class="btn btn-primary" type="submit" name="gallery_image_upload">Upload</button>
-                </div>
-            </div>
-        </form>
-        <!--card body end  -->
-    </div>
-    <div class="card-header py-3">
-        <p class="text-primary m-0 font-weight-bold">Profile Gallery</p>
-    </div>
-    <!--php driven carousel  -->
-    <div class="card-body">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <?php
+<div class="card shadow-sm mx-3 mb-3">
+	<div class="card-header py-3">
+		<p class="text-gray-900 m-0 font-weight-bold">Upload an image</p>
+	</div>
+	<div class="card-body">
+		<form method='post' action='' enctype='multipart/form-data'>
+			<div class=" text-center">
+				<input type="file" id="user_group_logo" class="custom-file-input" accept="image/*" name="fileToUpload3">
+				<div class="text-center btn border-bottom-primary btn-light shadow">
+					<label id="user_group_label" class="mb-0" for="user_group_logo">
+						<i class="fas fa-upload"></i> Choose an Image</label>
+				</div>
+				<div class="text-center mt-3">
+					<button class="btn btn-primary" type="submit" name="gallery_image_upload">Upload</button>
+				</div>
+			</div>
+		</form>
+		<!--card body end  -->
+	</div>
+</div>
+<div class="card mx-3 mb-3 shadow-sm">
+	<div class="card-header py-3">
+		<p class="text-gray-900 m-0 font-weight-bold">Profile Gallery</p>
+	</div>
+	<!--php driven carousel  -->
+	<div class="card-body">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<?php
 				  $i=0;
 				  foreach ($result as $row) {
 					  $actives='';
@@ -84,18 +85,18 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
 						  $actives="active";
 					  }
 				?>
-                <li data-target="#carouselExampleIndicators" data-slide-to="<?=
+				<li data-target="#carouselExampleIndicators" data-slide-to="<?=
 				  $i;  
 				?>" class="<?=
 				  $actives;  
 				?>"></li>
-                <?php
+				<?php
 				$i++;
 			}
 				?>
-            </ol>
-            <div class="carousel-inner">
-                <?php
+			</ol>
+			<div class="carousel-inner">
+				<?php
 				  $i=0;
 				  foreach ($result as $row) {
 					  $actives='';
@@ -103,29 +104,29 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
 						  $actives="active";
 					  }				    
 				?>
-                <div class="carousel-item <?=
+				<div class="carousel-item <?=
 				  $actives;  
 				?>">
-                    <img class="d-block w-100" src="<?=
+					<img class="d-block w-100" src="<?=
 					  $row['filepath'];  
 					?>" width="100%" height="400px">
-                </div>
-                <?php
+				</div>
+				<?php
 				$i++;
 				  }				  
 				?>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-        <!--card body end  -->
-    </div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+		<!--card body end  -->
+	</div>
 </div>
 </div>
 <footer class="bg-white sticky-footer">
