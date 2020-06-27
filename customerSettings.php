@@ -74,8 +74,8 @@ $row = mysqli_fetch_array($result);
                                 <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
                                     name="fileToUpload1">
                                 <div class="text-center">
-                                    <label id="user_group_label" for="user_group_logo">
-                                        <i class="fas fa-upload"></i>&nbsp;Profile Pic</label>
+                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow" for="user_group_logo">
+                                        <i class="fas fa-upload"></i> Upload Picture</label>
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
                                     Upload</button>
@@ -116,7 +116,7 @@ $row = mysqli_fetch_array($result);
                 <div class="col">
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
+                            <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                         </div>
                         <div class="card-body">
                             <form action="" method="POST">
@@ -147,7 +147,7 @@ $row = mysqli_fetch_array($result);
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-sm" type="submit"
-                                        name="contact_settings_submit">Save&nbsp;Settings</button>
+                                        name="contact_settings_submit">Save Settings</button>
                                 </div>
                             </form>
                         </div>
@@ -165,14 +165,12 @@ $row = mysqli_fetch_array($result);
     </footer>
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-</script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/script.min.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
 </body>
-
 </html>

@@ -138,50 +138,30 @@ $row = mysqli_fetch_array($result);
                             <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
                                 type="button"><i class="fas fa-bars"></i>
                             </button>
-                            <div class="search">
-
-                                <form
-                                    class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-                                    form method="GET" role="search" action="search.php" name="desktop_search_form">
-
-
+                            <div class="search dropdown d-none d-sm-block">
+                                <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" role="search" action="search.php" name="desktop_search_form">
                                     <div class="input-group">
-
                                         <!--desktop view search box  -->
-
                                         <fieldset style="width:300px">
                                             <div class="toggle">
-                                                <input type="radio" id="cond_new" name="profile" checked="checked"
-                                                    value="architect">
-                                                <label title="Select Architect"
-                                                    class="p-2 text-center d-block cursor-pointer"
+                                                <input type="radio" id="cond_new" name="profile" checked="checked" value="architect">
+                                                <label title="Select Architect" class="p-2 text-center d-block cursor-pointer"
                                                     for="cond_new">Architect</label>
-                                                <input type="radio" id="cond_used" name="profile"
-                                                    value="interior designer">
-                                                <label title="Select Interior Designer"
-                                                    class="p-2 text-center d-block cursor-pointer"
+                                                <input type="radio" id="cond_used" name="profile" value="interior designer">
+                                                <label title="Select Interior Designer" class="p-2 text-center d-block cursor-pointer"
                                                     for="cond_used">Interior Designer</label>
                                             </div>
                                         </fieldset>
-
-
-                                        <input class="bg-light ml-2 form-control border-0 small" type="text"
-                                            placeholder="Search architects in lucknow/pune..."
-                                            onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
+                                        <input class="bg-light ml-2 form-control border-0 small" id="top-search" type="text" placeholder="Search architects in lucknow/pune..." onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary py-0 btn-block" type="submit"
-                                                name="search_creatives_desktop" value="">
+                                            <button class="btn btn-primary py-0 btn-block" type="submit" name="search_creatives_desktop" value="">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
-
-
-
-
-
                                     </div>
                                 </form>
-                                <div class="row profiles-list dropdown-menu">
+                                <!-- Dropdown Menu -->
+                                <div class="profiles-list dropdown-menu dropdown-menu-animated dropdown-lg">
                                     <div class="col-md-6 m-auto border-0 search_results">
 
                                         <!-- Loop from here -->
@@ -208,7 +188,7 @@ $row = mysqli_fetch_array($result);
                                         aria-labelledby="searchDropdown">
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
                                             method="GET" name="search_form">
-                                            <!--mobile view search box  -->
+                                            <!--mobile view search select  -->
                                             <div class="row mx-auto">
                                                 <div class="col-12">
                                                     <fieldset style="width:290px">
@@ -228,7 +208,6 @@ $row = mysqli_fetch_array($result);
                                                     </fieldset>
                                                 </div>
                                             </div>
-
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->
@@ -244,8 +223,6 @@ $row = mysqli_fetch_array($result);
                                         </form>
                                     </div>
                                 </li>
-
-
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
                                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
@@ -258,107 +235,15 @@ $row = mysqli_fetch_array($result);
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in dropdown_data_window"
                                             role="menu" style="height:0px; border:none;overflow-y:scroll;">
-                                            <!-- <script>
-                                            var userLoggedIn = '<?php echo $userLoggedIn; ?>';
-                                            $(document).ready(function() {
-
-                                                $(window).scroll(function() {
-                                                    var inner_height = $('.dropdown_data_window')
-                                                        .innerHeight(); //Div containing data
-                                                    var scroll_top = $('dropdown_data_window')
-                                                        .scrollTop();
-                                                    var page = $('.dropdown_data_window').find(
-                                                        '.nextPageDropdownData').val();
-                                                    var noMoreData = $('.dropdown_data_window')
-                                                        .find(
-                                                            '.noMoreDropdownData')
-                                                        .val();
-
-                                                    if ((scroll_top + inner_height >= $(
-                                                                '.dropdown_data_window')[0]
-                                                            .scrollHeight) &&
-                                                        noMoreData == 'false') {
-
-                                                        var
-                                                            pageName; //holds name of page to send ajax request to
-                                                        var type = $('#dropdown_data_type').val();
-                                                        if (type == 'notification') {
-                                                            pageName =
-                                                                "ajax_load_notifications.php";
-                                                        }
-                                                        elseif(type == 'message') {
-                                                            pageName = "ajax_load_messages.php";
-                                                        }
-                                                        var ajaxReq = $.ajax({
-                                                            url: "includes/handlers/" +
-                                                                pageName,
-                                                            type: "POST",
-                                                            data: "page=" + page +
-                                                                "&userLoggedIn=" +
-                                                                userLoggedIn,
-                                                            cache: false,
-
-                                                            success: function(response) {
-                                                                $('.dropdown_data_window')
-                                                                    .find(
-                                                                        '.nextPageDropdownData'
-                                                                    )
-                                                                    .remove(); //Removes current .nextpage 
-                                                                $('.dropdown_data_window')
-                                                                    .find(
-                                                                        '.noMoreDropdownData'
-                                                                    )
-                                                                    .remove(); //Removes current .nextpage 
-
-                                                                $('.dropdown_data_window')
-                                                                    .append(
-                                                                        response);
-                                                            }
-                                                        });
-
-                                                    } //End if 
-
-                                                    return false;
-
-                                                }); //End (window).scroll(function())
-                                            });
-                                            </script> -->
                                         </div>
-
                                     </div>
-
                                 </li>
-
-                                <!-- <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                    <div class="nav-item dropdown no-arrow">
-                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
-                                            href="javascript:void(0);"
-                                            onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
-                                            <i class="fas fa-envelope fa-fw"> </i>
-                                            <span class="badge badge-danger badge-counter"><?php
-                                              echo $num_messages;  
-                                            ?></span>
-                                        </a>
-
-                                        messages drop down
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow- dropdown_data_window"
-                                            role="menu" style="height:0px; border:none;overflow-y:scroll;">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="shadow dropdown-list dropdown-menu dropdown-menu-right"
-                                        aria-labelledby="alertsDropdown">
-                                    </div>
-                                </li> -->
                                 <div class="d-none d-sm-block topbar-divider">
                                 </div>
 
                                 <li class="nav-item dropdown no-arrow" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
-                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
-                                            href="#">
+                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"  href="#">
                                             <span class="d-none d-lg-inline mr-2 text-gray-600 small">
                                                 <?php
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
@@ -372,17 +257,8 @@ $row = mysqli_fetch_array($result);
 
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
                                             role="menu">
-                                            <!-- <a class="dropdown-item" role="presentation" href="#"> -->
-                                            <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400">
-                                                </i>&nbsp;Profile</a>
-                                            <a class="dropdown-item" role="presentation" href="#"><i
-                                                    class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a> -->
-                                            <!-- <a class="dropdown-item" role="presentation" href="#"><i
-                                                    class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity
-                                                log</a> -->
-                                            <!-- <div class="dropdown-divider"></div> -->
                                             <a class="dropdown-item" role="presentation" href="logout.php"><i
-                                                    class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                                    class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</a>
                                         </div>
                                     </div>
                                 </li>
