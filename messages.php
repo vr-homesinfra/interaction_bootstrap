@@ -132,6 +132,15 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
 
+                                <div class="form-group">
+                                    <label class="custom-file">
+                                        <input type="file" name="" id="" placeholder="upload file"
+                                            class="custom-file-input" aria-describedby="fileHelpId">
+                                        <span class="custom-file-control"><i class="fa fa-paperclip"
+                                                aria-hidden="true"></i></span>
+                                    </label>
+                                </div>
+
                                 <div class="input-group-append">
                                     <button id="button-addon2" type="submit" class="btn btn-link" name="post_message">
                                         <i class="fa fa-paper-plane"></i>
@@ -158,13 +167,14 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
 </footer>
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
 </script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/script.min.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
 </body>
 
