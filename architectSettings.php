@@ -93,17 +93,19 @@ $row = mysqli_fetch_array($result);
                     <div class="form-row">
                         <div class="col">
                             <form id="save_contact_settings">
+
                                 <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
                                     value="isPressedContactSettings">
+
                                 <div class="form-group">
                                     <input class="form-control" type="email" placeholder="Email" name="email" id="email"
-                                        value="<?php echo $user['email'];?>">
+                                        value="<?php echo $user['email'];?>" autocomplete="off">
                                 </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Office Number" id="office_no"
-                                    value="<?php echo $user['office_no'];?>" maxlength="11">
+                                    value="<?php echo $user['office_no'];?>" maxlength="11" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -111,13 +113,14 @@ $row = mysqli_fetch_array($result);
                         <div class="col">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Residential Address"
-                                    id="residential_address" value="<?php echo $user['residential_address'];?>">
+                                    id="residential_address" value="<?php echo $user['residential_address'];?>"
+                                    autocomplete="off">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Office Address" id="office_address"
-                                    value="<?php echo $user['office_address'];?>">
+                                    value="<?php echo $user['office_address'];?>" autocomplete="off">
                             </div>
                         </div>
                     </div>
@@ -150,9 +153,10 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <div class="card-body">
                     <form id="about_me_settings">
+
                         <div class="form-group">
-                            <input type="hidden" class="form-control" name="inputName" id="isPressed"
-                                value="is_pressed">
+                            <input type="hidden" class="form-control" name="inputName" id="isPressed" value="is_pressed"
+                                autocomplete="off">
                         </div>
                         <div class="form-row">
                             <div class="col">
@@ -172,13 +176,14 @@ $row = mysqli_fetch_array($result);
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Instagram Id."
-                                        id="instagram_id" value="<?php echo $user['instagram_id'];?>" />
+                                        id="instagram_id" value="<?php echo $user['instagram_id'];?>"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Facebook Id." id="facebook_id"
-                                        value="<?php echo $user['facebook_id'];?>" />
+                                        value="<?php echo $user['facebook_id'];?>" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -186,13 +191,13 @@ $row = mysqli_fetch_array($result);
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Youtube Id." id="youtube_id"
-                                        value="<?php echo $user['youtube_id'];?>" />
+                                        value="<?php echo $user['youtube_id'];?>" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Linkedin Id." id="linkedin_id"
-                                        value="<?php echo $user['linkedin_id'];?>" />
+                                        value="<?php echo $user['linkedin_id'];?>" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -200,9 +205,6 @@ $row = mysqli_fetch_array($result);
                             <button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
                         </div>
                     </form>
-                    <!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> -->
-
-
                 </div>
             </div>
         </div>

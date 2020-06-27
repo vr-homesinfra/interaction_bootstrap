@@ -55,7 +55,10 @@ $row = mysqli_fetch_array($result);
 ?>
 <div class="container-fluid">
     <h3 class="text-dark mb-4">Profile: <?php
-                 echo $row['profile'];     
+                 
+                 if ($row['profile']=="interior") {
+                    echo "Interior Designer";
+                }    
     ?></h3>
     <div class="row mb-3">
         <div class="col-lg-4">
@@ -98,28 +101,6 @@ $row = mysqli_fetch_array($result);
         </div>
         <div class="col-lg-8">
 
-            <?php
-	if(isset($_POST['contact_settings_submit'])) {  
-              
-    $email=$_POST['email'];
-    $office_no=$_POST['office_no'];
-    $residential_address=$_POST['residential_address'];
-    $office_address=$_POST['office_address'];   
-    
-        $query = mysqli_query($con, "UPDATE users SET email='$email', office_no='$office_no', residential_address='$residential_address',office_address='$office_address' WHERE username='$userLoggedIn'");             
-    }
-
-    if(isset($_POST['about_me_submit'])) {  
-              
-        $about_me=$_POST['about_me'];
-        $instagram_id=$_POST['instagram_id'];
-        $facebook_id=$_POST['facebook_id'];
-        $youtube_id=$_POST['youtube_id'];   
-        $linkedin_id=$_POST['linkedin_id'];   
-        
-            $query = mysqli_query($con, "UPDATE users SET about_me='$about_me', 	instagram_id='$instagram_id', facebook_id='$facebook_id',youtube_id='$youtube_id',linkedin_id='$linkedin_id' WHERE username='$userLoggedIn'");             
-        }
-	?>
             <div class="col">
 
                 <div class="card shadow">
@@ -127,19 +108,23 @@ $row = mysqli_fetch_array($result);
                         <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
                     </div>
                     <div class="card-body">
-                        <form action="" method="POST">
+                        <form id="save_contact_settings">
+
+                            <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
+                                value="isPressedContactSettings">
 
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <input class="form-control" type="email" placeholder="email" name="email"
-                                            value="">
+                                        <input class="form-control" type="email" placeholder="Email" name="email"
+                                            id="email" value="<?php echo $user['email'];?>" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Office No."
-                                            name="office_no" maxlength="11">
+                                        <input class="form-control" type="text" placeholder="Office Number"
+                                            id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
+                                            autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -147,19 +132,21 @@ $row = mysqli_fetch_array($result);
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Residential Address"
-                                            name="residential_address">
+                                            id="residential_address" value="<?php echo $user['residential_address'];?>"
+                                            autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Office Address"
-                                            name="office_address">
+                                            id="office_address" value="<?php echo $user['office_address'];?>"
+                                            autocomplete="off">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary btn-sm" type="submit"
-                                    name="contact_settings_submit">Save&nbsp;Settings</button>
+                                <button class="btn btn-primary btn-sm mt-2" type="submit">
+                                    Save Settings</button>
                             </div>
                         </form>
                     </div>
@@ -169,12 +156,18 @@ $row = mysqli_fetch_array($result);
                         <p class="text-primary m-0 font-weight-bold">About Me</p>
                     </div>
                     <div class="card-body">
-                        <form action="" method="POST">
+                        <form id="about_me_settings">
+
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="inputName" id="isPressed"
+                                    value="is_pressed" autocomplete="off">
+                            </div>
+
                             <div class="form-row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <textarea class="form-control" placeholder="About Me" name="about_me"
-                                            rows="2"></textarea>
+                                        <textarea class="form-control" placeholder="About Me" id="about_me"
+                                            rows="2"><?php echo $user['about_me'];?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -182,13 +175,15 @@ $row = mysqli_fetch_array($result);
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Instagram Id."
-                                            name="instagram_id">
+                                            id="instagram_id" value="<?php echo $user['instagram_id'];?>"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Facebook Id."
-                                            name="facebook_id">
+                                            id="facebook_id" value="<?php echo $user['facebook_id'];?>"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -196,18 +191,20 @@ $row = mysqli_fetch_array($result);
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Youtube Id."
-                                            name="youtube_id">
+                                            id="youtube_id" value="<?php echo $user['youtube_id'];?>"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Linkedin Id."
-                                            name="linkedin_id">
+                                            id="linkedin_id" value="<?php echo $user['linkedin_id'];?>"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group"><button class="btn btn-primary btn-sm" type="submit"
-                                    name="about_me_submit">Save&nbsp;Settings</button>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
                             </div>
                         </form>
                     </div>
@@ -231,6 +228,71 @@ $row = mysqli_fetch_array($result);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
+<!-- contact settings section -->
+<script>
+$(document).ready(function() {
+    $('#save_contact_settings').on('submit', function(e) {
+        //Stop the form from submitting itself to the server.
+        e.preventDefault();
+        var isPressedContactSettings = $('#isPressedContactSettings').val();
+        var email = $('#email').val();
+        var office_no = $('#office_no').val();
+        var residential_address = $('#residential_address').val();
+        var office_address = $('#office_address').val();
+        var reg_as_int_des = $('#reg_as_int_des').val();
+
+        $.ajax({
+            type: "POST",
+            url: 'interiorDesignerSettingsSubmit.php',
+            data: {
+                isPressedContactSettings: isPressedContactSettings,
+                email: email,
+                office_no: office_no,
+                residential_address: residential_address,
+                office_address: office_address,
+                reg_as_int_des: reg_as_int_des
+            },
+            success: function(data) {
+                alert("updated successfully");
+            }
+        });
+    });
+});
+</script>
+<!-- about me section -->
+<script>
+$(document).ready(function() {
+    $('#about_me_settings').on('submit', function(e) {
+        //Stop the form from submitting itself to the server.
+        e.preventDefault();
+        var isPressed = $('#isPressed').val();
+        var coa_no = $('#coa_no').val();
+        var about_me = $('#about_me').val();
+        var instagram_id = $('#instagram_id').val();
+        var facebook_id = $('#facebook_id').val();
+        var youtube_id = $('#youtube_id').val();
+        var linkedin_id = $('#linkedin_id').val();
+
+        $.ajax({
+            type: "POST",
+            url: 'architectSettingsSubmit.php',
+            data: {
+                isPressed: isPressed,
+                coa_no: coa_no,
+                about_me: about_me,
+                instagram_id: instagram_id,
+                facebook_id: facebook_id,
+                youtube_id: youtube_id,
+                linkedin_id: linkedin_id
+            },
+            success: function(data) {
+
+                alert("updated successfully");
+            }
+        });
+    });
+});
+</script>
 </body>
 
 </html>
