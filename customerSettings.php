@@ -59,13 +59,13 @@ $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
 ?>
 <div class="container-fluid">
-    <h3 class="text-dark mb-4">Profile: <?php
+    <h3 class="text-gray-900 mb-4">Profile: <?php
            echo $row['profile'];    
     ?></h3>
     <div class="row mb-3">
         <div class="col-lg-4">
-            <div class="card mb-3">
-                <div class="card-body text-center shadow">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body text-center">
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
@@ -76,7 +76,7 @@ $row = mysqli_fetch_array($result);
                                 <div class="text-center">
                                     <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
                                         for="user_group_logo">
-                                        <i class="fas fa-upload"></i> Upload Picture</label>
+                                        <i class="fas fa-upload"></i>Upload Picture</label>
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
                                     Upload</button>
@@ -85,26 +85,12 @@ $row = mysqli_fetch_array($result);
                     </div>
                 </div>
             </div>
-            <div class="card shadow">
-
-                <!-- <div class="card-body">
-
-                </div> -->
-            </div>
-
-            <div class=" card shadow mb-4">
-
-                <!-- <div class="card-body">
-
-
-                </div> -->
-            </div>
         </div>
         <div class="col-lg-8">
 
             <div class="row">
                 <div class="col">
-                    <div class="card shadow">
+                    <div class="card shadow-sm">
                         <div class="card-header py-3">
                             <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                         </div>
