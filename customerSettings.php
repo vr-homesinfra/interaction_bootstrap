@@ -74,7 +74,8 @@ $row = mysqli_fetch_array($result);
                                 <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
                                     name="fileToUpload1">
                                 <div class="text-center">
-                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow" for="user_group_logo">
+                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
+                                        for="user_group_logo">
                                         <i class="fas fa-upload"></i> Upload Picture</label>
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
@@ -101,17 +102,6 @@ $row = mysqli_fetch_array($result);
         </div>
         <div class="col-lg-8">
 
-            <?php
-	if(isset($_POST['contact_settings_submit'])) {  
-              
-        // $mobile_no1=$_POST['mobile_no1'];
-        $mobile_no2=$_POST['mobile_no2'];
-        $residential_address=$_POST['residential_address'];
-        $office_address=$_POST['office_address'];   
-        
-            $query = mysqli_query($con, "UPDATE users SET office_no='$mobile_no2', residential_address='$residential_address',office_address='$office_address' WHERE username='$userLoggedIn'");             
-        }
-	?>
             <div class="row">
                 <div class="col">
                     <div class="card shadow">
@@ -119,13 +109,23 @@ $row = mysqli_fetch_array($result);
                             <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                         </div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form id="customer_settings">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="inputName" id="customer_is_pressed"
+                                        value="customer_is_pressed">
+                                </div>
                                 <div class="form-row">
-
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="email id." id="email"
+                                                value="<?php echo $user['email'];?>" autocomplete="off">
+                                        </div>
+                                    </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <input class="form-control" type="text" placeholder="Residential Address"
-                                                name="residential_address">
+                                                id="residential_address"
+                                                value="<?php echo $user['residential_address'];?>" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -133,21 +133,20 @@ $row = mysqli_fetch_array($result);
                                     <div class="col">
                                         <div class="form-group">
                                             <input class="form-control" type="text" placeholder="Office Address"
-                                                name="office_address">
+                                                id="office_address" value="<?php echo $user['office_address'];?>"
+                                                autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <input class="form-control" type="text" placeholder="Mobile No. 2"
-                                                name="mobile_no2" maxlength="10">
+                                                id="mobile_no2" maxlength="10" value="<?php echo $user['office_no'];?>"
+                                                autocomplete="off">
                                         </div>
                                     </div>
-
-
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-primary btn-sm" type="submit"
-                                        name="contact_settings_submit">Save Settings</button>
+                                    <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
                                 </div>
                             </form>
                         </div>
@@ -166,11 +165,42 @@ $row = mysqli_fetch_array($result);
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="assets/js/script.min.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
 </body>
+<script>
+$(document).ready(function() {
+    $('#customer_settings').on('submit', function(e) {
+        //Stop the form from submitting itself to the server.
+        e.preventDefault();
+        var customer_is_pressed = $('#customer_is_pressed').val();
+        var email = $('#email').val();
+        var residential_address = $('#residential_address').val();
+        var office_address = $('#office_address').val();
+        var mobile_no2 = $('#mobile_no2').val();
+        alert(customer_is_pressed);
+        $.ajax({
+            type: "POST",
+            url: 'customerSettingsSubmit.php',
+            data: {
+                customer_is_pressed: customer_is_pressed,
+                email: email,
+                residential_address: residential_address,
+                office_address: office_address,
+                mobile_no2: mobile_no2
+            },
+            success: function(data) {
+                alert("updated successfully");
+            }
+        });
+    });
+});
+</script>
+
 </html>
