@@ -71,8 +71,23 @@ $row = mysqli_fetch_array($result);
                             <!-- <a class="nav-link" href=""><i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
                             </a></li> -->
 
-                        <li class="nav-item favsList" id="favList" role=" presentation"><a class="nav-link"
-                                href="fav_creatives.php"><i class="fas fa-user"></i><span>Favourite Creatives</span></a>
+                        <li class="nav-item favsList" id="favList" role=" presentation">
+                            <!-- <a class="nav-link" href="fav_creatives.php"><i class="fas fa-user"></i><span>Favourite
+                                    Creatives</span></a> -->
+                            <?php
+                                
+                                // $type_of_creative=$_SESSION['profile'];
+                                if ($user['profile']=="Architect") {
+                                    // echo "<a class='nav-link' href='architectSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
+                                    // </a></li>";
+                                }elseif ($user['profile']=="InteriorDesigner") {
+                                    // echo "<a class='nav-link' href='interiorDesignerSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
+                                    // </a></li>";
+                                }else{
+                                    echo "<a class='nav-link' href='fav_creatives.php'><i class='fas fa-user'></i><span>Favourite
+                                    Creatives</span></a></li>";
+                                }
+        ?>
                         </li>
 
                         <li class="nav-item" role="presentation">
@@ -349,9 +364,10 @@ $row = mysqli_fetch_array($result);
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php
+                                            <img id="profile_img" class="border rounded-circle img-profile" src="<?php
+                                            
                                                         echo $row['profile_pic'];     
-                                                ?>"> -->
+                                                ?>">
                                         </a>
 
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
