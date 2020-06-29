@@ -16,14 +16,15 @@ else {
 	$type = "name";
 }
 ?>
-        <div class="col">
-            <?php
+
+<div class="col">
+    <?php
        $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
       echo $queryDisplay = strtoupper($queryDisplay);
 ?>
-        </div>
-        <div class="row">
-            <?php 
+</div>
+<div class="row">
+    <?php 
 	if($query == "")
 		echo "You must enter something in the search box.";
 	else {
@@ -151,10 +152,10 @@ echo "
         ?>
 
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-            </script>
-            <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
     </body>
 
-</html>
+    </html>
