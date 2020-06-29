@@ -140,8 +140,10 @@ $row = mysqli_fetch_array($result);
                                 type="button"><i class="fas fa-bars"></i>
                             </button>
                             <div class="search dropdown d-none d-sm-block">
-                                <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" role="search"
-                                    action="search.php" name="desktop_search_form">
+
+                                <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" action="search.php"
+                                    name="desktop_search_form" role="search" name="search_form">
+
                                     <div class="input-group">
                                         <!--desktop view search box  -->
                                         <fieldset style="width:300px">
@@ -170,10 +172,11 @@ $row = mysqli_fetch_array($result);
                                     </div>
                                 </form>
                                 <!-- Dropdown Menu -->
-                                <div class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
-                                        <!-- Loop from here -->
+                                <div
+                                    class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
+                                    <!-- Loop from here -->
 
-                                        <!-- Loop till here -->
+                                    <!-- Loop till here -->
 
                                 </div>
                             </div>
@@ -192,8 +195,10 @@ $row = mysqli_fetch_array($result);
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu"
                                         aria-labelledby="searchDropdown">
+
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
-                                            method="GET" name="search_form">
+                                            name="search_form" method="GET" role="search" action="extSearchProfiles.php"
+                                            name="search_form">
                                             <!--mobile view search select  -->
                                             <div class="row mx-auto">
                                                 <div class="col-12">
@@ -217,22 +222,24 @@ $row = mysqli_fetch_array($result);
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->
-                                                <input class="bg-light dropdown form-control border-0 small" id="mobile-search" type="text"
+                                                <input class="bg-light dropdown form-control border-0 small"
+                                                    id="mobile-search" type="text"
                                                     placeholder="Search architects in lucknow/pune..."
-                                                    onkeyup="getExtLiveSearchUsers(this.value)"
-                                                    name="q" autocomplete="off">
+                                                    onkeyup="getExtLiveSearchUsers(this.value)" name="q"
+                                                    autocomplete="off">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary btn-sm py-0" type="submit">
                                                         <i class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
                                         </form>
-                                        <div class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
+                                        <div
+                                            class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
                                             <!-- Loop from here -->
-    
+
                                             <!-- Loop till here -->
-    
-                                    </div>
+
+                                        </div>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">
