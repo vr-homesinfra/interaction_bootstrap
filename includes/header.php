@@ -142,7 +142,7 @@ $row = mysqli_fetch_array($result);
                             <div class="search dropdown d-none d-sm-block">
 
                                 <form class="ml-md-3 my-2 mw-100 navbar-search" method="GET" action="search.php"
-                                    name="desktop_search_form" role="search" name="search_form">
+                                    role="search" name="search_form">
 
                                     <div class="input-group">
                                         <!--desktop view search box  -->
@@ -164,12 +164,12 @@ $row = mysqli_fetch_array($result);
                                             type="text" placeholder="Search architects in lucknow/pune..."
                                             onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
                                         <div class="input-group-append">
-                                            <button class="btn btn-primary py-0 btn-block" type="submit"
-                                                name="search_creatives_desktop" value="">
+                                            <button class="btn btn-primary py-0 btn-block" type="submit">
                                                 <i class="fas fa-search"></i>
                                             </button>
                                         </div>
                                     </div>
+
                                 </form>
                                 <!-- Dropdown Menu -->
                                 <div
@@ -180,14 +180,6 @@ $row = mysqli_fetch_array($result);
 
                                 </div>
                             </div>
-
-                            <script>
-                            $(document).on("click", ".city", function() {
-                                var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
-                                $('#search_text_input').val(clickedBtnID);
-                            });
-                            </script>
-
                             <ul class="nav navbar-nav flex-nowrap ml-auto">
                                 <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                         data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search">
@@ -197,8 +189,7 @@ $row = mysqli_fetch_array($result);
                                         aria-labelledby="searchDropdown">
 
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
-                                            name="search_form" method="GET" role="search" action="extSearchProfiles.php"
-                                            name="search_form">
+                                            method="GET" role="search" name="search_form">
                                             <!--mobile view search select  -->
                                             <div class="row mx-auto">
                                                 <div class="col-12">
@@ -225,7 +216,7 @@ $row = mysqli_fetch_array($result);
                                                 <input class="bg-light dropdown form-control border-0 small"
                                                     id="mobile-search" type="text"
                                                     placeholder="Search architects in lucknow/pune..."
-                                                    onkeyup="getExtLiveSearchUsers(this.value)" name="q"
+                                                    onkeyup="getExtLiveSearchUsers(this.value)" name="city"
                                                     autocomplete="off">
                                                 <div class="input-group-append">
                                                     <button class="btn btn-primary btn-sm py-0" type="submit">

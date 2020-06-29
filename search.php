@@ -1,7 +1,5 @@
 <?php
-require 'config/config.php';
 include("includes/header.php");  
-include("includes/classes/User.php");
 
 $str="in";
 if(isset($_GET['profile'])&& isset($_GET['city'])) {
