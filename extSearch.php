@@ -135,7 +135,7 @@ $str="";
                                     <span class="input-group-text bg-success">
 
                                         <!-- Orange Button -->
-                                        <button class="text-white btn p-0 " type="submit"><i class="fas fa-search "
+                                        <button class="text-white btn p-0 " type="submit"><i class="fas fa-search"
                                                 name="find_creatives" id="find_creatives"></i>
                                         </button>
 
@@ -156,7 +156,7 @@ $str="";
                     });
                     </script>
                     <!-- Profiles -->
-                    <div class="row profiles-list">
+                    <div class="row drop-list">
                         <div class="col-md-6 m-auto border-0 search_results">
 
                             <!-- Loop from here -->
