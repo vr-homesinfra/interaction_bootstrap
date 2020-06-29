@@ -17,7 +17,6 @@ else {
 }
 ?>
 
-
 <div class="col">
     <?php
        $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
