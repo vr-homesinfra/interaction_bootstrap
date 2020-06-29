@@ -13,7 +13,7 @@ if(isset($usersReturnedQuery)){
 	while($row = mysqli_fetch_array($usersReturnedQuery)) {
 			
 		echo "		
-		                        <div class='row no-gutters border-bottom'>
+		                        <div class='row dropdown-item no-gutters border-bottom'>
                                     
                                     <div class='col-10'>
                                         <div class='card-body p-2'>

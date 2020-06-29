@@ -180,7 +180,7 @@ $row = mysqli_fetch_array($result);
                                 </div>
                             </div>
                             <ul class="nav navbar-nav flex-nowrap ml-auto">
-                                <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
+                                <li class="nav-item dropdown search-btn-mobile d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                         data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search">
                                         </i>
                                     </a>
@@ -222,8 +222,9 @@ $row = mysqli_fetch_array($result);
                                                         <i class="fas fa-search"></i></button>
                                                 </div>
                                             </div>
+                                            <div class="profiles-list-mobile w-100 dropdown-menu dropdown-menu-animated mt-n2 d-block  dropdown-lg bg-transparent col-md-6 border-0 search_results"></div>
                                         </form>
-                                        <div class="search_results"></div>
+                                       
                                         <script>
                                             $(document).on("click", ".city", function() {
                                                 var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id

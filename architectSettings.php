@@ -72,7 +72,7 @@ $row = mysqli_fetch_array($result);
                                 <div class="text-center">
                                     <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
                                         for="user_group_logo">
-                                        <i class="fas fa-upload"></i> Upload Picture</label>
+                                        <i class="fas fa-upload"></i> Select Picture</label>
 
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button"
