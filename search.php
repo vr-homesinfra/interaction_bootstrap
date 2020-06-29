@@ -16,29 +16,16 @@ else {
 	$type = "name";
 }
 ?>
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Search Listing</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-        <link rel="stylesheet" href="rd/assets/css/styles.min.css?h=2cfe18d2d8a32b71eadff2883706ad0e">
-    </head>
 
-    <body>
-
-        <div class="col">
-            <?php
+<div class="col">
+    <?php
        $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
       echo $queryDisplay = strtoupper($queryDisplay);
 ?>
-        </div>
-        <div class="row">
-            <?php 
+</div>
+<div class="row">
+    <?php 
 	if($query == "")
 		echo "You must enter something in the search box.";
 	else {
@@ -166,10 +153,10 @@ echo "
         ?>
 
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-            </script>
-            <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
     </body>
 
-</html>
+    </html>
