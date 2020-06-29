@@ -16,14 +16,12 @@ else {
 	$type = "name";
 }
 ?>
-
-<div class="col">
-    <?php
-       $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
-      echo $queryDisplay = strtoupper($queryDisplay);
-?>
+<div class="container-fluid">
+    <h3 class="text-gray-900 mb-4">
+        <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?></h3>
 </div>
-<div class="row">
+
+<div class="row m-3">
     <?php 
 	if($query == "")
 		echo "You must enter something in the search box.";
@@ -105,7 +103,7 @@ echo "
             <div class='btn-group'>                    
                 <a name='' id='blockButton' class='btn btn-primary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
                 
-                <a id='blockButton' class='btn btn-sm btn-primary' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
+                <a id='blockButton' class='btn btn-sm btn-primary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
             </div>
         </div>
         </div>
@@ -139,15 +137,15 @@ echo "
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-                <div class='btn-group'>                    
-                <a name='' id='blockButton' class='btn btn-primary btn-sm' href='" . $user_name ."' role='button'>Visit Profiles</a>
+                <div class='btn-group'>
+                    <a name='' id='blockButton' class='btn btn-primary btn-sm' href='" . $row[' username'] ."' role='button'>Visit
+                        Profile</a>
+                    <a id='blockButton' class='btn btn-sm btn-primary ml-2' href='" .$msg. $row[' username'] ."' role='button'>Send
+                        Message</a>
                 
-                <div class='col'> 
-                                                <div class='text-center mt-2'>
-                                                    <a id='blockButton' class='btn btn-sm btn-primary' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
-                                                </div>
-                                             </div>  
-            </div>
+                
+                </div>
+        </div>
         </div>
         </div>
         </div>
@@ -155,12 +153,15 @@ echo "
         }
     }
         ?>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
-    </script>
-    <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="assets/js/script.min.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
+<script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
     </body>
 
     </html>
