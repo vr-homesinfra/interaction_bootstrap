@@ -16,13 +16,11 @@ else {
 	$type = "name";
 }
 ?>
-
-<div class="col">
-    <?php
-       $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
-      echo $queryDisplay = strtoupper($queryDisplay);
-?>
+<div class="container-fluid">
+    <h3 class="text-gray-900 mb-4">
+        <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?></h3>
 </div>
+
 <div class="row">
     <?php 
 	if($query == "")
@@ -143,6 +141,7 @@ echo "
                 Profile</a>
                 <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>
             </div>
+        </div>
         </div>
         </div>
         </div>
