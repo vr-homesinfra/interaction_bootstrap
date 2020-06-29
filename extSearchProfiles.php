@@ -93,7 +93,7 @@ else {
 //If there are three words (for architects), assume they are profile and location names respectively			
 			if(count($names) == 3){
             $usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[2]%') AND user_closed='no' LIMIT 8");
-            $usersReturnedQueryAdded=NULL;
+            // $usersReturnedQueryAdded=NULL;
             }
 			// //If query has one word only, search first names or last names 
 			// else if(count($names) == 2)
@@ -103,7 +103,7 @@ else {
 			else if(count($names) == 4){
                 $usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
                 //for added_profile query result
-                $usersReturnedQueryAdded = mysqli_query($con, "SELECT * FROM users WHERE (added_profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
+                // $usersReturnedQueryAdded = mysqli_query($con, "SELECT * FROM users WHERE (added_profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
             }
 			// else 
 			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
@@ -158,7 +158,7 @@ echo "
                 <div class='btn-group'>                    
                     <a class=' mr-2 btn btn-primary float-left btn-sm' href='addToCart.php?uname=$extSearchUname&city=$extSearchCity&profile=$extSearchProfile'>Visit
                 Profile</a>
-                <a class='btn btn-primary float-right btn-sm' href='#'>Send Message</a>
+                
             </div>
         </div>
         </div>

@@ -132,15 +132,6 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
 
-                                <div class="form-group">
-                                    <label class="custom-file">
-                                        <input type="file" name="" id="" placeholder="upload file"
-                                            class="custom-file-input" aria-describedby="fileHelpId">
-                                        <span class="custom-file-control"><i class="fa fa-paperclip"
-                                                aria-hidden="true"></i></span>
-                                    </label>
-                                </div>
-
                                 <div class="input-group-append">
                                     <button id="button-addon2" type="submit" class="btn btn-link" name="post_message">
                                         <i class="fa fa-paper-plane"></i>

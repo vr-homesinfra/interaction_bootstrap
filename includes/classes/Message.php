@@ -26,13 +26,13 @@ class Message {
 			return $user_from;
 	}
 
-	public function sendMessage($user_to, $body, $date,$imageName,$image_name_orig) {
+	public function sendMessage($user_to, $body, $date,$imageName) {
 
 		if($body != "") {
 			$userLoggedIn = $this->user_obj->getUsername();
             $query = mysqli_query($this->con, "INSERT INTO messages VALUES('', '$user_to', '$userLoggedIn', '$body', '$date', 'no', 'no', 'no','$imageName')");
             //upload to db from message page
-            $query = mysqli_query($this->con, "INSERT INTO fileupload VALUES('','$image_name_orig', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','$user_to','$date', '$body', 'ankit', '$date', '40', '0', '0','$imageName')");
+            $query = mysqli_query($this->con, "INSERT INTO fileupload VALUES('','', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','$user_to','$date', '$body', 'ankit', '$date', '40', '0', '0','$imageName')");
 		}
 	}
 
@@ -49,7 +49,7 @@ class Message {
 			$user_from = $row['user_from'];
 			$body = $row['body'];
 			$id = $row['id'];
-			$imagePath = $row['proj_file_name'];
+			// $imagePath = $row['proj_file_name'];
 			$uploaded_on= $row['date'];
 			
 // 			if($imagePath != "") {

@@ -31,12 +31,14 @@ $otp_failure="";
     </head>
 
     <body class="">
-<nav class="navbar shadow navbar-light bg-light static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60" alt="homesinfra logo"></a>
-      <a class="btn btn-primary " href="#">Sign In</a>
-    </div>
-  </nav>
+        <nav class="navbar shadow navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img
+                        src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
+                        alt="homesinfra logo"></a>
+                <a class="btn btn-primary " href="#">Sign In</a>
+            </div>
+        </nav>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
@@ -48,7 +50,7 @@ $otp_failure="";
                                         style="background-image: url(&quot;assets/img/dogs/chuttersnap-WkIm3eZJLr0-unsplash.jpg&quot;);">
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-lg-6">
                                     <div class="p-4">
                                         <div class="text-center">
@@ -80,10 +82,6 @@ $otp_failure="";
                                         //Remove html tags
                                         $user_profile = str_replace(' ', '', $user_profile); 
                                         //remove spaces
-                                        if ($user_profile!="architect" && $user_profile!="Interior Designer") {
-                                            $user_profile="customer";
-                                        } 
-                                        
                                         $_SESSION['user_profile'] = $user_profile; 
                                         //Stores user_profile into session variable
                                         
@@ -228,13 +226,15 @@ $otp_failure="";
                     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
                 }
                 echo "Congrats,your mobile is registered & verified";
-                $date = date("Y-m-d"); //Current date
-                $user_profile=$_SESSION['user_profile'];//from dropdown 
-                $mobile_no=$_SESSION['mobile_no'];
-                $fname=$_SESSION['reg_fname'];
-                $lname=$_SESSION['reg_lname'];
+                 $date = date("Y-m-d"); //Current date
+                   $user_profile=$_SESSION['user_profile'];//from dropdown 
+                  $mobile_no=$_SESSION['mobile_no'];
+                    $fname=$_SESSION['reg_fname'];
+                    $lname=$_SESSION['reg_lname'];
+                    $profile_pic="assets/images/profile_pics/defaults/head_carrot.png.";
                 //start doing everything from here eg. db works
-                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','$username','','','$date','$profile_pic','','','no',',','$mobile_no','','','','','','','','','','no','$recvd_otp')");
+                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','$username','','','$date','$profile_pic','','','no','','','$mobile_no','','','','','','','','','','no','$recvd_otp')");
+                echo $query;    
                 header("Location: otpLogin.php");
 
                 
@@ -256,7 +256,7 @@ $otp_failure="";
                                                 <select class=" border rounded form-control custom-select"
                                                     id="profile_dropdown-1" name="user_profile">
                                                     <option value="choose profile" selected="">Choose Profile</option>
-                                                    <!-- <option value="Customer">Customer</option> -->
+                                                    <option value="Customer">Customer</option>
                                                     <option value="Architect">Architect</option>
                                                     <option value="Interior Designer">Interior Designer</option>
                                                 </select>
@@ -265,8 +265,8 @@ $otp_failure="";
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3  mb-sm-0">
                                                     <input class="form-control  form-control-user" type="text"
-                                                        id="textboxFirstName" placeholder="First Name" name="reg_fname"
-                                                        value="<?php
+                                                        autocomplete="off" id="textboxFirstName"
+                                                        placeholder="First Name" name="reg_fname" value="<?php
                                                 if (isset($_SESSION['reg_fname'])) {
                                                     echo $_SESSION['reg_fname'];  
                                                 }
@@ -276,7 +276,7 @@ $otp_failure="";
                                                 <div class="col-sm-6">
                                                     <input class="form-control  form-control-user" type="text"
                                                         id="textboxLastName" placeholder="Last Name" name="reg_lname"
-                                                        value="<?php
+                                                        autocomplete="off" value="<?php
                                                   if(isset($_SESSION['reg_lname']))  {
                                                       echo $_SESSION['reg_lname'];
                                                   }
@@ -325,12 +325,12 @@ $otp_failure="";
                                             </script>
                                             <div class="form-group">
                                                 <input class="form-control  form-control-user" type="text"
-                                                    id="exampleInputPassword" placeholder="Enter received OTP"
-                                                    name="recvd_otp" minlength="6" maxlength="6" autocomplete="off">
+                                                    autocomplete="off" id="exampleInputPassword"
+                                                    placeholder="Enter received OTP" name="recvd_otp" minlength="6"
+                                                    maxlength="6" autocomplete="off">
                                             </div>
-                                            <button
-                                                class="btn  btn-outline-primary btn-block btn-user"
-                                                type="submit" name="verify_otp">Verify</button>
+                                            <button class="btn  btn-outline-primary btn-block btn-user" type="submit"
+                                                name="verify_otp">Verify</button>
 
                                             <hr>
                                         </form>
