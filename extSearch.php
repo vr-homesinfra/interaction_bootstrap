@@ -157,7 +157,7 @@ $str="";
                     </script>
                     <!-- Profiles -->
                     <div class="row drop-list">
-                        <div class="col-md-6 m-auto border-0 search_results">
+                        <div class="col-md-6 w-100 m-auto border-0 search_results">
 
                             <!-- Loop from here -->
 

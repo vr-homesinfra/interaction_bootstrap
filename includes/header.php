@@ -25,13 +25,12 @@ $row = mysqli_fetch_array($result);
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>HomesInfra</title>
-        <script src="assets/js/demo.js"></script>
-        <script src="assets/js/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
         <link rel="stylesheet" href="assets/css/styles.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
@@ -173,7 +172,7 @@ $row = mysqli_fetch_array($result);
                                 </form>
                                 <!-- Dropdown Menu -->
                                 <div
-                                    class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
+                                    class="profiles-list dropdown-menu dropdown-menu-animated mt-n2 d-block dropdown-lg bg-transparent col-md-6 border-0 search_results">
                                     <!-- Loop from here -->
 
                                     <!-- Loop till here -->
@@ -213,7 +212,7 @@ $row = mysqli_fetch_array($result);
                                             <div class="input-group">
 
                                                 <!--mobile view search box  -->
-                                                <input class="bg-light dropdown form-control border-0 small"
+                                                <input class="bg-light form-control border-0 small"
                                                     id="mobile-search" type="text"
                                                     placeholder="Search architects in lucknow/pune..."
                                                     onkeyup="getExtLiveSearchUsers(this.value)" name="city"
@@ -224,13 +223,21 @@ $row = mysqli_fetch_array($result);
                                                 </div>
                                             </div>
                                         </form>
-                                        <div
-                                            class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 dropdown-lg bg-transparent col-md-6 border-0 search_results">
+                                        <div class="search_results"></div>
+                                        <script>
+                                            $(document).on("click", ".city", function() {
+                                                var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                                $('#top-search').val(clickedBtnID);
+                                                $('#mobile-search').val(clickedBtnID);
+                                            });
+                                            </script>
+                                        <!-- <div
+                                            class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 d-block  dropdown-lg bg-transparent col-md-6 border-0 search_results"> -->
                                             <!-- Loop from here -->
 
                                             <!-- Loop till here -->
 
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown no-arrow mx-1" role="presentation">

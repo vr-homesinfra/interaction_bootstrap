@@ -159,6 +159,7 @@ $row = mysqli_fetch_array($result);
 <script src="assets/js/script.min.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
 </body>
 <script>
 $(document).ready(function() {

@@ -204,7 +204,7 @@ $row = mysqli_fetch_array($result);
                             </div>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
+                            <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
                         </div>
                     </form>
                 </div>
@@ -222,7 +222,6 @@ $row = mysqli_fetch_array($result);
 </footer>
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
 </script>
