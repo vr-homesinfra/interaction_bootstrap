@@ -102,7 +102,7 @@ echo "
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-                <div class='btn-group'>                    
+            <div class='btn-group'>                    
                 <a name='' id='blockButton' class='btn btn-primary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
                 
                 <a id='blockButton' class='btn btn-sm btn-primary' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
