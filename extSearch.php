@@ -27,7 +27,7 @@ $str="";
             <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
                 <div class="container-fluid flex-column">
                     <div class="d-flex justify-content-between brand-line">
-                        <button class="mt-2 m-n2 mt-lg-0 btn btn-light drawer-knob" type="button" data-open="drawer"><i
+                        <button class="mt-2 m-n2 mt-lg-0 btn btn-transparant drawer-knob" type="button" data-open="drawer"><i
                                 class="fas fa-bars"></i>
                         </button>
                     </div>
@@ -63,9 +63,9 @@ $str="";
                     </ul>
                 </div>
             </nav>
-            <a class="navbar-brand p-0 ml-4">
+            <!-- <a class="navbar-brand p-0 ml-4">
                 <img width="60px;" src="rd/assets/img/logo-hi.svg" alt="">
-            </a>
+            </a> -->
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
             </ul>
@@ -80,9 +80,9 @@ $str="";
 
         </style>
         <div class="container py-5" id="main-container">
-            <div id="img-logo" class="text-center pt-5">
+            <div id="img-logo" class="text-center pt-4">
                 <img class="img-fluid d-lg-none d-sm-block w-50" src="rd/assets/img/logo-hi.svg">
-                <img class="img-fluid d-none d-lg-inline w-25" src="rd/assets/img/logo-hi.svg">
+                <img class="img-fluid d-none d-lg-inline" style="width: 15%!important;" src="rd/assets/img/logo-hi.svg">
             </div>
 
             <div id="search-system" class="">
@@ -110,7 +110,7 @@ $str="";
                             </style>
                             <fieldset>
                                 <p class=" text-center mb-1 text-dark">Select a Professional :</p>
-                                <div class="toggle mb-2">
+                                <div class="toggle m-4">
                                     <input type="radio" id="cond_new" name="profile" checked="checked"
                                         value="architect">
                                     <label title="Select Architect" class="text-center d-block cursor-pointer"
