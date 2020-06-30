@@ -92,7 +92,13 @@ function getExtLiveSearchUsers(value) {
 	});
 
 }
+function getExtLiveLoadLocation(value) {
 
+	$.post("includes/handlers/ajaxCitySearch.php", {query:value}, function(data) {
+		$('#profile_location').html(data);
+	});
+
+}
 function getExtLiveSearchImg(value) {
 
 	$.post("includes/handlers/ajaxCitySearch.php", {query:value}, function(data) {

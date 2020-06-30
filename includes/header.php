@@ -225,7 +225,7 @@ $row = mysqli_fetch_array($result);
                                         </form>
 
                                         <script>
-                                        $(document).on("click", ".city", function() {
+                                        $(document).on("click", ".profiles-list .city, .profiles-list-mobile .city", function() {
                                             var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
                                             $('#top-search').val(clickedBtnID);
                                             $('#mobile-search').val(clickedBtnID);

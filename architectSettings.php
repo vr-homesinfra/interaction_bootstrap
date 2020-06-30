@@ -99,8 +99,9 @@ $row = mysqli_fetch_array($result);
                                     value="isPressedContactSettings">
 
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Location" id="location"
+                                    <input class="form-control" type="text" onkeyup="getExtLiveLoadLocation(this.value)" placeholder="Location" id="location"
                                         value="<?php echo $user['location'];?>" autocomplete="off">
+                                        <div id="profile_location"></div>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Office Number" id="office_no"
@@ -117,6 +118,12 @@ $row = mysqli_fetch_array($result);
                             //     echo "checked='unchecked'"; 
                             //     }
                                 ?> />
+                                <script>
+                                        $(document).on("click", "#profile_location .city", function() {
+                                            var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                            $('#location').val(clickedBtnID);
+                                        });
+                                        </script>
                                     <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
                                         Designer
                                         also</label>
@@ -238,7 +245,7 @@ $row = mysqli_fetch_array($result);
 <script src="assets/js/script.min.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
-
+<script src="assets/js/demo.js"></script>
 <!-- contact settings section -->
 <script>
 $(document).ready(function() {
