@@ -2,6 +2,7 @@
 include("includes/header.php"); 
  
 //contact settings variables
+$location = false;
 $email = false;
 $office_no = false;
 $residential_address = false;
@@ -10,6 +11,7 @@ $reg_as_int_des = false;
 
 //contact settings process  
  if(isset($_POST['isPressedContactSettings'])){
+    $location = $_POST['location'];
     $email = $_POST['email'];
     $office_no = $_POST['office_no'];
     $residential_address = $_POST['residential_address'];
@@ -20,7 +22,7 @@ $reg_as_int_des = false;
 } else {
     $reg_as_int_des="interior";
     }
-    $query = mysqli_query($con, "UPDATE users SET email='$email',office_no='$office_no',residential_address='$residential_address',office_address='$office_address',	added_profile='$reg_as_int_des' WHERE username='$userLoggedIn'"); 
+    $query = mysqli_query($con, "UPDATE users SET location='$location',email='$email',office_no='$office_no',residential_address='$residential_address',office_address='$office_address',	added_profile='$reg_as_int_des' WHERE username='$userLoggedIn'"); 
 
 //About Me variables
   $coa_no = false;
