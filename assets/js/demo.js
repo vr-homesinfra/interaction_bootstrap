@@ -13,6 +13,7 @@ $(document).click(function(e){
 	if(e.target.class != "search_results" && e.target.id != "search_text_input") {
 
 		$(".search_results").html("");
+		$("#profile_location").html("");
 		$('.search_results_footer').html("");
 		$('.search_results_footer').toggleClass("search_results_footer_empty");
 		$('.search_results_footer').toggleClass("search_results_footer");
