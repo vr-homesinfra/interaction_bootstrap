@@ -6,7 +6,6 @@ if (isset($_SESSION['uname'])) {
     # code...
     $check=($_SESSION['uname']);
     print_r($check);
-    $site_url= "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     header("Location:https://homesinfra.com/interact/".$check);
     // header("Location:http://localhost/interaction_bootstrap/".$check);
     unset($_SESSION["uname"]);
