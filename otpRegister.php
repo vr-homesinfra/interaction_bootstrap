@@ -256,9 +256,9 @@ $otp_failure="";
                                                 <select class=" border rounded form-control custom-select"
                                                     id="profile_dropdown-1" name="user_profile">
                                                     <option value="choose profile" selected="">Choose Profile</option>
-                                                    <option value="Customer">Customer</option>
-                                                    <option value="Architect">Architect</option>
-                                                    <option value="Interior Designer">Interior Designer</option>
+                                                    <option value="customer">Customer</option>
+                                                    <option value="architect">Architect</option>
+                                                    <option value="interior">Interior Designer</option>
                                                 </select>
                                             </div>
 

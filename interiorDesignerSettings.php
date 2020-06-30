@@ -72,7 +72,8 @@ $row = mysqli_fetch_array($result);
                                 <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
                                     name="fileToUpload1">
                                 <div class="text-center">
-                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow" for="user_group_logo">
+                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
+                                        for="user_group_logo">
                                         <i class="fas fa-upload"></i>Upload Picture</label>
                                 </div>
                                 <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
@@ -84,125 +85,125 @@ $row = mysqli_fetch_array($result);
             </div>
         </div>
         <div class="col-lg-8">
-<div class="row">
-            <div class="col">
+            <div class="row">
+                <div class="col">
 
-                <div class="card shadow-sm mb-3">
-                    <div class="card-header py-3">
-                        <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-header py-3">
+                            <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="save_contact_settings">
+
+                                <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
+                                    value="isPressedContactSettings">
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Location" id="location"
+                                                value="<?php echo $user['location'];?>" autocomplete="off">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Office Number"
+                                                id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Office Address"
+                                                id="office_address" value="<?php echo $user['office_address'];?>"
+                                                autocomplete="off">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="email" placeholder="Email" name="email"
+                                                id="email" value="<?php echo $user['email'];?>" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Residential Address"
+                                                id="residential_address"
+                                                value="<?php echo $user['residential_address'];?>" autocomplete="off">
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+
+                                    </div>
+                                    <div class="col">
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-sm mt-2" type="submit">
+                                        Save Settings</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form id="save_contact_settings">
+                    <div class="card shadow-sm">
+                        <div class="card-header py-3">
+                            <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="about_me_settings">
 
-                            <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
-                                value="isPressedContactSettings">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="inputName" id="isPressed"
+                                        value="is_pressed" autocomplete="off">
+                                </div>
 
-                            <div class="form-row">
-                                <div class="col">
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="About Me" id="about_me"
+                                                rows="2"><?php echo $user['about_me'];?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Instagram Id."
+                                                id="instagram_id" value="<?php echo $user['instagram_id'];?>"
+                                                autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Facebook Id."
+                                                id="facebook_id" value="<?php echo $user['facebook_id'];?>"
+                                                autocomplete="off" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Youtube Id."
+                                                id="youtube_id" value="<?php echo $user['youtube_id'];?>"
+                                                autocomplete="off" />
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" placeholder="Linkedin Id."
+                                                id="linkedin_id" value="<?php echo $user['linkedin_id'];?>"
+                                                autocomplete="off" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
-                                        <input class="form-control" type="email" placeholder="Location" name="email"
-                                            id="email" value="<?php echo $user['email'];?>" autocomplete="off">
-                                    </div>
-                                    
-                                <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Office Number"
-                                            id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
-                                            autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Office Address"
-                                            id="office_address" value="<?php echo $user['office_address'];?>"
-                                            autocomplete="off">
-                                    </div>
+                                    <button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
                                 </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="email" placeholder="Email" name="email"
-                                            id="email" value="<?php echo $user['email'];?>" autocomplete="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Residential Address"
-                                            id="residential_address" value="<?php echo $user['residential_address'];?>"
-                                            autocomplete="off">
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                  
-                                </div>
-                                <div class="col">
-                                    
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-sm mt-2" type="submit">
-                                    Save Settings</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="card shadow-sm">
-                    <div class="card-header py-3">
-                        <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
-                    </div>
-                    <div class="card-body">
-                        <form id="about_me_settings">
-
-                            <div class="form-group">
-                                <input type="hidden" class="form-control" name="inputName" id="isPressed"
-                                    value="is_pressed" autocomplete="off">
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <textarea class="form-control" placeholder="About Me" id="about_me"
-                                            rows="2"><?php echo $user['about_me'];?></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Instagram Id."
-                                            id="instagram_id" value="<?php echo $user['instagram_id'];?>"
-                                            autocomplete="off" />
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Facebook Id."
-                                            id="facebook_id" value="<?php echo $user['facebook_id'];?>"
-                                            autocomplete="off" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Youtube Id."
-                                            id="youtube_id" value="<?php echo $user['youtube_id'];?>"
-                                            autocomplete="off" />
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Linkedin Id."
-                                            id="linkedin_id" value="<?php echo $user['linkedin_id'];?>"
-                                            autocomplete="off" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -223,6 +224,8 @@ $row = mysqli_fetch_array($result);
 <script src="assets/js/script.min.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
+
 <!-- contact settings section -->
 <script>
 $(document).ready(function() {
@@ -230,6 +233,7 @@ $(document).ready(function() {
         //Stop the form from submitting itself to the server.
         e.preventDefault();
         var isPressedContactSettings = $('#isPressedContactSettings').val();
+        var location = $('#location').val();
         var email = $('#email').val();
         var office_no = $('#office_no').val();
         var residential_address = $('#residential_address').val();
@@ -241,6 +245,7 @@ $(document).ready(function() {
             url: 'interiorDesignerSettingsSubmit.php',
             data: {
                 isPressedContactSettings: isPressedContactSettings,
+                location: location,
                 email: email,
                 office_no: office_no,
                 residential_address: residential_address,

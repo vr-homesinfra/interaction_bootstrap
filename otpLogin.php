@@ -35,12 +35,14 @@ if (isset($_SESSION['uname'])) {
     </head>
 
     <body class="">
-    <nav class="navbar shadow navbar-light bg-light static-top">
-    <div class="container">
-      <a class="navbar-brand" href="#"><img src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60" alt="homesinfra logo"></a>
-      <a class="btn btn-primary " href="#">Sign In</a>
-    </div>
-  </nav>
+        <nav class="navbar shadow navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img
+                        src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
+                        alt="homesinfra logo"></a>
+                <a class="btn btn-primary " href="#">Sign In</a>
+            </div>
+        </nav>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
@@ -88,7 +90,7 @@ if (isset($_SESSION['uname'])) {
                             $_SESSION['OTPSessionId']=$Response_json->Details;
                             $otp_success="OTP sent successfully";                                  
                                 }else{
-                        header("Location: otpRegister.php");                                    
+                             header("Location: otpRegister.php");                                    
                                 }
                             }
                                 
@@ -154,10 +156,10 @@ if (isset($_POST['verify_otp'])){
                 $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
                 $user = mysqli_fetch_array($user_details_query);
                 $profile= $user['profile'];
-                    if ($profile=="Architect") {
+                    if ($profile=="architect") {
                     header("Location: architectSettings.php");
                     exit();  
-                    }elseif ($profile=="InteriorDesigner") {
+                    }elseif ($profile=="interior") {
                         header("Location: interiorDesignerSettings.php");
                         exit(); 
                     }else {
@@ -166,7 +168,6 @@ if (isset($_POST['verify_otp'])){
                     }                
             }           
         }   
-                    
                 }else{
                 $otp_failure="Enter correct OTP";
             }   
@@ -204,8 +205,7 @@ if (isset($_POST['verify_otp'])){
                                             </div>
                                             <!-- validate mobile no. in db & otp -->
                                             <!-- & then redirect to profile page -->
-                                            <button
-                                                class="btn btn-outline-primary active btn-block text-white btn-user"
+                                            <button class="btn btn-outline-primary active btn-block text-white btn-user"
                                                 type="submit" name="verify_otp">Verify & Login</button>
                                             <div id="verify_sent_otp" class="text-center">
                                                 <?php
@@ -234,14 +234,14 @@ if (isset($_POST['verify_otp'])){
             </div>
         </div>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="rd/assets/js/script.min.js"></script>
-<script src="assets/js/rdjsfile.js"></script>
-<script src="assets/js/demo.js"></script>
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="assets/js/script.min.js"></script>
+        <script src="rd/assets/js/script.min.js"></script>
+        <script src="assets/js/rdjsfile.js"></script>
+        <script src="assets/js/demo.js"></script>
     </body>
 
 </html>
