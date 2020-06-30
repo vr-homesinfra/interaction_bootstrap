@@ -28,14 +28,9 @@ if (isset($_SESSION['uname'])) {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Login - HomesInfra</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
     </head>
 
@@ -238,14 +233,15 @@ if (isset($_POST['verify_otp'])){
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-        </script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-        <script src="assets/js/script.min.js"></script>
-        <script src="assets/js/rdjsfile.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="assets/js/script.min.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
+<script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
     </body>
 
 </html>

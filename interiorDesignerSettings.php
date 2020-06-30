@@ -99,33 +99,42 @@ $row = mysqli_fetch_array($result);
 
                             <div class="form-row">
                                 <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="email" placeholder="Email" name="email"
+                                <div class="form-group">
+                                        <input class="form-control" type="email" placeholder="Location" name="email"
                                             id="email" value="<?php echo $user['email'];?>" autocomplete="off">
                                     </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
+                                    
+                                <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Office Number"
                                             id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
                                             autocomplete="off">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Residential Address"
-                                            id="residential_address" value="<?php echo $user['residential_address'];?>"
-                                            autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="col">
                                     <div class="form-group">
                                         <input class="form-control" type="text" placeholder="Office Address"
                                             id="office_address" value="<?php echo $user['office_address'];?>"
                                             autocomplete="off">
                                     </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input class="form-control" type="email" placeholder="Email" name="email"
+                                            id="email" value="<?php echo $user['email'];?>" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Residential Address"
+                                            id="residential_address" value="<?php echo $user['residential_address'];?>"
+                                            autocomplete="off">
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="form-row">
+                                <div class="col">
+                                  
+                                </div>
+                                <div class="col">
+                                    
                                 </div>
                             </div>
                             <div class="form-group">

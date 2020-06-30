@@ -20,7 +20,6 @@ else {
     <h3 class="text-gray-900 mb-4">
         <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?></h3>
 </div>
-
 <div class="row m-3">
     <?php 
 	if($query == "")
@@ -66,10 +65,10 @@ $msg="messages.php?u=";
 			$blank_space="&nbsp";
 			$coa_verified = $row['coa_verified'];
 		if ($coa_verified=="yes") {
-			$coa_stat= "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+			$coa_stat= "<i title='Verified' class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 			} else {
-				$coa_stat= "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+				$coa_stat= "<i title='Not Verified' class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
 
@@ -94,17 +93,17 @@ $msg="messages.php?u=";
        $extSearchProfile=rtrim($_GET['profile']);  
        
 echo "
-<div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
-        <div class='card'>
-            <img src='". $row['profile_pic'] ."' class='card-img-top' alt='...'>
+<div class='col-sm-12 col-md-4 col-lg-3 mx-4 mt-4'>
+        <div class='card shadow-sm border-0 rounded'>
+            <img src='". $row['profile_pic'] ."' class='w-100 card-img-top' alt='...'>
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-            <div class='btn-group'>                    
-                <a name='' id='blockButton' class='btn btn-primary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
+                             
+                <a name='' id='blockButton' class='btn btn-secondary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
                 
-                <a id='blockButton' class='btn btn-sm btn-primary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
-            </div>
+                <a id='blockButton' class='btn btn-sm btn-secondary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
+            
         </div>
         </div>
         </div>
@@ -123,7 +122,7 @@ echo "
 			$coa_stat= "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 			} else {
-				$coa_stat= "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+				$coa_stat= "<i title='Not Verified' class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
        $extSearchUname=$row['username'];     
