@@ -95,40 +95,19 @@ $row = mysqli_fetch_array($result);
                     <div class="form-row">
                         <div class="col">
                             <form id="save_contact_settings">
-
                                 <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
                                     value="isPressedContactSettings">
 
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Email" name="email" id="email"
-                                        value="<?php echo $user['email'];?>" autocomplete="off">
+                                    <input class="form-control" type="text" placeholder="Location" id="location"
+                                        value="<?php echo $user['location'];?>" autocomplete="off">
                                 </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Office Number" id="office_no"
-                                    value="<?php echo $user['office_no'];?>" maxlength="11" autocomplete="off">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Residential Address"
-                                    id="residential_address" value="<?php echo $user['residential_address'];?>"
-                                    autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Office Address" id="office_address"
-                                    value="<?php echo $user['office_address'];?>" autocomplete="off">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Office Number" id="office_no"
+                                        value="<?php echo $user['office_no'];?>" maxlength="11" autocomplete="off">
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
                             if ($added_profile == "interior") { 
                                 echo "checked='checked'"; 
                                 echo "value='no'";  
@@ -137,10 +116,39 @@ $row = mysqli_fetch_array($result);
                             //     echo "value='interior'";                                    
                             //     echo "checked='unchecked'"; 
                             //     }
-                                ?>>
-                        <label class="custom-control-label" for="reg_as_int_des">Register as an Interior Designer
-                            also</label>
+                                ?> />
+                                    <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
+                                        Designer
+                                        also</label>
+                                </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email" name="email" id="email"
+                                    value="<?php echo $user['email'];?>" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Residential Address"
+                                    id="residential_address" value="<?php echo $user['residential_address'];?>"
+                                    autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Office Address" id="office_address"
+                                    value="<?php echo $user['office_address'];?>" autocomplete="off">
+                            </div>
+                        </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col">
+
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <button class="btn btn-primary btn-sm mt-2" type="submit">
                             Save Settings</button>
@@ -238,6 +246,7 @@ $(document).ready(function() {
         //Stop the form from submitting itself to the server.
         e.preventDefault();
         var isPressedContactSettings = $('#isPressedContactSettings').val();
+        var location = $('#location').val();
         var email = $('#email').val();
         var office_no = $('#office_no').val();
         var residential_address = $('#residential_address').val();
@@ -249,6 +258,7 @@ $(document).ready(function() {
             url: 'architectSettingsSubmit.php',
             data: {
                 isPressedContactSettings: isPressedContactSettings,
+                location: location,
                 email: email,
                 office_no: office_no,
                 residential_address: residential_address,

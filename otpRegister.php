@@ -188,7 +188,7 @@ $otp_failure="";
                                                     $profile_pic="assets/images/profile_pics/defaults/head_pete_river.png";
                                                 break;
                                                 case 10:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_pomegranate_.png";
+                                                    $profile_pic="assets/images/profile_pics/defaults/head_pomegranate.png";
                                                 break;
                                                 case 11:
                                                     $profile_pic="assets/images/profile_pics/defaults/head_pumpkin.png";
@@ -226,15 +226,15 @@ $otp_failure="";
                     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
                 }
                 echo "Congrats,your mobile is registered & verified";
-                 $date = date("Y-m-d"); //Current date
-                   $user_profile=$_SESSION['user_profile'];//from dropdown 
-                  $mobile_no=$_SESSION['mobile_no'];
+                    $date = date("Y-m-d"); //Current date
+                    $user_profile=$_SESSION['user_profile'];//from dropdown 
+                    $mobile_no=$_SESSION['mobile_no'];
                     $fname=$_SESSION['reg_fname'];
                     $lname=$_SESSION['reg_lname'];
                     $profile_pic="assets/images/profile_pics/defaults/head_carrot.png.";
                 //start doing everything from here eg. db works
-                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','$username','','','$date','$profile_pic','','','no','','','$mobile_no','','','','','','','','','','no','$recvd_otp')");
-                echo $query;    
+                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','','','$mobile_no','','','','','','','','','','no','')");
+                 
                 header("Location: otpLogin.php");
 
                 
