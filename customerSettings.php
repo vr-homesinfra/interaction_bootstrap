@@ -6,7 +6,9 @@ if (isset($_SESSION['uname'])) {
     # code...
     $check=($_SESSION['uname']);
     print_r($check);
-    header('Location:http://localhost/interaction_bootstrap/'.$check);
+    $site_url= "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+    header("Location:https://homesinfra.com/interact/".$check);
+    // header("Location:http://localhost/interaction_bootstrap/".$check);
     unset($_SESSION["uname"]);
 }
 //profile pic upload section start
@@ -149,7 +151,9 @@ $row = mysqli_fetch_array($result);
         </div>
     </footer>
 </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-</div></div></div>
+</div>
+</div>
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
 </script>
