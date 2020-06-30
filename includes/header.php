@@ -32,6 +32,7 @@ $row = mysqli_fetch_array($result);
         <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
+        <script src="rd/assets/js/demo.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
     </head>
 
@@ -54,7 +55,7 @@ $row = mysqli_fetch_array($result);
                             <?php
                                 
                             // $type_of_creative=$_SESSION['profile'];
-                            if ($user['profile']=="Architect") {
+                            if ($user['profile']=="architect") {
                                 echo "<a class='nav-link' href='architectSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                 </a></li>";
                             }elseif ($user['profile']=="interior") {

@@ -99,7 +99,8 @@ $row = mysqli_fetch_array($result);
                                     value="isPressedContactSettings">
 
                                 <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Location" id="location"
+                                    <input class="form-control" type="text" placeholder="location" id="location"
+                                        onkeyup="getExtLiveSearchUsers(this.value)"
                                         value="<?php echo $user['location'];?>" autocomplete="off">
                                 </div>
                                 <div class="form-group">
@@ -238,6 +239,8 @@ $row = mysqli_fetch_array($result);
 <script src="assets/js/script.min.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
+
 
 <!-- contact settings section -->
 <script>
