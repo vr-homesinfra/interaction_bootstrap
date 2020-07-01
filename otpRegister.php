@@ -231,7 +231,6 @@ $otp_failure="";
                     $mobile_no=$_SESSION['mobile_no'];
                     $fname=$_SESSION['reg_fname'];
                     $lname=$_SESSION['reg_lname'];
-                    $profile_pic="assets/images/profile_pics/defaults/head_carrot.png.";
                 //start doing everything from here eg. db works
                 $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','','','$mobile_no','','','','','','','','','','no','')");
                  
