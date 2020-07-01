@@ -1,12 +1,12 @@
 <?php
- require 'config/config.php';
- include("includes/classes/User.php");
- include("includes/classes/Post.php");
- include("includes/classes/Message.php");
- include("includes/classes/Notification.php");
- include("includes/classes/FavCreatives.php");
- 
-  if (isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
+require 'config/config.php';
+include("includes/classes/User.php");
+include("includes/classes/Post.php");
+include("includes/classes/Message.php");
+include("includes/classes/Notification.php");
+include("includes/classes/FavCreatives.php");
+
+if(isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
 	$mobile_no = $_SESSION['mobile_no'];
 	$userLoggedIn = $_SESSION['userLoggedIn'];
 	$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
@@ -20,7 +20,6 @@ $row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -34,8 +33,6 @@ $row = mysqli_fetch_array($result);
         <link rel="stylesheet" href="assets/css/styles.min.css">
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
     </head>
-
-
     <body id="page-top" class="">
         <div id="wrapper">
             <nav
@@ -64,7 +61,7 @@ $row = mysqli_fetch_array($result);
                                 echo "<a class='nav-link' href='customerSettings.php'><i class='fas fa-tachometer-alt'></i><span>Dashboard</span>
                                 </a></li>";
                             }
-    ?>
+?>
                             <!-- <a class="nav-link" href=""><i class="fas fa-tachometer-alt"></i><span>Dashboard</span>
                             </a></li> -->
 
@@ -84,7 +81,7 @@ $row = mysqli_fetch_array($result);
                                     echo "<a class='nav-link' href='fav_creatives.php'><i class='fas fa-user'></i><span>Favourite
                                     Creatives</span></a></li>";
                                 }
-        ?>
+?>
                         </li>
 
                         <li class="nav-item" role="presentation">
@@ -125,8 +122,8 @@ $row = mysqli_fetch_array($result);
             </nav>
             <?php
               //unread messages
-              $messages=new Message($con,$userLoggedIn);
-              $num_messages=$messages->getUnreadNumber();  
+            $messages=new Message($con,$userLoggedIn);
+            $num_messages=$messages->getUnreadNumber();  
             ?>
             <div class="d-flex flex-column" id="content-wrapper">
                 <div id="content">
@@ -231,8 +228,6 @@ $row = mysqli_fetch_array($result);
                                             $('#mobile-search').val(clickedBtnID);
                                         });
                                         </script>
-                                        <!-- <div
-                                            class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 d-block  dropdown-lg bg-transparent col-md-6 border-0 search_results"> -->
                                         <!-- Loop from here -->
 
                                         <!-- Loop till here -->
@@ -246,7 +241,7 @@ $row = mysqli_fetch_array($result);
                                             href="javascript:void(0);"
                                             onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
                                             <span class="badge badge-danger badge-counter"><?php
-                                              echo $num_messages;  
+                                                echo $num_messages;  
                                             ?></span>
                                             <i class="fas fa-envelope fa-fw"></i>
                                         </a>
@@ -264,7 +259,7 @@ $row = mysqli_fetch_array($result);
                                             href="#">
                                             <span class="d-none d-lg-inline mr-2 text-gray-600 small">
                                                 <?php
-                                                  echo "Hello ".$user['first_name']." ".$user['last_name'];  
+                                                    echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
                                             <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php

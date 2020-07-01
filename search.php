@@ -88,10 +88,10 @@ $msg="messages.php?u=";
 //     </div>		
 // </div>
 // </div>
-       $extSearchUname=$row['username'];     
-       $extSearchCity=rtrim($_GET['city']);     
-       $extSearchProfile=rtrim($_GET['profile']);  
-       
+        $extSearchUname=$row['username'];     
+        $extSearchCity=rtrim($_GET['city']);     
+        $extSearchProfile=rtrim($_GET['profile']);  
+    
 echo "
 <div class='col-sm-12 col-md-4 col-lg-2 mx-4 mt-4'>
         <div class='card shadow-sm border-0 rounded'>
@@ -99,11 +99,8 @@ echo "
             <div class='card-body px-2 text-center'>
             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-                             
                 <a name='' id='blockButton' class='btn btn-secondary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
-                
                 <a id='blockButton' class='btn btn-sm btn-secondary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
-            
         </div>
         </div>
         </div>
@@ -125,10 +122,10 @@ echo "
 				$coa_stat= "<i title='Not Verified' class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
-       $extSearchUname=$row['username'];     
-       $extSearchCity=rtrim($_GET['city']);     
-       $extSearchProfile=rtrim($_GET['profile']);  
-       
+        $extSearchUname=$row['username'];     
+        $extSearchCity=rtrim($_GET['city']);     
+        $extSearchProfile=rtrim($_GET['profile']);  
+        
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
         <div class='card'>

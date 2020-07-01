@@ -1,6 +1,6 @@
 <?php
 require "config/config.php";
- 
+
 $userLoggedIn="";
 $fname = ""; //First name
 $lname = ""; //Last name
@@ -32,6 +32,7 @@ if (isset($_SESSION['uname'])) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
     </head>
 
     <body class="">
@@ -40,7 +41,7 @@ if (isset($_SESSION['uname'])) {
                 <a class="navbar-brand" href="#"><img
                         src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
                         alt="homesinfra logo"></a>
-                <a class="btn btn-primary " href="interact/otpLogin.php">Sign In</a>
+                <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
         </nav>
         <div class="container">
@@ -65,15 +66,15 @@ if (isset($_SESSION['uname'])) {
                                         
                                         $mobile_no = strip_tags($_POST['enter_mobile_no']); //Remove html tags
                                         $mobile_no = str_replace(' ', '', $mobile_no); //remove spaces
-                                         $_SESSION['mobile_no'] = $mobile_no;  
-                                         
-                                         $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
-                                         $check_login_query = mysqli_num_rows($check_database_query);
-                                         
-                                     if($check_login_query == 1) {
-                                         
+                                        $_SESSION['mobile_no'] = $mobile_no;  
+                                        
+                                        $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
+                                        $check_login_query = mysqli_num_rows($check_database_query);
+                                        
+                                    if($check_login_query == 1) {
+                                        
                             $YourAPIKey='c296cc1f-af95-11ea-9fa5-0200cd936042';
-                                         
+                                        
                             $SentTo=$mobile_no; ### Customer's phone number in International number format ( with leading + sign)
                                             
                             ### Sending OTP to Customer's Number
@@ -90,7 +91,7 @@ if (isset($_SESSION['uname'])) {
                             $_SESSION['OTPSessionId']=$Response_json->Details;
                             $otp_success="OTP sent successfully";                                  
                                 }else{
-                             header("Location: otpRegister.php");                                    
+                            header("Location: otpRegister.php");                                    
                                 }
                             }
                                 
@@ -122,7 +123,7 @@ if (isset($_POST['verify_otp'])){
     #$API_Response_json=json_decode(file_get_contents("https://2factor.in/API/V1/$YourAPIKey/SMS/VERIFY3/$SentTo/$verify_otp"),false);
     $mobile_no=$_SESSION['mobile_no'];
     $url = "https://2factor.in/API/V1/$YourAPIKey/SMS/VERIFY3/$mobile_no/$recvd_otp"; 
-   #echo $VerificationStatus= $API_Response_json->Details;
+    #echo $VerificationStatus= $API_Response_json->Details;
     $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL,$url); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -133,7 +134,7 @@ if (isset($_POST['verify_otp'])){
     ### Parse API Response to check if OTP matched or mismatched
     $Response_json=json_decode($Response,false);
     if ( $Response_json->Details =='OTP Matched'){
-         
+        
     $mobile_no=$_SESSION['mobile_no'];
                                             
             $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
@@ -146,9 +147,9 @@ if (isset($_POST['verify_otp'])){
 	        $user_profile = $_row['profile'];
 
      //after login,the session variable is set for the user from here
-          $_SESSION['mobile_no'] = $mobile_no;
-          $_SESSION['userLoggedIn'] = $userLoggedIn;
-          $_SESSION['user_profile'] = $user_profile;
+            $_SESSION['mobile_no'] = $mobile_no;
+            $_SESSION['userLoggedIn'] = $userLoggedIn;
+            $_SESSION['user_profile'] = $user_profile;
             
             //profile based redirection
             if (isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
@@ -236,6 +237,7 @@ if (isset($_POST['verify_otp'])){
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="assets/js/script.min.js"></script>

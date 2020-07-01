@@ -3,7 +3,7 @@ include("includes/header.php");
 // include("includes/form_handlers/settings_handler.php");
 $profile_pic = $user['profile_pic'];
 $user_profile = $user['profile'];
- $added_profile = $user['added_profile'];
+$added_profile = $user['added_profile'];
 
 //profile pic upload section start
 
@@ -92,78 +92,83 @@ $row = mysqli_fetch_array($result);
                     <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                 </div>
                 <div class="card-body">
-                    <div class="form-row">
-                        <div class="col">
                             <form id="save_contact_settings">
                                 <input type="hidden" class="form-control" name="inputName" id="isPressedContactSettings"
                                     value="isPressedContactSettings">
-
-                                <div class="form-group">
-                                    <input class="form-control" type="text" onkeyup="getExtLiveLoadLocation(this.value)" placeholder="Location" id="location"
-                                        value="<?php echo $user['location'];?>" autocomplete="off">
-                                        <div id="profile_location"></div>
+                                <div class="form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" onkeyup="getExtLiveLoadLocation(this.value)" placeholder="Location" id="location"
+                                                value="<?php echo $user['location'];?>" autocomplete="off">
+                                                <label for="location">Location</label>
+                                                <div id="profile_location"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="email" placeholder="Email" name="email" id="email"
+                                                value="<?php echo $user['email'];?>" autocomplete="off">
+                                                <label for="email">Email</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="Office Number" id="office_no"
-                                        value="<?php echo $user['office_no'];?>" maxlength="11" autocomplete="off">
+                                <div class="form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Office Number" id="office_no"
+                                                value="<?php echo $user['office_no'];?>" maxlength="11" autocomplete="off">
+                                                <label for="office_no">Office Number</label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Residential Address"
+                                                id="residential_address" value="<?php echo $user['residential_address'];?>"
+                                                autocomplete="off">
+                                                <label for="residential_address">Residential Address</label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
-                            if ($added_profile == "interior") { 
-                                echo "checked='checked'"; 
-                                echo "value='no'";  
-                            } 
-                            // elseif($added_profile == "no"){
-                            //     echo "value='interior'";                                    
-                            //     echo "checked='unchecked'"; 
-                            //     }
-                                ?> />
-                                <script>
-                                        $(document).on("click", "#profile_location .city", function() {
-                                            var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
-                                            $('#location').val(clickedBtnID);
-                                        });
-                                        </script>
-                                    <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
-                                        Designer
-                                        also</label>
+                                <div class="form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox mb-3">
+                                                <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
+                                        if ($added_profile == "interior") { 
+                                            echo "checked='checked'"; 
+                                            echo "value='no'";  
+                                        } 
+                                            ?> />
+                                            <script>
+                                                    $(document).on("click", "#profile_location .city", function() {
+                                                        var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                                        $('#location').val(clickedBtnID);
+                                                    });
+                                                    </script>
+                                                <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
+                                                    Designer
+                                                    also</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Office Address" id="office_address"
+                                                value="<?php echo $user['office_address'];?>" autocomplete="off">
+                                                <label for="office_address">Office Address  </label>
+                                        </div>
+                                    </div>
                                 </div>
-
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email" name="email" id="email"
-                                    value="<?php echo $user['email'];?>" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Residential Address"
-                                    id="residential_address" value="<?php echo $user['residential_address'];?>"
-                                    autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Office Address" id="office_address"
-                                    value="<?php echo $user['office_address'];?>" autocomplete="off">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col">
-
-                        </div>
-                        <div class="col">
-
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-sm mt-2" type="submit">
-                            Save Settings</button>
-                    </div>
-                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm mt-2" type="submit">
+                                            Save Settings</button>
+                                    </div>
+                                </div>
+                            </form>
             </div>
-
-            </form>
+            </div>
             <div class="card shadow-sm">
                 <div class="card-header py-3">
                     <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
@@ -177,44 +182,50 @@ $row = mysqli_fetch_array($result);
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="COA No." id="coa_no"
                                         value="<?php echo $user['coa_no'];?>" autocomplete="off" />
+                                        <label for="coa_no">COA Number</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="About Me" id="about_me"
-                                        rows="2"><?php echo $user['about_me'];?></textarea>
+                                <div class="form-label-group">
+                                    <input class="form-control" placeholder="About Me" id="about_me"
+                                        rows="2" value="<?php echo $user['about_me'];?>"/>
+                                        <label for="about_me">About Me</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="Instagram Id."
                                         id="instagram_id" value="<?php echo $user['instagram_id'];?>"
                                         autocomplete="off" />
+                                        <label for="instagram_id">Instagram Id</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="Facebook Id." id="facebook_id"
                                         value="<?php echo $user['facebook_id'];?>" autocomplete="off" />
+                                        <label for="facebook_id">Facebook Id</label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="Youtube Id." id="youtube_id"
                                         value="<?php echo $user['youtube_id'];?>" autocomplete="off" />
+                                        <label for="youtube_id">Youtube Id</label>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="form-group">
+                                <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="Linkedin Id." id="linkedin_id"
                                         value="<?php echo $user['linkedin_id'];?>" autocomplete="off" />
+                                        <label for="linkedin_id">Linkedin Id</label>
                                 </div>
                             </div>
                         </div>
@@ -224,8 +235,8 @@ $row = mysqli_fetch_array($result);
                     </form>
                 </div>
             </div>
+            <!-- card End -->
         </div>
-
     </div>
 </div>
 </div>
@@ -235,7 +246,8 @@ $row = mysqli_fetch_array($result);
         <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
     </div>
 </footer>
-</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
@@ -313,7 +325,5 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </body>
-
 </html>

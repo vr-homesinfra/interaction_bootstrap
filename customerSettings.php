@@ -61,7 +61,7 @@ $row = mysqli_fetch_array($result);
 ?>
 <div class="container-fluid">
     <h3 class="text-gray-900 mb-4">Profile: <?php
-           echo $row['profile'];    
+            echo $row['profile'];    
     ?></h3>
     <div class="row mb-3">
         <div class="col-lg-4">
@@ -102,37 +102,37 @@ $row = mysqli_fetch_array($result);
                                         value="customer_is_pressed">
                                 </div>
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="email id." id="email"
                                                 value="<?php echo $user['email'];?>" autocomplete="off">
                                                 <label for="email">Email address</label>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Residential Address"
                                                 id="residential_address"
                                                 value="<?php echo $user['residential_address'];?>" autocomplete="off">
-                                                <label for="email">Residential Address</label>
+                                                <label for="residential_address">Residential Address</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Office Address"
                                                 id="office_address" value="<?php echo $user['office_address'];?>"
                                                 autocomplete="off">
-                                                <label for="email">Office Address</label>
+                                                <label for="office_address">Office Address</label>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm-12 col-md-6">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Mobile Number"
                                                 id="mobile_no2" maxlength="10" value="<?php echo $user['office_no'];?>"
                                                 autocomplete="off">
-                                                <label for="email">Mobile Number</label>
+                                                <label for="mobile_no2">Mobile Number</label>
                                         </div>
                                     </div>
                                 </div>
