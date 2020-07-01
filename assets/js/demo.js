@@ -13,6 +13,7 @@ $(document).click(function(e){
 	if(e.target.class != "search_results" && e.target.id != "search_text_input") {
 
 		$(".search_results").html("");
+		$("#profile_location").html("");
 		$('.search_results_footer').html("");
 		$('.search_results_footer').toggleClass("search_results_footer_empty");
 		$('.search_results_footer').toggleClass("search_results_footer");
@@ -92,7 +93,13 @@ function getExtLiveSearchUsers(value) {
 	});
 
 }
+function getExtLiveLoadLocation(value) {
 
+	$.post("includes/handlers/ajaxCitySearch.php", {query:value}, function(data) {
+		$('#profile_location').html(data);
+	});
+
+}
 function getExtLiveSearchImg(value) {
 
 	$.post("includes/handlers/ajaxCitySearch.php", {query:value}, function(data) {

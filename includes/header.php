@@ -32,7 +32,6 @@ $row = mysqli_fetch_array($result);
         <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
-        <script src="rd/assets/js/demo.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
     </head>
 
@@ -226,7 +225,7 @@ $row = mysqli_fetch_array($result);
                                         </form>
 
                                         <script>
-                                        $(document).on("click", ".city", function() {
+                                        $(document).on("click", ".profiles-list .city, .profiles-list-mobile .city", function() {
                                             var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
                                             $('#top-search').val(clickedBtnID);
                                             $('#mobile-search').val(clickedBtnID);
