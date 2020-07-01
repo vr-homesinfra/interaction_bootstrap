@@ -38,7 +38,7 @@ if(isset($_POST['upload_project_file'])) {
 	if($uploadOk2) {
 		$date = date("Y-m-d H:i:s");
         
-        $insert_query1 = mysqli_query($con, "INSERT INTO fileupload VALUES('','$image_name_orig2', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','','$date', '', '', '$date', '40', '0', '0','$imageName2')");
+        $insert_query1 = mysqli_query($con, "INSERT INTO fileupload VALUES('','$image_name_orig2', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','','$date', '', '', '$date', '0', '0', '0','$imageName2')");
 	}
 	else {
 		echo "<div style='text-align:center;' class='alert alert-danger'>
