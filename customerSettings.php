@@ -103,32 +103,36 @@ $row = mysqli_fetch_array($result);
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group">
+                                        <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="email id." id="email"
                                                 value="<?php echo $user['email'];?>" autocomplete="off">
+                                                <label for="email">Email address</label>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group">
+                                        <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Residential Address"
                                                 id="residential_address"
                                                 value="<?php echo $user['residential_address'];?>" autocomplete="off">
+                                                <label for="email">Residential Address</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                        <div class="form-group">
+                                        <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Office Address"
                                                 id="office_address" value="<?php echo $user['office_address'];?>"
                                                 autocomplete="off">
+                                                <label for="email">Office Address</label>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" placeholder="Mobile No. 2"
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Mobile Number"
                                                 id="mobile_no2" maxlength="10" value="<?php echo $user['office_no'];?>"
                                                 autocomplete="off">
+                                                <label for="email">Mobile Number</label>
                                         </div>
                                     </div>
                                 </div>

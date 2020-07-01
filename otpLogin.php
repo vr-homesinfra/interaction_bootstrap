@@ -40,7 +40,7 @@ if (isset($_SESSION['uname'])) {
                 <a class="navbar-brand" href="#"><img
                         src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
                         alt="homesinfra logo"></a>
-                <a class="btn btn-primary " href="#">Sign In</a>
+                <a class="btn btn-primary " href="interact/otpLogin.php">Sign In</a>
             </div>
         </nav>
         <div class="container">

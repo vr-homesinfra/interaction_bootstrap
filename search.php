@@ -93,7 +93,7 @@ $msg="messages.php?u=";
        $extSearchProfile=rtrim($_GET['profile']);  
        
 echo "
-<div class='col-sm-12 col-md-4 col-lg-3 mx-4 mt-4'>
+<div class='col-sm-12 col-md-4 col-lg-2 mx-4 mt-4'>
         <div class='card shadow-sm border-0 rounded'>
             <img src='". $row['profile_pic'] ."' class='w-100 card-img-top' alt='...'>
             <div class='card-body px-2 text-center'>
@@ -107,7 +107,7 @@ echo "
         </div>
         </div>
         </div>
-        ";
+        ";  
         }
         }
 
