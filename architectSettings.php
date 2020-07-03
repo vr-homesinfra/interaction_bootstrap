@@ -131,7 +131,7 @@ $row = mysqli_fetch_array($result);
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-sm-12 col-md-6 order-2 order-md-1">
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox mb-3">
                                                 <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
@@ -147,12 +147,11 @@ $row = mysqli_fetch_array($result);
                                                     });
                                                     </script>
                                                 <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
-                                                    Designer
-                                                    also</label>
+                                                    Designer also</label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-sm-12 col-md-6 order-1 order-md-2">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Office Address" id="office_address"
                                                 value="<?php echo $user['office_address'];?>" autocomplete="off">
