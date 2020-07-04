@@ -125,7 +125,7 @@ $row = mysqli_fetch_array($result);
                                     class="fas fa-key"></i><span>Forgot Password</span></a></li> -->
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="messages.php"><i
-                                    class="fas fa-exclamation-circle"></i><span>Interactions</span></a></li>
+                                    class="fas fa-exclamation-circle"></i><span>Messages</span></a></li>
 
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="logout.php"><i
                                     class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
