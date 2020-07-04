@@ -7,47 +7,47 @@ $added_profile = $user['added_profile'];
 
 //profile pic upload section start
 
-if(isset($_POST['change_profile_pic_button'])){
+// if(isset($_POST['change_profile_pic_button'])){
     
-	$uploadOk1 = 1;
-	$imageName1 = $_FILES['fileToUpload1']['name'];
-	$errorMessage = "";
+// 	$uploadOk1 = 1;
+// 	$imageName1 = $_FILES['fileToUpload1']['name'];
+// 	$errorMessage = "";
 
-	if($imageName1 != "") {
-		$targetDir1 = "assets/images/profile_pics/";
-		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
-		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
+// 	if($imageName1 != "") {
+// 		$targetDir1 = "assets/images/profile_pics/";
+// 		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
+// 		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
 
-		if($_FILES['fileToUpload1']['size'] > 10000000) {
-			$errorMessage1 = "Sorry your file is too large";
-			$uploadOk1 = 0;
-		}
+// 		if($_FILES['fileToUpload1']['size'] > 10000000) {
+// 			$errorMessage1 = "Sorry your file is too large";
+// 			$uploadOk1 = 0;
+// 		}
 
-		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
-			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
-			$uploadOk1 = 0;
-		}
-		if($uploadOk1) {
-			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
-                //image uploaded okay
-			}
-			else {
-				//image did not upload
-                $uploadOk1 = 0;
-			}
-		}
-	}
-	if($uploadOk1) {
-		//update data 
-        $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
-        // $returned_id = mysqli_insert_id($this->con);
-}
-	else {
-		echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage
-			</div>";
-	}
-}
+// 		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
+// 			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
+// 			$uploadOk1 = 0;
+// 		}
+// 		if($uploadOk1) {
+// 			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
+//                 //image uploaded okay
+// 			}
+// 			else {
+// 				//image did not upload
+//                 $uploadOk1 = 0;
+// 			}
+// 		}
+// 	}
+// 	if($uploadOk1) {
+// 		//update data 
+//         $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
+//         // $returned_id = mysqli_insert_id($this->con);
+// }
+// 	else {
+// 		echo "<div style='text-align:center;' class='alert alert-danger'>
+// 				$errorMessage
+// 			</div>";
+// 	}
+// }
 //gallery images upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
@@ -112,7 +112,7 @@ $row = mysqli_fetch_array($result);
                                         beforeSend: function() {
                                             $('#uploaded_image').html(
                                                 "<label class='text-success'>Image Uploading...</label>"
-                                                );
+                                            );
                                         },
                                         success: function(data) {
                                             $('#uploaded_image').html(data);

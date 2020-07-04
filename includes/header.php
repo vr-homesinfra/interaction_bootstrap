@@ -102,13 +102,26 @@ $row = mysqli_fetch_array($result);
 ?>
                         </li>
 
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="uploadGalleryPic.php"><i
-                                    class="far fa-user-circle"></i><span>Update Gallery</span></a></li>
+                        <li class="nav-item" role="presentation">
+                            <!-- <a class="nav-link" href="uploadGalleryPic.php"> -->
+                            <?php
+                            
+                            // $type_of_creative=$_SESSION['profile'];
+                            if ($user['profile']=="architect") {
+                                echo "<a class='nav-link' href='uploadGalleryPic.php'><i class='fas fa-table'></i><span>Upload Gallery</span>
+                                </a></li>";
+                            }elseif ($user['profile']=="interior") {
+                                echo "<a class='nav-link' href='uploadGalleryPic.php'><i class='fas fa-table'></i><span>Upload Gallery</span>
+                                </a></li>";
+                            }else{
+                                echo "";
+                            }
+    ?>
 
-                        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href=""><i
+                            <!-- <li class="nav-item" role="presentation"><a class="nav-link" href=""><i
                                     class="fas fa-user-circle"></i><span>Track Project</span></a></li> -->
 
-                        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i
+                            <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i
                                     class="fas fa-key"></i><span>Forgot Password</span></a></li> -->
 
                         <li class="nav-item" role="presentation"><a class="nav-link" href="messages.php"><i

@@ -131,13 +131,15 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                             <div class="input-group border">
                                 <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
-
-                                <div class="input-group-append">
-                                    <button id="button-addon2" type="submit" class="btn btn-link" name="post_message">
-                                        <i class="fa fa-paper-plane"></i>
-                                    </button>
+                                <div class="text-center">
+                                    <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
+                                    <div class="input-group-append">
+                                        <button id="button-addon2" type="submit" class="btn btn-link"
+                                            name="post_message">
+                                            <i class="fa fa-paper-plane"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                         </form>
                         <script>
                         var div = document.getElementById("scroll_messages");
