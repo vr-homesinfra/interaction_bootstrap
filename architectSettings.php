@@ -209,27 +209,6 @@ $row = mysqli_fetch_array($result);
                                 </div>
                             </div>
                         </div>
-                        <<<<<<< HEAD <div class="custom-control custom-checkbox mb-3">
-                            <input type="checkbox" class="custom-control-input" id="reg_as_int_des" <?php 
-                            if ($added_profile == "interior") { 
-                                echo "checked='checked'"; 
-                                echo "value='no'";  
-                            } 
-                            // elseif($added_profile == "no"){
-                            //     echo "value='interior'";                                    
-                            //     echo "checked='unchecked'"; 
-                            //     }
-                                ?> />
-                            <script>
-                            $(document).on("click", "#profile_location .city", function() {
-                                var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
-                                $('#location').val(clickedBtnID);
-                            });
-                            </script>
-                            <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
-                                Designer
-                                also</label>
-                            =======
                             <div class="form-row">
                                 <div class="col-sm-12 col-md-6 order-2 order-md-1">
                                     <div class="form-group">
@@ -243,7 +222,7 @@ $row = mysqli_fetch_array($result);
                                             <script>
                                             $(document).on("click", "#profile_location .city", function() {
                                                 var clickedBtnID = $(this)
-                                            .text(); // or var clickedBtnID = this.id
+                                                    .text(); // or var clickedBtnID = this.id
                                                 $('#location').val(clickedBtnID);
                                             });
                                             </script>
@@ -261,7 +240,7 @@ $row = mysqli_fetch_array($result);
                                         <label for="office_address">Office Address </label>
                                     </div>
                                 </div>
-                                >>>>>>> ba3f53e757b9a3003605b72264a5deaf28c989fb
+
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
@@ -292,54 +271,57 @@ $row = mysqli_fetch_array($result);
                                 </div>
                             </div>
                             <div class="col">
-                                <<<<<<< HEAD <div class="form-group">
+                                <div class="form-group">
                                     <textarea class="form-control" placeholder="About Me" id="about_me" rows="2"><?php echo $user['about_me'];?>
                                         </textarea>
-                                    =======
+
                                     <div class="form-label-group">
                                         <input class="form-control" placeholder="About Me" id="about_me" rows="2"
                                             value="<?php echo $user['about_me'];?>" />
                                         <label for="about_me">About Me</label>
-                                        >>>>>>> ba3f53e757b9a3003605b72264a5deaf28c989fb
+
                                     </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-label-group">
-                                    <input class="form-control" type="text" placeholder="Instagram Id."
-                                        id="instagram_id" value="<?php echo $user['instagram_id'];?>"
-                                        autocomplete="off" />
-                                    <label for="instagram_id">Instagram Id</label>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-label-group">
-                                    <input class="form-control" type="text" placeholder="Facebook Id." id="facebook_id"
-                                        value="<?php echo $user['facebook_id'];?>" autocomplete="off" />
-                                    <label for="facebook_id">Facebook Id</label>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-label-group">
+                                        <input class="form-control" type="text" placeholder="Instagram Id."
+                                            id="instagram_id" value="<?php echo $user['instagram_id'];?>"
+                                            autocomplete="off" />
+                                        <label for="instagram_id">Instagram Id</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-label-group">
+                                        <input class="form-control" type="text" placeholder="Facebook Id."
+                                            id="facebook_id" value="<?php echo $user['facebook_id'];?>"
+                                            autocomplete="off" />
+                                        <label for="facebook_id">Facebook Id</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="form-label-group">
-                                    <input class="form-control" type="text" placeholder="Youtube Id." id="youtube_id"
-                                        value="<?php echo $user['youtube_id'];?>" autocomplete="off" />
-                                    <label for="youtube_id">Youtube Id</label>
+                            <div class="form-row">
+                                <div class="col">
+                                    <div class="form-label-group">
+                                        <input class="form-control" type="text" placeholder="Youtube Id."
+                                            id="youtube_id" value="<?php echo $user['youtube_id'];?>"
+                                            autocomplete="off" />
+                                        <label for="youtube_id">Youtube Id</label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-label-group">
+                                        <input class="form-control" type="text" placeholder="Linkedin Id."
+                                            id="linkedin_id" value="<?php echo $user['linkedin_id'];?>"
+                                            autocomplete="off" />
+                                        <label for="linkedin_id">Linkedin Id</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="form-label-group">
-                                    <input class="form-control" type="text" placeholder="Linkedin Id." id="linkedin_id"
-                                        value="<?php echo $user['linkedin_id'];?>" autocomplete="off" />
-                                    <label for="linkedin_id">Linkedin Id</label>
-                                </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
-                        </div>
                     </form>
                 </div>
             </div>
