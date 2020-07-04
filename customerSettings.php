@@ -45,7 +45,7 @@ $row = mysqli_fetch_array($result);
                                         form_data.append("file", document.getElementById('file').files[
                                             0]);
                                         $.ajax({
-                                            url: "architectProfileUpload.php",
+                                            url: "profileUpload.php",
                                             method: "POST",
                                             data: form_data,
                                             contentType: false,

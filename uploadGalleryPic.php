@@ -1,50 +1,7 @@
 <?php
 include("includes/header.php");
 //gallery images upload section starts
-if(isset($_POST['gallery_image_upload'])) {
 
-	$uploadOk3 = 1;
-	$imageName3 = $_FILES['fileToUpload3']['name'];
-	$errorMessage3 = "";
-	$image_name_orig3="";
-	
-	if($imageName3 != "") {
-		$targetDir3 = "assets/gallery_pics/";
-		 $image_name_orig3=basename($imageName3); 
-		 $imageName3 = $targetDir3 . uniqid() . basename($imageName3);
-		 $imageFileType3 = pathinfo($imageName3, PATHINFO_EXTENSION);
-
-		if($_FILES['fileToUpload3']['size'] > 10000000) {
-			$errorMessage3 = "Sorry your file is too large";
-			$uploadOk3 = 0;
-		}
-
-		if(strtolower($imageFileType3) != "jpeg" && strtolower($imageFileType3) != "png" && strtolower($imageFileType3) != "jpg") {
-			$errorMessage3 = "Sorry, only jpeg, jpg and png files are allowed";
-			$uploadOk3 = 0;
-		}
-
-		if($uploadOk3) {
-			if(move_uploaded_file($_FILES['fileToUpload3']['tmp_name'], $imageName3)) {
-                //image uploaded okay
-			}
-			else {
-				//image did not upload
-                $uploadOk3 = 0;
-                $errorMessage3 = "file did not upload";
-			}
-		}
-	}
-	if($uploadOk3) {
-		$date = date("Y-m-d H:i:s");
-        $insert_query2 = mysqli_query($con, "INSERT INTO creative_gallery VALUES('','$image_name_orig3', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','$date','$imageName3')");
-	}
-	else {
-		echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage3
-			</div>";
-	}
-}
 //gallery images upload section ends
 $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLoggedIn' ORDER BY id DESC");
 ?>
@@ -54,18 +11,51 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
 		<p class="text-gray-900 m-0 font-weight-bold">Upload an image</p>
 	</div>
 	<div class="card-body">
-		<form method='post' action='' enctype='multipart/form-data'>
 			<div class=" text-center">
-				<input type="file" id="user_group_logo" class="custom-file-input" accept="image/*" name="fileToUpload3">
-				<div class="text-center btn border-bottom-primary btn-light shadow">
-					<label id="user_group_label" class="mb-0" for="user_group_logo">
-						<i class="fas fa-upload"></i> Choose an Image</label>
-				</div>
-				<div class="text-center mt-3">
-					<button class="btn btn-primary" type="submit" name="gallery_image_upload">Upload</button>
-				</div>
+			<input type="file" id="file" accept="image/*" name="file" value="Post Gallery">
+                            <script>
+                            $(document).ready(function() {
+                                $(document).on('change', '#file', function() {
+                                    var name = document.getElementById("file").files[0].name;
+                                    var form_data = new FormData();
+                                    var ext = name.split('.').pop().toLowerCase();
+                                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                        alert("Invalid Image File");
+                                    }
+                                    var oFReader = new FileReader();
+                                    oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                    var f = document.getElementById("file").files[0];
+                                    var fsize = f.size || f.fileSize;
+                                    if (fsize > 2000000) {
+                                        alert("Image File Size is very big");
+                                    } else {
+                                        form_data.append("file", document.getElementById('file').files[
+                                            0]);
+                                        $.ajax({
+                                            url: "galleryUpload.php",
+                                            method: "POST",
+                                            data: form_data,
+                                            contentType: false,
+                                            cache: false,
+                                            processData: false,
+                                            beforeSend: function() {
+                                                $('#uploaded_image img').attr('src',
+                                                    'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
+                                                );
+                                            },
+                                            success: function(data) {
+                                                // $('#uploaded_image').html(data);
+                                                // var rdimagepath = data;
+                                                // $('#uploaded_image img, #uploaded_image_header img')
+                                                //     .attr('src', data);
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                            </script>
+
 			</div>
-		</form>
 		<!--card body end  -->
 	</div>
 </div>
@@ -145,5 +135,4 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
 <script src="assets/js/rdjsfile.js"></script>
 <script src="assets/js/demo.js"></script>
 </body>
-
 </html>
