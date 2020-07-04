@@ -8,7 +8,7 @@
  
   if (isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
 	$mobile_no = $_SESSION['mobile_no'];
-	$userLoggedIn = $_SESSION['userLoggedIn'];
+    $userLoggedIn = $_SESSION['userLoggedIn'];
 	$user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
 	$user = mysqli_fetch_array($user_details_query);
 }
@@ -225,11 +225,12 @@ $row = mysqli_fetch_array($result);
                                         </form>
 
                                         <script>
-                                        $(document).on("click", ".profiles-list .city, .profiles-list-mobile .city", function() {
-                                            var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
-                                            $('#top-search').val(clickedBtnID);
-                                            $('#mobile-search').val(clickedBtnID);
-                                        });
+                                        $(document).on("click", ".profiles-list .city, .profiles-list-mobile .city",
+                                            function() {
+                                                var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                                $('#top-search').val(clickedBtnID);
+                                                $('#mobile-search').val(clickedBtnID);
+                                            });
                                         </script>
                                         <!-- <div
                                             class="profiles-list w-100 dropdown-menu dropdown-menu-animated mt-n2 d-block  dropdown-lg bg-transparent col-md-6 border-0 search_results"> -->
@@ -267,9 +268,10 @@ $row = mysqli_fetch_array($result);
                                                   echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <!-- <img id="profile_img" class="border rounded-circle img-profile" src="<?php
-                                                        echo $row['profile_pic'];     
-                                                ?>"> -->
+                                            <span id="uploaded_image_header">
+                                                <img id="uploaded_image_img" class="rounded-circle mb-3 mt-4"
+                                                    src="<?php echo $row['profile_pic']; ?>" width="40"
+                                                    height="40"></span>
                                         </a>
 
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"

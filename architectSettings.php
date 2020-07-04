@@ -3,55 +3,54 @@ include("includes/header.php");
 // include("includes/form_handlers/settings_handler.php");
 $profile_pic = $user['profile_pic'];
 $user_profile = $user['profile'];
- $added_profile = $user['added_profile'];
+$added_profile = $user['added_profile'];
 
 //profile pic upload section start
 
-if(isset($_POST['change_profile_pic_button'])){
+// if(isset($_POST['change_profile_pic_button'])){
     
-	$uploadOk1 = 1;
-	$imageName1 = $_FILES['fileToUpload1']['name'];
-	$errorMessage = "";
+// 	$uploadOk1 = 1;
+// 	$imageName1 = $_FILES['fileToUpload1']['name'];
+// 	$errorMessage = "";
 
-	if($imageName1 != "") {
-		$targetDir1 = "assets/images/profile_pics/";
-		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
-		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
+// 	if($imageName1 != "") {
+// 		$targetDir1 = "assets/images/profile_pics/";
+// 		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
+// 		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
 
-		if($_FILES['fileToUpload1']['size'] > 10000000) {
-			$errorMessage1 = "Sorry your file is too large";
-			$uploadOk1 = 0;
-		}
+// 		if($_FILES['fileToUpload1']['size'] > 10000000) {
+// 			$errorMessage1 = "Sorry your file is too large";
+// 			$uploadOk1 = 0;
+// 		}
 
-		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
-			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
-			$uploadOk1 = 0;
-		}
-		if($uploadOk1) {
-			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
-                //image uploaded okay
-			}
-			else {
-				//image did not upload
-                $uploadOk1 = 0;
-			}
-		}
-	}
-	if($uploadOk1) {
-		//update data 
-        $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
-        // $returned_id = mysqli_insert_id($this->con);
-}
-	else {
-		echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage
-			</div>";
-	}
-}
+// 		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
+// 			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
+// 			$uploadOk1 = 0;
+// 		}
+// 		if($uploadOk1) {
+// 			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
+//                 //image uploaded okay
+// 			}
+// 			else {
+// 				//image did not upload
+//                 $uploadOk1 = 0;
+// 			}
+// 		}
+// 	}
+// 	if($uploadOk1) {
+// 		//update data 
+//         $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
+//         // $returned_id = mysqli_insert_id($this->con);
+// }
+// 	else {
+// 		echo "<div style='text-align:center;' class='alert alert-danger'>
+// 				$errorMessage
+// 			</div>";
+// 	}
+// }
 //gallery images upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
-
 //profile pic upload section ends
 ?>
 
@@ -61,26 +60,105 @@ $row = mysqli_fetch_array($result);
         <div class="col-lg-4">
             <div class="card shadow-sm mb-3">
                 <div class="card-body text-center">
-                    <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
-                        height="160">
+                    <!-- <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
+                        height="160"> -->
+                    <span id="uploaded_image"><img class="rounded-circle mb-3 mt-4"
+                            src="<?php echo $row['profile_pic']; ?>" width="160" height="160"></span>
                     <div class="mb-3">
-                        <form action="architectSettings.php" method="POST" enctype="multipart/form-data"
-                            name="profile_upload">
+                        <!-- <form action="architectSettings.php" method="POST" enctype="multipart/form-data"
+                            name="profile_upload"> -->
+                        <div class="text-center">
+                            <!-- <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
+                                    name="fileToUpload1"> -->
+                            <label>Select Image</label>
+                            <input type="file" id="file" class="custom-file-input" accept="image/*" name="file">
                             <div class="text-center">
-                                <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
-                                    name="fileToUpload1">
-                                <div class="text-center">
-                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
-                                        for="user_group_logo">
-                                        <i class="fas fa-upload"></i> Select Picture</label>
+                                <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
+                                    for="user_group_logo">
+                                    <i class="fas fa-upload"></i> Select Picture</label>
 
-                                </div>
-                                <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button"
-                                    value="change_profile_pic_button" id="change_profile_pic_button">
-                                    Upload</button>
                             </div>
-                        </form>
-
+                            <!-- <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button"
+                                value="change_profile_pic_button" id="change_profile_pic_button">
+                                Upload</button> -->
+                        </div>
+                        <!-- </form> -->
+                        <!-- ajax profile image upload  -->
+                        <script>
+                        $(document).ready(function() {
+                            $(document).on('change', '#file', function() {
+                                var name = document.getElementById("file").files[0].name;
+                                var form_data = new FormData();
+                                var ext = name.split('.').pop().toLowerCase();
+                                if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                    alert("Invalid Image File");
+                                }
+                                var oFReader = new FileReader();
+                                oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                var f = document.getElementById("file").files[0];
+                                var fsize = f.size || f.fileSize;
+                                if (fsize > 2000000) {
+                                    alert("Image File Size is very big");
+                                } else {
+                                    form_data.append("file", document.getElementById('file').files[0]);
+                                    $.ajax({
+                                        url: "architectProfileUpload.php",
+                                        method: "POST",
+                                        data: form_data,
+                                        contentType: false,
+                                        cache: false,
+                                        processData: false,
+                                        beforeSend: function() {
+                                            $('#uploaded_image').html(
+                                                "<label class='text-success'>Image Uploading...</label>"
+                                            );
+                                        },
+                                        success: function(data) {
+                                            $('#uploaded_image').html(data);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                        </script>
+                        <!-- ajax profile image upload header page pic -->
+                        <script>
+                        $(document).ready(function() {
+                            $(document).on('change', '#file', function() {
+                                var name = document.getElementById("file").files[0].name;
+                                var form_data = new FormData();
+                                var ext = name.split('.').pop().toLowerCase();
+                                if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                    alert("Invalid Image File");
+                                }
+                                var oFReader = new FileReader();
+                                oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                var f = document.getElementById("file").files[0];
+                                var fsize = f.size || f.fileSize;
+                                if (fsize > 2000000) {
+                                    alert("Image File Size is very big");
+                                } else {
+                                    form_data.append("file", document.getElementById('file').files[0]);
+                                    $.ajax({
+                                        url: "architectProfileUpload.php",
+                                        method: "POST",
+                                        data: form_data,
+                                        contentType: false,
+                                        cache: false,
+                                        processData: false,
+                                        beforeSend: function() {
+                                            $('#uploaded_image_header').html(
+                                                "<label class='text-success'>Image Uploading...</label>"
+                                            );
+                                        },
+                                        success: function(data) {
+                                            $('#uploaded_image_header').html(data);
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -99,9 +177,10 @@ $row = mysqli_fetch_array($result);
                                     value="isPressedContactSettings">
 
                                 <div class="form-group">
-                                    <input class="form-control" type="text" onkeyup="getExtLiveLoadLocation(this.value)" placeholder="Location" id="location"
-                                        value="<?php echo $user['location'];?>" autocomplete="off">
-                                        <div id="profile_location"></div>
+                                    <input class="form-control" type="text" onkeyup="getExtLiveLoadLocation(this.value)"
+                                        placeholder="Location" id="location" value="<?php echo $user['location'];?>"
+                                        autocomplete="off">
+                                    <div id="profile_location" required></div>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="Office Number" id="office_no"
@@ -118,12 +197,12 @@ $row = mysqli_fetch_array($result);
                             //     echo "checked='unchecked'"; 
                             //     }
                                 ?> />
-                                <script>
-                                        $(document).on("click", "#profile_location .city", function() {
-                                            var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
-                                            $('#location').val(clickedBtnID);
-                                        });
-                                        </script>
+                                    <script>
+                                    $(document).on("click", "#profile_location .city", function() {
+                                        var clickedBtnID = $(this).text(); // or var clickedBtnID = this.id
+                                        $('#location').val(clickedBtnID);
+                                    });
+                                    </script>
                                     <label class="custom-control-label" for="reg_as_int_des">Register as an Interior
                                         Designer
                                         also</label>
@@ -184,8 +263,8 @@ $row = mysqli_fetch_array($result);
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="About Me" id="about_me"
-                                        rows="2"><?php echo $user['about_me'];?></textarea>
+                                    <textarea class="form-control" placeholder="About Me" id="about_me" rows="2"><?php echo $user['about_me'];?>
+                                        </textarea>
                                 </div>
                             </div>
                         </div>
