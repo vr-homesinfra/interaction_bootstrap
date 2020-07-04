@@ -31,8 +31,6 @@ class Message {
 		if($body != "") {
 			$userLoggedIn = $this->user_obj->getUsername();
             $query = mysqli_query($this->con, "INSERT INTO messages VALUES('', '$user_to', '$userLoggedIn', '$body', '$date', 'no', 'no', 'no','$imageName')");
-            //upload to db from message page
-            $query = mysqli_query($this->con, "INSERT INTO fileupload VALUES('','', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','$user_to','$date', '$body', 'ankit', '$date', '0', '0', '0','$imageName')");
 		}
 	}
 
