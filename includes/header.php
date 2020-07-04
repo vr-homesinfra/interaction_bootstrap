@@ -20,6 +20,7 @@ $row = mysqli_fetch_array($result);
 ?>
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -32,6 +33,7 @@ $row = mysqli_fetch_array($result);
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
     </head>
+
     <body id="page-top" class="">
         <div id="wrapper">
             <nav
@@ -262,10 +264,10 @@ $row = mysqli_fetch_array($result);
                                                     echo "Hello ".$user['first_name']." ".$user['last_name'];  
                                                 ?>
                                             </span>
-                                            <span id="uploaded_image_header">
+                                            <!-- <span id="uploaded_image_header">
                                                 <img id="uploaded_image_img" class="rounded-circle mb-3 mt-4"
                                                     src="<?php echo $row['profile_pic']; ?>" width="40"
-                                                    height="40"></span>
+                                                    height="40"></span> -->
                                         </a>
 
                                         <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"
