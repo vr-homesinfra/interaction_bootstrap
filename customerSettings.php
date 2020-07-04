@@ -10,52 +10,6 @@ if (isset($_SESSION['uname'])) {
     // header("Location:http://localhost/interaction_bootstrap/".$check);
     unset($_SESSION["uname"]);
 }
-//profile pic upload section start
-
-// if(isset($_POST['change_profile_pic_button'])){
-    
-// 	$uploadOk1 = 1;
-// 	$imageName1 = $_FILES['fileToUpload1']['name'];
-// 	$errorMessage = "";
-
-// 	if($imageName1 != "") {
-// 		$targetDir1 = "assets/images/profile_pics/";
-// 		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
-// 		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
-
-// 		if($_FILES['fileToUpload1']['size'] > 10000000) {
-// 			$errorMessage1 = "Sorry your file is too large";
-// 			$uploadOk1 = 0;
-// 		}
-
-// 		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
-// 			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
-// 			$uploadOk1 = 0;
-// 		}
-// 		if($uploadOk1) {
-// 			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
-//                 //image uploaded okay
-// 			}
-// 			else {
-// 				//image did not upload
-// 				$uploadOk1 = 0;
-// 			}
-// 		}
-// 	}
-// 	if($uploadOk1) {
-// 		//update data 
-//         $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
-//         // $returned_id = mysqli_insert_id($this->con);
-//         $_SESSION['upload_status']=$uploadOk1;
-
-// }
-// 	else {
-// 		echo "<div style='text-align:center;' class='alert alert-danger'>
-// 				$errorMessage
-// 			</div>";
-// 	}
-// }
-//profile pic upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
 ?>
@@ -70,19 +24,8 @@ $row = mysqli_fetch_array($result);
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
-                        <!-- <form action="" method="POST" enctype="multipart/form-data"> -->
                         <div class="text-center">
                             <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
-
-                            <!-- <div class="text-center"> -->
-                            <!-- <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
-                                    for="user_group_logo">
-                                    <i class="fas fa-upload"></i> Select Picture</label>
-                            </div>
-                            <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
-                                Upload</button> -->
-                            <!-- </div> -->
-                            <!-- </form> -->
                             <script>
                             $(document).ready(function() {
                                 $(document).on('change', '#file', function() {
@@ -128,8 +71,8 @@ $row = mysqli_fetch_array($result);
                     </div>
                 </div>
             </div>
+        </div>
             <div class="col-lg-8">
-
                 <div class="row">
                     <div class="col">
                         <div class="card shadow-sm">
@@ -190,11 +133,7 @@ $row = mysqli_fetch_array($result);
             </div>
         </div>
 
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
-            </div>
-        </footer>
+        
     </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 </div>
