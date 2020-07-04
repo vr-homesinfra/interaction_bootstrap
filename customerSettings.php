@@ -12,49 +12,49 @@ if (isset($_SESSION['uname'])) {
 }
 //profile pic upload section start
 
-if(isset($_POST['change_profile_pic_button'])){
+// if(isset($_POST['change_profile_pic_button'])){
     
-	$uploadOk1 = 1;
-	$imageName1 = $_FILES['fileToUpload1']['name'];
-	$errorMessage = "";
+// 	$uploadOk1 = 1;
+// 	$imageName1 = $_FILES['fileToUpload1']['name'];
+// 	$errorMessage = "";
 
-	if($imageName1 != "") {
-		$targetDir1 = "assets/images/profile_pics/";
-		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
-		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
+// 	if($imageName1 != "") {
+// 		$targetDir1 = "assets/images/profile_pics/";
+// 		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
+// 		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
 
-		if($_FILES['fileToUpload1']['size'] > 10000000) {
-			$errorMessage1 = "Sorry your file is too large";
-			$uploadOk1 = 0;
-		}
+// 		if($_FILES['fileToUpload1']['size'] > 10000000) {
+// 			$errorMessage1 = "Sorry your file is too large";
+// 			$uploadOk1 = 0;
+// 		}
 
-		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
-			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
-			$uploadOk1 = 0;
-		}
-		if($uploadOk1) {
-			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
-                //image uploaded okay
-			}
-			else {
-				//image did not upload
-				$uploadOk1 = 0;
-			}
-		}
-	}
-	if($uploadOk1) {
-		//update data 
-        $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
-        // $returned_id = mysqli_insert_id($this->con);
-        $_SESSION['upload_status']=$uploadOk1;
+// 		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
+// 			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
+// 			$uploadOk1 = 0;
+// 		}
+// 		if($uploadOk1) {
+// 			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
+//                 //image uploaded okay
+// 			}
+// 			else {
+// 				//image did not upload
+// 				$uploadOk1 = 0;
+// 			}
+// 		}
+// 	}
+// 	if($uploadOk1) {
+// 		//update data 
+//         $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
+//         // $returned_id = mysqli_insert_id($this->con);
+//         $_SESSION['upload_status']=$uploadOk1;
 
-}
-	else {
-		echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage
-			</div>";
-	}
-}
+// }
+// 	else {
+// 		echo "<div style='text-align:center;' class='alert alert-danger'>
+// 				$errorMessage
+// 			</div>";
+// 	}
+// }
 //profile pic upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
@@ -70,90 +70,132 @@ $row = mysqli_fetch_array($result);
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="text-center">
-                                <input type="file" id="user_group_logo" class="custom-file-input" accept="image/*"
-                                    name="fileToUpload1">
-                                <div class="text-center">
-                                    <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
-                                        for="user_group_logo">
-                                        <i class="fas fa-upload"></i> Select Picture</label>
-                                </div>
-                                <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
-                                    Upload</button>
+                        <!-- <form action="" method="POST" enctype="multipart/form-data"> -->
+                        <div class="text-center">
+                            <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
+                            name="fileToUpload1">
+                            <!-- <div class="text-center"> -->
+                            <!-- <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
+                                    for="user_group_logo">
+                                    <i class="fas fa-upload"></i> Select Picture</label>
                             </div>
-                        </form>
+                            <button class="btn btn-primary mt-2" type="submit" name="change_profile_pic_button">
+                                Upload</button> -->
+                            <!-- </div> -->
+                            <!-- </form> -->
+                            <script>
+                            $(document).ready(function() {
+                                $(document).on('change', '#file', function() {
+                                    var name = document.getElementById("file").files[0].name;
+                                    var form_data = new FormData();
+                                    var ext = name.split('.').pop().toLowerCase();
+                                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                        alert("Invalid Image File");
+                                    }
+                                    var oFReader = new FileReader();
+                                    oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                    var f = document.getElementById("file").files[0];
+                                    var fsize = f.size || f.fileSize;
+                                    if (fsize > 2000000) {
+                                        alert("Image File Size is very big");
+                                    } else {
+                                        form_data.append("file", document.getElementById('file').files[
+                                            0]);
+                                        $.ajax({
+                                            url: "architectProfileUpload.php",
+                                            method: "POST",
+                                            data: form_data,
+                                            contentType: false,
+                                            cache: false,
+                                            processData: false,
+                                            beforeSend: function() {
+                                                $('#uploaded_image').html(
+                                                    "<label class='text-success'>Image Uploading...</label>"
+                                                );
+                                            },
+                                            success: function(data) {
+                                                // $('#uploaded_image').html(data);
+
+                                                // $('#uploaded_image_header').html(data);
+                                                // $('#uploaded_image img').attr('src', data);
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-8">
+            <div class="col-lg-8">
 
-            <div class="row">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <div class="card-header py-3">
-                            <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
-                        </div>
-                        <div class="card-body">
-                            <form id="customer_settings">
-                                <div class="form-group">
-                                    <input type="hidden" class="form-control" name="inputName" id="customer_is_pressed"
-                                        value="customer_is_pressed">
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-label-group">
-                                            <input class="form-control" type="text" placeholder="email id." id="email"
-                                                value="<?php echo $user['email'];?>" autocomplete="off">
+                <div class="row">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <div class="card-header py-3">
+                                <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
+                            </div>
+                            <div class="card-body">
+                                <form id="customer_settings">
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" name="inputName"
+                                            id="customer_is_pressed" value="customer_is_pressed">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-label-group">
+                                                <input class="form-control" type="text" placeholder="email id."
+                                                    id="email" value="<?php echo $user['email'];?>" autocomplete="off">
                                                 <label for="email">Email address</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-label-group">
-                                            <input class="form-control" type="text" placeholder="Residential Address"
-                                                id="residential_address"
-                                                value="<?php echo $user['residential_address'];?>" autocomplete="off">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-label-group">
+                                                <input class="form-control" type="text"
+                                                    placeholder="Residential Address" id="residential_address"
+                                                    value="<?php echo $user['residential_address'];?>"
+                                                    autocomplete="off">
                                                 <label for="residential_address">Residential Address</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-label-group">
-                                            <input class="form-control" type="text" placeholder="Office Address"
-                                                id="office_address" value="<?php echo $user['office_address'];?>"
-                                                autocomplete="off">
+                                    <div class="form-row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-label-group">
+                                                <input class="form-control" type="text" placeholder="Office Address"
+                                                    id="office_address" value="<?php echo $user['office_address'];?>"
+                                                    autocomplete="off">
                                                 <label for="office_address">Office Address</label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-label-group">
-                                            <input class="form-control" type="text" placeholder="Mobile Number"
-                                                id="mobile_no2" maxlength="10" value="<?php echo $user['office_no'];?>"
-                                                autocomplete="off">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-label-group">
+                                                <input class="form-control" type="text" placeholder="Mobile Number"
+                                                    id="mobile_no2" maxlength="10"
+                                                    value="<?php echo $user['office_no'];?>" autocomplete="off">
                                                 <label for="mobile_no2">Mobile Number</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
-        </div>
-    </footer>
-</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
+            </div>
+        </footer>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 </div>
 </div>
