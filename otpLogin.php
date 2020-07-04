@@ -1,6 +1,6 @@
 <?php
 require "config/config.php";
- 
+
 $userLoggedIn="";
 $fname = ""; //First name
 $lname = ""; //Last name
@@ -23,7 +23,6 @@ if (isset($_SESSION['uname'])) {
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -32,6 +31,10 @@ if (isset($_SESSION['uname'])) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
     </head>
 
     <body class="">
@@ -40,7 +43,7 @@ if (isset($_SESSION['uname'])) {
                 <a class="navbar-brand" href="#"><img
                         src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
                         alt="homesinfra logo"></a>
-                <a class="btn btn-primary " href="interact/otpLogin.php">Sign In</a>
+                <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
         </nav>
         <div class="container">
@@ -55,9 +58,9 @@ if (isset($_SESSION['uname'])) {
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="p-5">
+                                    <div class="p-4 p-md-5">
                                         <div class="text-center">
-                                            <h4 class="text-dark mb-4">Welcome to HomesInfra</h4>
+                                            <h4 class="text-gray-900 mb-4">Welcome to HomesInfra</h4>
                                         </div>
                                         <?php
                                     if (isset($_POST['send_otp'])){ 
@@ -65,15 +68,15 @@ if (isset($_SESSION['uname'])) {
                                         
                                         $mobile_no = strip_tags($_POST['enter_mobile_no']); //Remove html tags
                                         $mobile_no = str_replace(' ', '', $mobile_no); //remove spaces
-                                         $_SESSION['mobile_no'] = $mobile_no;  
-                                         
-                                         $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
-                                         $check_login_query = mysqli_num_rows($check_database_query);
-                                         
-                                     if($check_login_query == 1) {
-                                         
+                                        $_SESSION['mobile_no'] = $mobile_no;  
+                                        
+                                        $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
+                                        $check_login_query = mysqli_num_rows($check_database_query);
+                                        
+                                    if($check_login_query == 1) {
+                                        
                             $YourAPIKey='c296cc1f-af95-11ea-9fa5-0200cd936042';
-                                         
+                                        
                             $SentTo=$mobile_no; ### Customer's phone number in International number format ( with leading + sign)
                                             
                             ### Sending OTP to Customer's Number
@@ -90,7 +93,33 @@ if (isset($_SESSION['uname'])) {
                             $_SESSION['OTPSessionId']=$Response_json->Details;
                             $otp_success="OTP sent successfully";                                  
                                 }else{
-                             header("Location: otpRegister.php");                                    
+                            // header("Location: otpRegister.php"); 
+                            echo "
+                            <!-- Modal -->
+                            <div class='modal fade' id='exampleModalCenter' tabindex='-1' role='dialog'>
+                            <div class='modal-dialog modal-dialog-centered' role='document'>
+                              <div class='modal-content'> 
+                                <div class='modal-header'>
+                                  <h5 class='modal-title text-gray-900' id='exampleModalLongTitle'>New User</h5>
+                                  <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                  </button>
+                                </div>
+                                <div class='modal-body'>
+                                The number you have entered is not registered.
+                                Kindly Register!
+                                </div>
+                                <div class='modal-footer'>
+                                  <!-- <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button> -->
+                                  <a href='./otpRegister.php' class='btn btn-primary bg-gradient-primary'>Register Now</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Modal End -->   
+                                    <script>$('#exampleModalCenter').modal();</script>
+                                      
+                            ";                                   
                                 }
                             }
                                 
@@ -122,7 +151,7 @@ if (isset($_POST['verify_otp'])){
     #$API_Response_json=json_decode(file_get_contents("https://2factor.in/API/V1/$YourAPIKey/SMS/VERIFY3/$SentTo/$verify_otp"),false);
     $mobile_no=$_SESSION['mobile_no'];
     $url = "https://2factor.in/API/V1/$YourAPIKey/SMS/VERIFY3/$mobile_no/$recvd_otp"; 
-   #echo $VerificationStatus= $API_Response_json->Details;
+    #echo $VerificationStatus= $API_Response_json->Details;
     $ch = curl_init(); 
     curl_setopt($ch, CURLOPT_URL,$url); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -133,7 +162,7 @@ if (isset($_POST['verify_otp'])){
     ### Parse API Response to check if OTP matched or mismatched
     $Response_json=json_decode($Response,false);
     if ( $Response_json->Details =='OTP Matched'){
-         
+        
     $mobile_no=$_SESSION['mobile_no'];
                                             
             $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
@@ -146,9 +175,9 @@ if (isset($_POST['verify_otp'])){
 	        $user_profile = $_row['profile'];
 
      //after login,the session variable is set for the user from here
-          $_SESSION['mobile_no'] = $mobile_no;
-          $_SESSION['userLoggedIn'] = $userLoggedIn;
-          $_SESSION['user_profile'] = $user_profile;
+            $_SESSION['mobile_no'] = $mobile_no;
+            $_SESSION['userLoggedIn'] = $userLoggedIn;
+            $_SESSION['user_profile'] = $user_profile;
             
             //profile based redirection
             if (isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
@@ -176,12 +205,12 @@ if (isset($_POST['verify_otp'])){
                                         <form class="user" method="POST" action="otpLogin.php">
                                             <div class="form-group">
                                                 <!-- enter mobile no. for checking db & otp -->
-                                                <input class="form-control form-control-user" id="exampleInputPassword"
-                                                    placeholder="Enter Registered Mobile No." name="enter_mobile_no"
+                                                <input class="form-control form-control-user text-center" id="exampleInputPassword"
+                                                    placeholder="Enter registered mobile number" name="enter_mobile_no"
                                                     minlength="10" maxlength="10" autocomplete="off" type="text">
                                             </div>
                                             <!--send otp button -->
-                                            <button class="btn btn-outline-primary active btn-block text-white btn-user"
+                                            <button class="btn btn-outline-primary btn-block btn-user"
                                                 type="submit" name="send_otp">Send OTP</button>
                                             <div id="otp_sent" class="text-center">
                                                 <?php
@@ -199,17 +228,17 @@ if (isset($_POST['verify_otp'])){
                                             <hr>
                                             <div class="form-group">
                                                 <!--enter otp received  on mobile -->
-                                                <input class="form-control form-control-user" id="exampleInputPassword"
+                                                <input class="form-control form-control-user text-center" id="exampleInputPassword"
                                                     placeholder="Enter received OTP" name="recvd_otp" minlength="5"
                                                     maxlength="6" autocomplete="off" type="text">
                                             </div>
                                             <!-- validate mobile no. in db & otp -->
                                             <!-- & then redirect to profile page -->
-                                            <button class="btn btn-outline-primary active btn-block text-white btn-user"
+                                            <button class="btn btn-primary bg-gradient-primary btn-block btn-user"
                                                 type="submit" name="verify_otp">Verify & Login</button>
                                             <div id="verify_sent_otp" class="text-center">
                                                 <?php
-                                                echo $otp_failure;  
+                                                echo $otp_failure;
                                                 ?>
                                             </div>
                                             <script>
@@ -221,8 +250,8 @@ if (isset($_POST['verify_otp'])){
                                             <hr>
                                         </form>
                                         <div class="text-center text-secondary">
-                                            <a class="small" href="otpRegister.php">Visiting first
-                                                time?&nbspCreate an
+                                            <a class="" href="otpRegister.php">Visiting first
+                                                time? Create an
                                                 Account!</a>
                                         </div>
                                     </div>
@@ -236,6 +265,7 @@ if (isset($_POST['verify_otp'])){
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="assets/js/script.min.js"></script>

@@ -70,7 +70,7 @@ $str="";
                 <li class="nav-item active"></li>
             </ul>
             <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
-                href="http://homesinfra.com/interact/otpLogin.php">Login</a>
+                href="./otpLogin.php">Sign in</a>
 
         </nav>
         <style>

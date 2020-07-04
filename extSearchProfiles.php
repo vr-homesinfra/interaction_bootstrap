@@ -65,7 +65,7 @@ else {
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
             </ul>
-            <a class=" rounded-pill btn bg-orange my-2 my-sm-0" href="">Login</a>
+            <a class=" rounded-pill btn bg-orange my-2 my-sm-0" href="./otpLogin.php">Sign in</a>
 
         </nav>
         <div class="container mt-5">
