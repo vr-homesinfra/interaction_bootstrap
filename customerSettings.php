@@ -66,14 +66,14 @@ $row = mysqli_fetch_array($result);
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card shadow-sm mb-3">
-                <div class="card-body text-center">
+                <div class="card-body text-center" id="uploaded_image">
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
                         <!-- <form action="" method="POST" enctype="multipart/form-data"> -->
                         <div class="text-center">
                             <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
-                            name="fileToUpload1">
+
                             <!-- <div class="text-center"> -->
                             <!-- <label id="user_group_label" class="btn border-bottom-primary btn-light shadow"
                                     for="user_group_logo">
@@ -83,6 +83,47 @@ $row = mysqli_fetch_array($result);
                                 Upload</button> -->
                             <!-- </div> -->
                             <!-- </form> -->
+                            <script>
+                            $(document).ready(function() {
+                                $(document).on('change', '#file', function() {
+                                    var name = document.getElementById("file").files[0].name;
+                                    var form_data = new FormData();
+                                    var ext = name.split('.').pop().toLowerCase();
+                                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                        alert("Invalid Image File");
+                                    }
+                                    var oFReader = new FileReader();
+                                    oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                    var f = document.getElementById("file").files[0];
+                                    var fsize = f.size || f.fileSize;
+                                    if (fsize > 2000000) {
+                                        alert("Image File Size is very big");
+                                    } else {
+                                        form_data.append("file", document.getElementById('file').files[
+                                            0]);
+                                        $.ajax({
+                                            url: "architectProfileUpload.php",
+                                            method: "POST",
+                                            data: form_data,
+                                            contentType: false,
+                                            cache: false,
+                                            processData: false,
+                                            beforeSend: function() {
+                                                $('#uploaded_image img').attr('src',
+                                                    'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
+                                                );
+                                            },
+                                            success: function(data) {
+                                                // $('#uploaded_image').html(data);
+                                                var rdimagepath = data;
+                                                $('#uploaded_image img, #uploaded_image_header img')
+                                                    .attr('src', data);
+                                            }
+                                        });
+                                    }
+                                });
+                            });
+                            </script>
                         </div>
                     </div>
                 </div>
