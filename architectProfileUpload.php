@@ -14,7 +14,7 @@ if($_FILES["file"]["name"] != '')
   $imagePath = $location . uniqid() . basename($imageName);
 move_uploaded_file($_FILES["file"]["tmp_name"], $imagePath);
  
- echo '<img src="'.$imagePath.'" height="140" width="140"/>';
+ echo $imagePath;
  
 $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imagePath' WHERE username='$userLoggedIn'");
 }

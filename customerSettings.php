@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($result);
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card shadow-sm mb-3">
-                <div class="card-body text-center">
+                <div class="card-body text-center" id="uploaded_image">
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
                     <div class="mb-3">
@@ -109,13 +109,13 @@ $row = mysqli_fetch_array($result);
                                             cache: false,
                                             processData: false,
                                             beforeSend: function() {
-                                                $('#uploaded_image').html(
-                                                    "<label class='text-success'>Image Uploading...</label>"
-                                                );
+                                                $('#uploaded_image img').attr('src', 'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif');
                                             },
                                             success: function(data) {
                                                 // $('#uploaded_image').html(data);
-
+                                                var rdimagepath = data;
+                                                $('#uploaded_image img, #uploaded_image_header img').attr('src', data);
+                                                
                                                 // $('#uploaded_image_header').html(data);
                                                 // $('#uploaded_image img').attr('src', data);
                                             }
