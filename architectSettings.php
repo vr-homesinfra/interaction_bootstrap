@@ -112,19 +112,16 @@ $row = mysqli_fetch_array($result);
                                         beforeSend: function() {
                                             $('#uploaded_image').html(
                                                 "<label class='text-success'>Image Uploading...</label>"
-                                            );
+                                                );
                                         },
                                         success: function(data) {
                                             $('#uploaded_image').html(data);
-                                            // $('#uploaded_image img, #uploaded_image_header img')
-                                            //     .attr('src', data)
                                         }
                                     });
                                 }
                             });
                         });
                         </script>
-
                     </div>
                 </div>
             </div>
