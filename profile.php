@@ -29,13 +29,13 @@ include("includes/header.php");
             $add_friend_query=mysqli_query($con,"UPDATE users SET friend_array=CONCAT(friend_array,'$username,')WHERE username='$userLoggedIn'");
         }
     ?>
-    <div class="border-white profile-card" style="background-color: rgba(255,255,255,0);">
-        <div class="profile-back" style="background-color: rgb(238,140,69);">
+    <div class="border-0 profile-card" style="background-color: rgba(255,255,255,0);">
+        <div class="profile-back bg-white" style="">
         </div>
         <img class="rounded-circle img-fluid border rounded profile-pic" src="<?php
           echo $profilePic;
         ?>">
-        <h3 class="profile-name" style="background-color: rgb(238,140,69);">
+        <h3 class="text-dark " style="">
             <?php
             echo $full_name=$fname." ".$lname;
         ?>
@@ -61,19 +61,22 @@ include("includes/header.php");
             </div>';
             }else{
                 echo '<div class="form-group">
-                <button class=" btn btn-warning  btn-sm flex-fill" type="submit" name="add_friend" style="color: rgb(0,0,0);line-height: 18px;">Add
-            as
-            Favourite</button>
+                <button class=" btn btn-warning btn-sm flex-fill" type="submit" name="add_friend" style="color: rgb(0,0,0);">Add as Favourite</button>
     </div>';
     }
     ?>
 
         </form>
-
-        <p class="profile-bio"><?php
-            echo $about_me;
-        ?>&nbsp;
-        </p>
+        <div class="row"><div class="col-md-6 mx-auto">
+        <div class="card mb-2">
+            <div class="card-body">
+            <p class="text-gray-900">
+                <?php echo $about_me;  ?>
+            </p>    
+            </div>
+        </div>
+        </div></div>
+       
         <ul class="list-group">
             <li class="list-group-item list-group-item-primary" style="background-color: rgb(255,255,255);">
                 <i class="fa fa-volume-control-phone" style="font-size: 22px;">
@@ -91,9 +94,9 @@ include("includes/header.php");
             </li>
         </ul>
     </div>
-    <div class="card shadow">
+    <div class="card shadow-sm">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Gallery</p>
+            <p class="text-gray-900 m-0 font-weight-bold">Gallery</p>
         </div>
         <div class="card-body">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
