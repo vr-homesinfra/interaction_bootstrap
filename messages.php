@@ -142,7 +142,7 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
                                 <div class="text-center">
 
-                                    <input type="file" id="file" accept="image/*" name="file">
+                                    <input type="file" id="file" name="file">
 
                                     <div class="input-group-append">
                                         <button id="button-addon2" type="submit" class="btn btn-link"

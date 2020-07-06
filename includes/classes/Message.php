@@ -48,14 +48,24 @@ class Message {
             $body = $row['body'];
 			$id = $row['id'];
             $imagePath = $row['image'];
-            
-            if ($imagePath!="") {
+            $test = explode('.', $imagePath);
+            $ext = end($test);
+            // if ($imagePath!="") {
+            if ($ext=="jpg" || $ext=="png" || $ext=="jpeg" || $ext=="bmp") {
+            $imageDiv="<div class='postedImage'>
+            <a href='$imagePath' download>
+                <img src='$imagePath' width='104' height='142'>
+            </a>
+            </div>";
+            }else {
+            if ($ext=="pdf"|| $ext=="dwg") {
+                
                 $imageDiv="<div class='postedImage'>
-                <img src='$imagePath'>
+                <a href='$imagePath' download>Download File</a>
                 </div>";
-            }else{
-                $imageDiv="";
+                // $imageDiv="";
             }
+        }
 			// $imagePath = $row['proj_file_name'];
 			$uploaded_on= $row['date'];
 			
