@@ -4,6 +4,7 @@
    
    if (isset($_GET['u'])) {
      $user_to=$_GET['u'];
+     $_SESSION['user_to']=$user_to;
    }else{
      $user_to=$message_obj->getMostRecentUser();
     
@@ -33,6 +34,9 @@
             }
           }
     }
+
+    $result=$con->query("SELECT image FROM messages WHERE user_from='$userLoggedIn'");
+$row = mysqli_fetch_array($result);
 ?>
 <!-- profile pic & details
 <div class="container-fluid">
@@ -112,6 +116,7 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                             </div>
                         </div>
                     </div> -->
+
                     <!-- Chat Box-->
                     <div class="col-12 px-0">
                         <div class="px-2 py-5 chat-box bg-white" id="scroll_messages">
@@ -124,6 +129,10 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 echo $message_obj->getMessages($user_to);                                
                                  }
                         ?>
+                            <!-- <span id="uploaded_image">
+                                <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['image']; ?>" width="160"
+                                    height="160">
+                            </span> -->
                         </div>
 
                         <!-- Typing area -->
@@ -132,7 +141,9 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
                                 <div class="text-center">
-                                    <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
+
+                                    <input type="file" id="file" accept="image/*" name="file">
+
                                     <div class="input-group-append">
                                         <button id="button-addon2" type="submit" class="btn btn-link"
                                             name="post_message">

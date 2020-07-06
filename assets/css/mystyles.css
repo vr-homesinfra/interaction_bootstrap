@@ -119,3 +119,9 @@
 	background-color: rgb(255, 255, 255);
 	padding: 0 6px;
 	}
+	.postedImage img{
+		max-height: 300px;
+		max-width: 100%;
+		display:block;
+		margin: 5px auto;
+	}

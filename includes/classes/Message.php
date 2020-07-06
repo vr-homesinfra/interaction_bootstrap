@@ -45,8 +45,17 @@ class Message {
     while($row = mysqli_fetch_array($get_messages_query)) {
 			$user_to = $row['user_to'];
 			$user_from = $row['user_from'];
-			$body = $row['body'];
+            $body = $row['body'];
 			$id = $row['id'];
+            $imagePath = $row['image'];
+            
+            if ($imagePath!="") {
+                $imageDiv="<div class='postedImage'>
+                <img src='$imagePath'>
+                </div>";
+            }else{
+                $imageDiv="";
+            }
 			// $imagePath = $row['proj_file_name'];
 			$uploaded_on= $row['date'];
 			
@@ -65,7 +74,7 @@ class Message {
 $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='message' id='grey'>";
         // $user_logged_in="<div>$userLoggedIn</div>";
         // $button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>x</span>";
-        $data = $data . $div_top . $body ."</div><br><br>";
+        $data = $data . $div_top . $body .$imageDiv."</div><br><br>";
         // $data = $data .$imageDiv. $div_top . $button . $body . "</div><br><br>";
 
     }
