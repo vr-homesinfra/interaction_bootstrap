@@ -158,7 +158,7 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 var name = document.getElementById("file").files[0].name;
                                 var form_data = new FormData();
                                 var ext = name.split('.').pop().toLowerCase();
-                                if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg', 'pdf', 'dwg']) ==
+                                if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg', 'pdf', 'dwg']) ==
                                     -
                                     1) {
                                     alert("Invalid Image File");
@@ -168,7 +168,7 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                     .getElementById("file").files[0]);
                                 var f = document.getElementById("file").files[0];
                                 var fsize = f.size || f.fileSize;
-                                if (fsize > 2000000) {
+                                if (fsize > 20971520) {
                                     alert("Image File Size is very big");
                                 } else {
                                     form_data.append("file", document.getElementById('file')
@@ -188,6 +188,8 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                         },
                                         success: function(data) {
                                             $('#uploaded_imagex').html(data);
+                                            // alert("File Uploaded");
+                                            location.reload();
                                         }
                                     });
                                 }
