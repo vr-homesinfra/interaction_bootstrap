@@ -54,7 +54,7 @@ class Message {
             if ($ext=="jpg" || $ext=="png" || $ext=="jpeg" || $ext=="bmp") {
             $imageDiv="<div class='postedImage'>
             <a href='$imagePath' download>
-                <img src='$imagePath' width='104' height='142'>
+                <img src='$imagePath' >
             </a>
             </div>";
             }else {
