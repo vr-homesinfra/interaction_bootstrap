@@ -20,6 +20,6 @@ $date_time_now = date("Y-m-d H:i:s");
  
 //upload to db from message page
 // $query = mysqli_query($this->con, "INSERT INTO fileupload VALUES('','', 'application/octet-stream','File Transfer', 'attachment','0','must-revalidate', 'public', '50', '$userLoggedIn','$user_to','$date', '$body', 'ankit', '$date', '0', '0', '0','$imageName')");
-$query = mysqli_query($con, "INSERT INTO messages VALUES('','$user_to','$userLoggedIn','imageUploaded', '$date_time_now','no','no','no', '$imagePath')");
+$query = mysqli_query($con, "INSERT INTO messages VALUES('','$user_to','$userLoggedIn','FileUploaded', '$date_time_now','no','no','no', '$imagePath')");
 } 
 ?>

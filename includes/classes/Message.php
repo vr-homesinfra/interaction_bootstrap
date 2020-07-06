@@ -58,12 +58,13 @@ class Message {
             </a>
             </div>";
             }else {
-            if ($ext=="pdf"|| $ext=="dwg") {
-                
+            if ($ext=="pdf" || $ext=="dwg") {                
                 $imageDiv="<div class='postedImage'>
                 <a href='$imagePath' download>Download File</a>
                 </div>";
-                // $imageDiv="";
+                
+            }else{
+                 $imageDiv="";
             }
         }
 			// $imagePath = $row['proj_file_name'];
