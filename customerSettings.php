@@ -20,6 +20,9 @@ $row = mysqli_fetch_array($result);
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card shadow-sm mb-3">
+                <div class="card-header">
+                    <p class="text-gray-900 m-0 font-weight-bold">Profile Picture</p>
+                </div>
                 <div class="card-body text-center" id="uploaded_image">
                     <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
                         height="160">
