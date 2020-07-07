@@ -80,7 +80,7 @@ include("includes/header.php");
                 echo $mask_number;
                 ?></span>
                 <span><?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>Get Architect's Number    </a>";
+                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>Get Architect's Number</a>";
                 ?></span>
             </div>
         </div>
