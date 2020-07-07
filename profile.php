@@ -51,8 +51,7 @@ include("includes/header.php");
 
         </h3>
         <form method="POST" action="<?php echo $username; ?>">
-
-            <?php
+        <?php
  			$logged_in_user_obj = new User($con, $userLoggedIn); 
              if($logged_in_user_obj->isFriend($username)) {
                 echo '<div class="form-group">
@@ -65,40 +64,34 @@ include("includes/header.php");
     </div>';
     }
     ?>
-
         </form>
-        <div class="row"><div class="col-md-6 mx-auto">
-        <div class="card mb-2">
-            <div class="card-body">
-            <p class="text-gray-900">
-                <?php echo $about_me;  ?>
-            </p>    
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <p class="text-gray-900">
+                    <?php echo $about_me;  ?>
+                </p>
             </div>
         </div>
-        </div></div>
-       
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-primary" style="background-color: rgb(255,255,255);">
-                <i class="fa fa-volume-control-phone" style="font-size: 22px;">
-                </i>
-                <span>&nbsp;
-                    <?php                      
-                        $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
-                    echo $mask_number;    
-                    ?>
-                </span>
-                <span>&nbsp; &nbsp;<?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" .$msg. $username ."' role='button'>Request No. </a>";
-                ?>
-                </span>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <span><?php                      
+                    $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
+                echo $mask_number;
+                ?></span>
+                <span><?php
+                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>Get Architect's Number    </a>";
+                ?></span>
+            </div>
+        </div>
     </div>
     <div class="card shadow-sm">
         <div class="card-header py-3">
             <p class="text-gray-900 m-0 font-weight-bold">Gallery</p>
         </div>
         <div class="card-body">
+            <div>
+                <?php if(!$result->num_rows) { echo "No Gallery Uploaded!";} ?>
+            </div>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php

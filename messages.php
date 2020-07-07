@@ -48,25 +48,34 @@ $row = mysqli_fetch_array($result);
                     <div class="inbox-chat">
                         <!-- Chat List started -->
                         <div class="chat-list">
+                            <div class='row py-2 active'>
+                                <div class='col-md-2 m-auto'>
+                                    <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
+                                </div>
+                                <div class='col-md-10 m-auto'>
+                                   <b>Varonika John</b>
+                                   
+                                </div>
+                                </div>
 <?php
 $i=0;
 while($i<=5) {
     echo "
-    <div class='row py-2'>
-        <div class='col-md-2 m-auto'>
-            <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
-        </div>
-        <div class='col-md-10 m-auto'>
-           <p> <b>80</b></p>
-           
-        </div>
-        </div>
+                            <div class='row py-2'>
+                                <div class='col-md-2 m-auto'>
+                                    <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
+                                </div>
+                                <div class='col-md-10 m-auto'>
+                                <b>80</b>
+                                
+                                </div>
+                                </div>
     ";
     $i++;
 }
 ?>
 
-                        </div>
+                    </div>
                         
 
                         <!-- Chat List end -->
