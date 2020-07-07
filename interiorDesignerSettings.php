@@ -6,49 +6,7 @@ $profile_pic = $user['profile_pic'];
 
 //profile pic upload section start
 
-if(isset($_POST['change_profile_pic_button'])){
-    
-	$uploadOk1 = 1;
-	$imageName1 = $_FILES['fileToUpload1']['name'];
-	$errorMessage = "";
 
-	if($imageName1 != "") {
-		$targetDir1 = "assets/images/profile_pics/";
-		$imageName1 = $targetDir1 . uniqid() . basename($imageName1);
-		$imageFileType1 = pathinfo($imageName1, PATHINFO_EXTENSION);
-
-		if($_FILES['fileToUpload1']['size'] > 10000000) {
-			$large_file_size = "Sorry your filesize is too large";
-			$uploadOk1 = 0;
-		}
-
-		if(strtolower($imageFileType1) != "jpeg" && strtolower($imageFileType1) != "png" && strtolower($imageFileType1) != "jpg") {
-			$errorMessage1 = "Sorry, only jpeg, jpg and png files are allowed";
-			$uploadOk1 = 0;
-		}
-		if($uploadOk1) {
-			if(move_uploaded_file($_FILES['fileToUpload1']['tmp_name'], $imageName1)) {
-                //image uploaded okay
-			}
-			else {
-				//image did not upload
-				$uploadOk1 = 0;
-			}
-		}
-	}
-	if($uploadOk1) {
-		//update data 
-        $update_query1 = mysqli_query($con, "UPDATE users SET profile_pic='$imageName1' WHERE username='$userLoggedIn'");
-        // $returned_id = mysqli_insert_id($this->con);
-        $_SESSION['upload_status']=$uploadOk1;
-
-}
-	else {
-		echo "<div style='text-align:center;' class='alert alert-danger'>
-				$errorMessage
-			</div>";
-	}
-}
 //profile pic upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
 $row = mysqli_fetch_array($result);
@@ -103,14 +61,14 @@ $row = mysqli_fetch_array($result);
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Location" id="location"
                                                 value="<?php echo $user['location'];?>" autocomplete="off">
-                                                <label for="location">Location</label>
+                                            <label for="location">Location</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-label-group">
                                             <input class="form-control" type="email" placeholder="Email" name="email"
                                                 id="email" value="<?php echo $user['email'];?>" autocomplete="off">
-                                                <label for="email">Email</label>
+                                            <label for="email">Email</label>
                                         </div>
 
                                     </div>
@@ -119,28 +77,28 @@ $row = mysqli_fetch_array($result);
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-label-group">
-                                                <input class="form-control" type="text" placeholder="Office Number"
-                                                    id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
-                                                    autocomplete="off">
-                                                    <label for="office_no">Office Number</label>
+                                            <input class="form-control" type="text" placeholder="Office Number"
+                                                id="office_no" value="<?php echo $user['office_no'];?>" maxlength="11"
+                                                autocomplete="off">
+                                            <label for="office_no">Office Number</label>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-label-group">
-                                                <input class="form-control" type="text" placeholder="Residential Address"
-                                                    id="residential_address"
-                                                    value="<?php echo $user['residential_address'];?>" autocomplete="off">
-                                                    <label for="residential_address">Residential Address</label>
+                                            <input class="form-control" type="text" placeholder="Residential Address"
+                                                id="residential_address"
+                                                value="<?php echo $user['residential_address'];?>" autocomplete="off">
+                                            <label for="residential_address">Residential Address</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col">
-                                    <div class="form-label-group">
+                                        <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Office Address"
                                                 id="office_address" value="<?php echo $user['office_address'];?>"
                                                 autocomplete="off">
-                                                <label for="office_address">Office Address</label>
+                                            <label for="office_address">Office Address</label>
                                         </div>
                                     </div>
                                 </div>
@@ -166,9 +124,9 @@ $row = mysqli_fetch_array($result);
                                 <div class="form-row">
                                     <div class="col">
                                         <div class="form-label-group">
-                                            <input class="form-control" placeholder="About Me" id="about_me"
-                                                rows="2" value="<?php echo $user['about_me'];?>"/>  
-                                                <label for="about_me">About Me</label>
+                                            <input class="form-control" placeholder="About Me" id="about_me" rows="2"
+                                                value="<?php echo $user['about_me'];?>" />
+                                            <label for="about_me">About Me</label>
                                         </div>
                                     </div>
                                 </div>
@@ -178,7 +136,7 @@ $row = mysqli_fetch_array($result);
                                             <input class="form-control" type="text" placeholder="Instagram Id."
                                                 id="instagram_id" value="<?php echo $user['instagram_id'];?>"
                                                 autocomplete="off" />
-                                                <label for="office_address">Office Address</label>
+                                            <label for="office_address">Office Address</label>
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +147,7 @@ $row = mysqli_fetch_array($result);
                                             <input class="form-control" type="text" placeholder="Facebook Id."
                                                 id="facebook_id" value="<?php echo $user['facebook_id'];?>"
                                                 autocomplete="off" />
-                                                <label for="facebook_id">Facebook ID</label>
+                                            <label for="facebook_id">Facebook ID</label>
                                         </div>
                                     </div>
                                     <div class="col">
@@ -197,17 +155,17 @@ $row = mysqli_fetch_array($result);
                                             <input class="form-control" type="text" placeholder="Youtube Id."
                                                 id="youtube_id" value="<?php echo $user['youtube_id'];?>"
                                                 autocomplete="off" />
-                                                <label for="youtube_id">Youtube ID</label>
+                                            <label for="youtube_id">Youtube ID</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                <div class="col">
+                                    <div class="col">
                                         <div class="form-label-group">
                                             <input class="form-control" type="text" placeholder="Linkedin Id."
                                                 id="linkedin_id" value="<?php echo $user['linkedin_id'];?>"
                                                 autocomplete="off" />
-                                                <label for="linkedin_id">LinkedIn ID</label>
+                                            <label for="linkedin_id">LinkedIn ID</label>
                                         </div>
                                     </div>
                                 </div>
