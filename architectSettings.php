@@ -103,19 +103,21 @@ $row = mysqli_fetch_array($result);
                                     form_data.append("file", document.getElementById('file').files[
                                         0]);
                                     $.ajax({
-                                        url: "architectProfileUpload.php",
+                                        url: "profileUpload.php",
                                         method: "POST",
                                         data: form_data,
                                         contentType: false,
                                         cache: false,
                                         processData: false,
                                         beforeSend: function() {
-                                            $('#uploaded_image').html(
-                                                "<label class='text-success'>Image Uploading...</label>"
+                                            $('#uploaded_image img').attr('src',
+                                                'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
                                             );
                                         },
                                         success: function(data) {
-                                            $('#uploaded_image').html(data);
+                                            var rdimagepath = data;
+                                            $('#uploaded_image img, #uploaded_image_header img')
+                                                .attr('src', data);
                                         }
                                     });
                                 }
