@@ -31,6 +31,8 @@ $row = mysqli_fetch_array($result);
         <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
+        <!-- <link rel="stylesheet" type="text/css" href="rd/assets/css/styles.min.css"> -->
+
     </head>
 
     <body id="page-top" class="">
