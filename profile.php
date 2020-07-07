@@ -14,6 +14,7 @@ include("includes/header.php");
                $mobile_no=$user_array['mobile_no'];
                $about_me=$user_array['about_me'];
                $coa_verified=$user_array['coa_verified'];
+               $user_profile=$user_array['profile'];
                $msg="messages.php?u=";
 
            }  
@@ -67,16 +68,18 @@ include("includes/header.php");
     ?>
 
         </form>
-        <div class="row"><div class="col-md-6 mx-auto">
-        <div class="card mb-2">
-            <div class="card-body">
-            <p class="text-gray-900">
-                <?php echo $about_me;  ?>
-            </p>    
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <p class="text-gray-900">
+                            <?php echo $about_me;  ?>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-        </div></div>
-       
+
         <ul class="list-group">
             <li class="list-group-item list-group-item-primary" style="background-color: rgb(255,255,255);">
                 <i class="fa fa-volume-control-phone" style="font-size: 22px;">
