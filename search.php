@@ -71,23 +71,6 @@ $msg="messages.php?u=";
 				$coa_stat= "<i title='Not Verified' class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
-
-//         <div class='col-lg-3 col-md-3 mb-4 mb-lg-0'>
-//         <div class='card rounded shadow-sm border-0'>
-//             <div class='card-body p-4'>
-//             <img
-//             src='". $row['profile_pic'] ."'
-//             alt='' class='img-fluid d-block mx-auto mb-3'>
-//             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
-//             <p class='small text-muted font-italic'>Lorem ipsum dolor sit amet,
-//                 consectetur adipisicing elit.</p>
-                    
-//                 <div class='text-center mt-2'>
-//                 <a name='' id='' class='btn btn-primary' href='" . $row['username'] ."' role='button'>Visit Profile</a>
-//                 </div>
-//     </div>		
-// </div>
-// </div>
         $extSearchUname=$row['username'];     
         $extSearchCity=rtrim($_GET['city']);     
         $extSearchProfile=rtrim($_GET['profile']);  

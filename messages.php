@@ -49,10 +49,10 @@ $row = mysqli_fetch_array($result);
                         <!-- Chat List started -->
                         <div class="chat-list">
                             <div class='row py-2 active'>
-                                <div class='col-md-2 m-auto'>
+                                <div class=' col-2 col-md-2 m-auto'>
                                     <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
                                 </div>
-                                <div class='col-md-10 m-auto'>
+                                <div class='col-10 col-md-10 m-auto'>
                                    <b>Varonika John</b>
                                    
                                 </div>
@@ -62,10 +62,10 @@ $i=0;
 while($i<=5) {
     echo "
                             <div class='row py-2'>
-                                <div class='col-md-2 m-auto'>
+                                <div class='col-2 col-md-2 m-auto'>
                                     <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
                                 </div>
-                                <div class='col-md-10 m-auto'>
+                                <div class='col-10 col-md-10 m-auto'>
                                 <b>80</b>
                                 
                                 </div>
