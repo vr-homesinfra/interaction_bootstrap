@@ -15,7 +15,7 @@ class FavCreatives {
 	public function displayFavs() {
 		$userLoggedIn = $_SESSION['userLoggedIn'];
 
-        $str = "";    
+        $str = NULL;    
 					
         $usernameComma = "," . $userLoggedIn . ",";
 		if((strstr($this->user['friend_array'], $usernameComma) || $userLoggedIn == $this->user['username'])) {
@@ -28,7 +28,7 @@ class FavCreatives {
                
             $user_details_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$explode'");
             
-			$row = mysqli_fetch_array($user_details_query);
+                $row = mysqli_fetch_array($user_details_query);
 					$first_name = $row['first_name'];
 					$last_name = $row['last_name'];
 					$profile_pic = $row['profile_pic'];
@@ -37,6 +37,7 @@ class FavCreatives {
                     $coa_verified = $row['coa_verified'];
                     $msg="messages.php?u=";
                     $blank_space="&nbsp";
+
                     if ($coa_verified=="yes") {
                         $coa_stat= "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
                             </i>";
@@ -73,7 +74,11 @@ class FavCreatives {
                             </div>
                         ";	      
        }//foreach statement
-     echo $str;
+       if ($str!=NULL) {
+           echo $str;
+        } else {
+            echo "Kindly Search and add a Professional.";
+       }
 }	//function displayFavs bracket
 }//class bracket
 ?>
