@@ -142,7 +142,7 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                     class="form-control rounded-0 border-0 py-4 bg-light" name="message_body">
                                 <div class="text-center">
 
-                                    <input type="file" id="file" accept="image/*" name="file">
+                                    <input type="file" id="file" name="file">
 
                                     <div class="input-group-append">
                                         <button id="button-addon2" type="submit" class="btn btn-link"
@@ -158,18 +158,22 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                 var name = document.getElementById("file").files[0].name;
                                 var form_data = new FormData();
                                 var ext = name.split('.').pop().toLowerCase();
-                                if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                                if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg', 'pdf', 'dwg']) ==
+                                    -
+                                    1) {
                                     alert("Invalid Image File");
                                 }
                                 var oFReader = new FileReader();
-                                oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                                oFReader.readAsDataURL(document
+                                    .getElementById("file").files[0]);
                                 var f = document.getElementById("file").files[0];
                                 var fsize = f.size || f.fileSize;
-                                if (fsize > 2000000) {
+                                if (fsize > 20971520) {
                                     alert("Image File Size is very big");
                                 } else {
-                                    form_data.append("file", document.getElementById('file').files[
-                                        0]);
+                                    form_data.append("file", document.getElementById('file')
+                                        .files[
+                                            0]);
                                     $.ajax({
                                         url: "msgUploadFiles.php",
                                         method: "POST",
@@ -178,12 +182,14 @@ echo "<h4>You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></
                                         cache: false,
                                         processData: false,
                                         beforeSend: function() {
-                                            $('#uploaded_image').html(
+                                            $('#uploaded_imagex').html(
                                                 "<label class='text-success'>Image Uploading...</label>"
                                             );
                                         },
                                         success: function(data) {
-                                            $('#uploaded_image').html(data);
+                                            $('#uploaded_imagex').html(data);
+                                            // alert("File Uploaded");
+                                            location.reload();
                                         }
                                     });
                                 }
