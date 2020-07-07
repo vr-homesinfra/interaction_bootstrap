@@ -232,7 +232,7 @@ $otp_failure="";
                     $fname=$_SESSION['reg_fname'];
                     $lname=$_SESSION['reg_lname'];
                 //start doing everything from here eg. db works
-                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','','','$mobile_no','','','','','','','','','','no','')");
+                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','no','','$mobile_no','','','','','','','','','','no','')");
                  
                 header("Location: otpLogin.php");
 

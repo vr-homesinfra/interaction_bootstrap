@@ -103,14 +103,14 @@ else {
 			else if(count($names) == 4){
                 $usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
                 //for added_profile query result
-                // $usersReturnedQueryAdded = mysqli_query($con, "SELECT * FROM users WHERE (added_profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
+                $usersReturnedQueryAdded = mysqli_query($con, "SELECT * FROM users WHERE (added_profile LIKE '$names[0]%' AND location LIKE '$names[3]%') AND user_closed='no'");
             }
 			// else 
 			// 	$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE (first_name LIKE '$names[0]%' OR last_name LIKE '$names[0]%') AND user_closed='no'");
 		}
 $read_more="...";
 		// Check if results were found 
-		if(mysqli_num_rows($usersReturnedQuery) == 0)
+		if(mysqli_num_rows($usersReturnedQuery) == 0 && mysqli_num_rows($usersReturnedQueryAdded) == 0)
 			echo "We can't find anyone with a " . $type . " like: " .$query;
 	
 
