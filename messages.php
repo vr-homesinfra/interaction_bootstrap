@@ -47,16 +47,27 @@ $row = mysqli_fetch_array($result);
                 <div class="card-body">
                     <div class="inbox-chat">
                         <!-- Chat List started -->
-                        <div class="chat-list card">
-                            div.col-
-                            <div class="chat-people card-header">
-                                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                                <div class="chat-img"><img src="" alt=""></div>
-                                <div class="chat-data"></div>
-                            </div>
+                        <div class="chat-list">
+<?php
+$i=0;
+while($i<=5) {
+    echo "
+    <div class='row py-2'>
+        <div class='col-md-2 m-auto'>
+            <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
+        </div>
+        <div class='col-md-10 m-auto'>
+           <p> <b>80</b></p>
+           
+        </div>
+        </div>
+    ";
+    $i++;
+}
+?>
 
                         </div>
+                        
 
                         <!-- Chat List end -->
                     </div>
