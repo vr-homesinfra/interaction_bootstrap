@@ -41,12 +41,12 @@ if (isset($_SESSION['uname'])) {
         <nav class="navbar shadow navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="#"><img
-                        src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
+                        src="https://homesinfra.com/w/wp-content/uploads/2019/06/logo-hi.svg" width="60"
                         alt="homesinfra logo"></a>
                 <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
         </nav>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
                     <div class="card o-hidden border my-5">

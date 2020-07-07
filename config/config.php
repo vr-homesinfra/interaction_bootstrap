@@ -9,4 +9,6 @@ if(mysqli_connect_errno())
 }
 //using pdo
 $db=new PDO("mysql:host=localhost;dbname=interaction","root","");
+
+$baseUrl = "homesinfra.com/"
 ?>
