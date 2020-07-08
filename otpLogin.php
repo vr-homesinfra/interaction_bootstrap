@@ -271,7 +271,6 @@ if (isset($_POST['verify_otp'])){
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-        <script src="assets/js/script.min.js"></script>
         <script src="rd/assets/js/script.min.js"></script>
         <script src="assets/js/rdjsfile.js"></script>
         <script src="assets/js/demo.js"></script>

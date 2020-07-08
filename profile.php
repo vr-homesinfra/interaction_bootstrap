@@ -31,12 +31,12 @@ include("includes/header.php");
         }
     ?>
     <div class="border-0 profile-card" style="background-color: rgba(255,255,255,0);">
-        <div class="profile-back bg-white" style="">
+        <div class="profile-back bg-white">
         </div>
         <img class="rounded-circle img-fluid border rounded profile-pic" src="<?php
           echo $profilePic;
         ?>">
-        <h3 class="text-dark " style="">
+        <h3 class="text-dark ">
             <?php
             echo $full_name=$fname." ".$lname;
         ?>
