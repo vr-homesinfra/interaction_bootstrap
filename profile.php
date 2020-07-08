@@ -69,7 +69,7 @@ include("includes/header.php");
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <p class="text-gray-900">
-                    <?php echo $about_me;  ?>
+                    <?php echo $about_me; ?>
                 </p>
             </div>
         </div>
@@ -80,8 +80,15 @@ include("includes/header.php");
                 echo $mask_number;
                 ?></span>
                 <span><?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>Get Architect's Number</a>";
-                ?></span>
+                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>";
+                    if($user_profile==='interior'){
+                        echo "Get Interior Designer's Number";
+                    }else if($user_profile==='architects'){
+                        echo "Get Architect's Number";
+                    }
+                    echo "</a>";
+                ?>
+            </span>
             </div>
         </div>
     </div>

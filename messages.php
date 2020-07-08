@@ -60,21 +60,6 @@ $row = mysqli_fetch_array($result);
 
                                 </div>
                             </div>
-                            <?php
-
-    echo "
-                            <div class='row py-2'>
-                                <div class='col-md-2 m-auto'>
-                                    <img class='img-profile p-1 rounded-circle' src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
-                                </div>
-                                <div class='col-md-10 m-auto'>
-                                <b>80</b>
-
-                        </div>
-                    </div>
-                    ";
-                    ?>
-
                         </div>
 
 

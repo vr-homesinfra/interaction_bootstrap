@@ -24,34 +24,42 @@ else {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Search Listing</title>
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="rd/assets/css/styles.min.css?h=2cfe18d2d8a32b71eadff2883706ad0e">
     </head>
-
     <body>
-        <nav class="navbar fixed-top navbar-light bg-light">
-            <nav class="navbar navbar-light fixed-top bg-light off-canvas" data-right-drawer="0" data-open-drawer="0">
-                <div class="container-fluid flex-column"><button class="mt-2 mt-lg-0 btn btn-light drawer-knob"
-                        type="button" data-open="drawer"><i class="fas fa-bars"></i></button>
-                    <div class="d-flex justify-content-between brand-line"><button class="btn btn-light" type="button"
-                            data-dismiss="drawer"><span class="sr-only">Toggle Navigation </span><i
-                                class="fas fa-times"></i></button><a class="navbar-brand"
-                            href="https://homesinfra.com/">HomesInfra</a></div>
+    <nav class="navbar fixed-top topbar navbar-dark shadow bg-white">
+            <nav class="navbar navbar-dark fixed-top bg-primary off-canvas" data-right-drawer="0" data-open-drawer="0">
+                <div class="container-fluid flex-column">
+                    <div class="d-flex justify-content-between brand-line">
+                        <button class="mt-2 m-n2 mt-lg-0 btn btn-transparant drawer-knob" type="button" data-open="drawer"><i
+                                class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-between brand-line">
+                        <button class="btn btn-primary" type="button" data-dismiss="drawer">
+                            <span class="sr-only">Toggle
+                                Navigation </span><i class="fas fa-times"></i>
+
+                        </button>
+                        <a class="navbar-brand" href="https://homesinfra.com/">HomesInfra</a>
+                    </div>
                     <ul class="nav navbar-nav flex-column drawer-menu">
-                        <li role="presentation" class="nav-item"><a class="nav-link active" href="#">Find Creatives</a>
+                        <li role="presentation" class="nav-item">
+                            <a class="nav-link active" href="#">Find Creatives</a>
                         </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/virtualreality/">Virtual Reality</a></li>
+                                href="https://homesinfra.com/virtualreality/">Virtual Reality</a>
+                        </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/homesinfra-showcase/">Showcase</a></li>
+                                href="https://homesinfra.com/homesinfra-showcase/">Showcase</a>
+                        </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/3d-visualization-to-implementation/">3D to Reality</a></li>
+                                href="https://homesinfra.com/3d-visualization-to-implementation/">3D to Reality</a>
+                        </li>
                         <li role="presentation" class="nav-item"></li>
                         <li role="presentation" class="nav-item"></li>
-                    </ul>
-                    <ul class="nav navbar-nav flex-column bottom-nav">
                         <li role="presentation" class="nav-item"><a class="nav-link active"
                                 href="https://homesinfra.com/about-us/">About Us</a></li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
@@ -61,13 +69,16 @@ else {
                     </ul>
                 </div>
             </nav>
-            <a class="navbar-brand ml-4"><img width="40px;" src="rd/assets/img/logo-hi.svg" alt=""></a>
+            <!-- <a class="navbar-brand p-0 ml-4">
+                <img width="60px;" src="rd/assets/img/logo-hi.svg" alt="">
+            </a> -->
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active"></li>
             </ul>
-            <a class=" rounded-pill btn bg-orange my-2 my-sm-0" href="./otpLogin.php">Sign in</a>
+            <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
+                href="./otpLogin.php">Sign in</a>
 
-        </nav>
+    </nav>
         <div class="container mt-5">
             <div class="row border-right-0 border-left-0 border p-4">
                 <div class="col">
