@@ -180,91 +180,77 @@ $row = mysqli_fetch_array($result);
         </div>
     </div>
 
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
-        </div>
-    </footer>
-</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="rd/assets/js/script.min.js"></script>
-<script src="assets/js/rdjsfile.js"></script>
-<script src="assets/js/demo.js"></script>
+    <?php
+include("footer.php");    
+?>
 
-<!-- contact settings section -->
-<script>
-$(document).ready(function() {
-    $('#save_contact_settings').on('submit', function(e) {
-        //Stop the form from submitting itself to the server.
-        e.preventDefault();
-        var isPressedContactSettings = $('#isPressedContactSettings').val();
-        var location = $('#location').val();
-        var email = $('#email').val();
-        var office_no = $('#office_no').val();
-        var residential_address = $('#residential_address').val();
-        var office_address = $('#office_address').val();
-        var reg_as_int_des = $('#reg_as_int_des').val();
+    <!-- contact settings section -->
+    <script>
+    $(document).ready(function() {
+        $('#save_contact_settings').on('submit', function(e) {
+            //Stop the form from submitting itself to the server.
+            e.preventDefault();
+            var isPressedContactSettings = $('#isPressedContactSettings').val();
+            var location = $('#location').val();
+            var email = $('#email').val();
+            var office_no = $('#office_no').val();
+            var residential_address = $('#residential_address').val();
+            var office_address = $('#office_address').val();
+            var reg_as_int_des = $('#reg_as_int_des').val();
 
-        $.ajax({
-            type: "POST",
-            url: 'interiorDesignerSettingsSubmit.php',
-            data: {
-                isPressedContactSettings: isPressedContactSettings,
-                location: location,
-                email: email,
-                office_no: office_no,
-                residential_address: residential_address,
-                office_address: office_address,
-                reg_as_int_des: reg_as_int_des
-            },
-            success: function(data) {
-                alert("updated successfully");
-            }
+            $.ajax({
+                type: "POST",
+                url: 'interiorDesignerSettingsSubmit.php',
+                data: {
+                    isPressedContactSettings: isPressedContactSettings,
+                    location: location,
+                    email: email,
+                    office_no: office_no,
+                    residential_address: residential_address,
+                    office_address: office_address,
+                    reg_as_int_des: reg_as_int_des
+                },
+                success: function(data) {
+                    alert("updated successfully");
+                }
+            });
         });
     });
-});
-</script>
-<!-- about me section -->
-<script>
-$(document).ready(function() {
-    $('#about_me_settings').on('submit', function(e) {
-        //Stop the form from submitting itself to the server.
-        e.preventDefault();
-        var isPressed = $('#isPressed').val();
-        var coa_no = $('#coa_no').val();
-        var about_me = $('#about_me').val();
-        var instagram_id = $('#instagram_id').val();
-        var facebook_id = $('#facebook_id').val();
-        var youtube_id = $('#youtube_id').val();
-        var linkedin_id = $('#linkedin_id').val();
+    </script>
+    <!-- about me section -->
+    <script>
+    $(document).ready(function() {
+        $('#about_me_settings').on('submit', function(e) {
+            //Stop the form from submitting itself to the server.
+            e.preventDefault();
+            var isPressed = $('#isPressed').val();
+            var coa_no = $('#coa_no').val();
+            var about_me = $('#about_me').val();
+            var instagram_id = $('#instagram_id').val();
+            var facebook_id = $('#facebook_id').val();
+            var youtube_id = $('#youtube_id').val();
+            var linkedin_id = $('#linkedin_id').val();
 
-        $.ajax({
-            type: "POST",
-            url: 'architectSettingsSubmit.php',
-            data: {
-                isPressed: isPressed,
-                coa_no: coa_no,
-                about_me: about_me,
-                instagram_id: instagram_id,
-                facebook_id: facebook_id,
-                youtube_id: youtube_id,
-                linkedin_id: linkedin_id
-            },
-            success: function(data) {
+            $.ajax({
+                type: "POST",
+                url: 'architectSettingsSubmit.php',
+                data: {
+                    isPressed: isPressed,
+                    coa_no: coa_no,
+                    about_me: about_me,
+                    instagram_id: instagram_id,
+                    facebook_id: facebook_id,
+                    youtube_id: youtube_id,
+                    linkedin_id: linkedin_id
+                },
+                success: function(data) {
 
-                alert("updated successfully");
-            }
+                    alert("updated successfully");
+                }
+            });
         });
     });
-});
-</script>
-</body>
+    </script>
+    </body>
 
-</html>
+    </html>

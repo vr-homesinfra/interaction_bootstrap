@@ -23,6 +23,7 @@ if (isset($_SESSION['uname'])) {
 ?>
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -169,8 +170,8 @@ if (isset($_POST['verify_otp'])){
             $check_login_query = mysqli_num_rows($check_database_query);
             
         if($check_login_query == 1) {
-                $row = mysqli_fetch_array($check_database_query);
-                $mobile_no = $row['mobile_no'];    
+            $row = mysqli_fetch_array($check_database_query);
+            $mobile_no = $row['mobile_no'];    
             $userLoggedIn=$row['username'];
 	        $user_profile = $_row['profile'];
 
@@ -205,13 +206,14 @@ if (isset($_POST['verify_otp'])){
                                         <form class="user" method="POST" action="otpLogin.php">
                                             <div class="form-group">
                                                 <!-- enter mobile no. for checking db & otp -->
-                                                <input class="form-control form-control-user text-center" id="exampleInputPassword"
+                                                <input class="form-control form-control-user text-center"
+                                                    id="exampleInputPassword"
                                                     placeholder="Enter registered mobile number" name="enter_mobile_no"
                                                     minlength="10" maxlength="10" autocomplete="off" type="text">
                                             </div>
                                             <!--send otp button -->
-                                            <button class="btn btn-outline-primary btn-block btn-user"
-                                                type="submit" name="send_otp">Send OTP</button>
+                                            <button class="btn btn-outline-primary btn-block btn-user" type="submit"
+                                                name="send_otp">Send OTP</button>
                                             <div id="otp_sent" class="text-center">
                                                 <?php
                                                 echo $otp_success;  
@@ -228,9 +230,10 @@ if (isset($_POST['verify_otp'])){
                                             <hr>
                                             <div class="form-group">
                                                 <!--enter otp received  on mobile -->
-                                                <input class="form-control form-control-user text-center" id="exampleInputPassword"
-                                                    placeholder="Enter received OTP" name="recvd_otp" minlength="5"
-                                                    maxlength="6" autocomplete="off" type="text">
+                                                <input class="form-control form-control-user text-center"
+                                                    id="exampleInputPassword" placeholder="Enter received OTP"
+                                                    name="recvd_otp" minlength="5" maxlength="6" autocomplete="off"
+                                                    type="text">
                                             </div>
                                             <!-- validate mobile no. in db & otp -->
                                             <!-- & then redirect to profile page -->

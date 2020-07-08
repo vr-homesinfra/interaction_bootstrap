@@ -75,81 +75,74 @@ $row = mysqli_fetch_array($result);
                 </div>
             </div>
         </div>
-            <div class="col-lg-8">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow-sm">
-                            <div class="card-header py-3">
-                                <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
-                            </div>
-                            <div class="card-body">
-                                <form id="customer_settings">
-                                    <div class="form-group">
-                                        <input type="hidden" class="form-control" name="inputName"
-                                            id="customer_is_pressed" value="customer_is_pressed">
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="form-label-group">
-                                                <input class="form-control" type="text" placeholder="email id."
-                                                    id="email" value="<?php echo $user['email'];?>" autocomplete="off">
-                                                <label for="email">Email address</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="form-label-group">
-                                                <input class="form-control" type="text"
-                                                    placeholder="Residential Address" id="residential_address"
-                                                    value="<?php echo $user['residential_address'];?>"
-                                                    autocomplete="off">
-                                                <label for="residential_address">Residential Address</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="form-label-group">
-                                                <input class="form-control" type="text" placeholder="Office Address"
-                                                    id="office_address" value="<?php echo $user['office_address'];?>"
-                                                    autocomplete="off">
-                                                <label for="office_address">Office Address</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12 col-md-6">
-                                            <div class="form-label-group">
-                                                <input class="form-control" type="text" placeholder="Mobile Number"
-                                                    id="mobile_no2" maxlength="10"
-                                                    value="<?php echo $user['office_no'];?>" autocomplete="off">
-                                                <label for="mobile_no2">Mobile Number</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
-                                    </div>
-                                </form>
-                            </div>
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <div class="card-header py-3">
+                            <p class="text-gray-900 m-0 font-weight-bold">Contact Settings</p>
                         </div>
-
+                        <div class="card-body">
+                            <form id="customer_settings">
+                                <div class="form-group">
+                                    <input type="hidden" class="form-control" name="inputName" id="customer_is_pressed"
+                                        value="customer_is_pressed">
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="email id." id="email"
+                                                value="<?php echo $user['email'];?>" autocomplete="off">
+                                            <label for="email">Email address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Residential Address"
+                                                id="residential_address"
+                                                value="<?php echo $user['residential_address'];?>" autocomplete="off">
+                                            <label for="residential_address">Residential Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Office Address"
+                                                id="office_address" value="<?php echo $user['office_address'];?>"
+                                                autocomplete="off">
+                                            <label for="office_address">Office Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="form-label-group">
+                                            <input class="form-control" type="text" placeholder="Mobile Number"
+                                                id="mobile_no2" maxlength="10" value="<?php echo $user['office_no'];?>"
+                                                autocomplete="off">
+                                            <label for="mobile_no2">Mobile Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 </div>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="rd/assets/js/script.min.js"></script>
-<script src="assets/js/rdjsfile.js"></script>
-<script src="assets/js/demo.js"></script>
+<?php
+include("footer.php");    
+?>
 <!-- outside JS  -->
 
 <script>

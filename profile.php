@@ -148,19 +148,8 @@ include("includes/header.php");
 </div>
 </div>
 
-<footer class="bg-white sticky-footer">
-    <div class="container my-auto">
-        <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
-    </div>
-</footer>
-</div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-<script src="assets/js/jquery-3.4.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="assets/js/rdjsfile.js"></script>
+<?php
+include("footer.php");    
+?>
 
 </html>

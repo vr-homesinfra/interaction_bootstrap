@@ -18,7 +18,8 @@ else {
 ?>
 <div class="container-fluid">
     <h3 class="text-gray-900 mb-4">
-        <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?></h3>
+        <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?>
+    </h3>
 </div>
 <div class="row m-3">
     <?php 
@@ -149,15 +150,9 @@ echo "
         }
     }
         ?>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
-<script src="assets/js/script.min.js"></script>
-<script src="rd/assets/js/script.min.js"></script>
-<script src="assets/js/rdjsfile.js"></script>
-<script src="assets/js/demo.js"></script>
+    <?php
+include("footer.php");    
+?>
     </body>
 
     </html>
