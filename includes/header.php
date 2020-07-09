@@ -167,7 +167,7 @@ $row = mysqli_fetch_array($result);
                                             </div>
                                         </fieldset>
                                         <input class="bg-light ml-2 form-control border-0 small" id="top-search"
-                                            type="text" placeholder="Search architects in lucknow/pune..."
+                                            type="text" placeholder="Search Architects/Interior Designers by City"
                                             onkeyup="getExtLiveSearchUsers(this.value)" name="city" autocomplete="off">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary py-0 btn-block" type="submit">
@@ -175,7 +175,6 @@ $row = mysqli_fetch_array($result);
                                             </button>
                                         </div>
                                     </div>
-
                                 </form>
                                 <!-- Dropdown Menu -->
                                 <div
@@ -266,7 +265,6 @@ $row = mysqli_fetch_array($result);
                                 </li>
                                 <div class="d-none d-sm-block topbar-divider">
                                 </div>
-
                                 <li class="nav-item dropdown no-arrow" role="presentation">
                                     <div class="nav-item dropdown no-arrow">
                                         <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"

@@ -12,11 +12,9 @@
        $user_to="new";
       }    
     } 
-    
     if ($user_to!="new") {
       $user_to_obj=new User($con,$user_to);
     }
-    
     $imageName="";
     $image_name_orig="";
     if (isset($_POST['post_message'])) {
@@ -40,6 +38,7 @@ $row = mysqli_fetch_array($result);
 ?>
 <div class="container">
     <div class="row">
+        <!-- Inbox Column Start -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header">
@@ -67,7 +66,9 @@ $row = mysqli_fetch_array($result);
                     </div>
                 </div>
             </div>
+            <!-- Card End -->
         </div>
+        <!-- Inbox Column End -->
         <div class="col-md-8">
             <div class="card mb-3">
                 <div class="card-header">
@@ -136,6 +137,7 @@ $row = mysqli_fetch_array($result);
                                                 </div>
                                             </div>
                                     </form>
+                                    <!-- File Upload Script Start -->
                                     <script>
                                     $(document).ready(function() {
                                         $(document).on('change', '#file', function() {
@@ -183,6 +185,8 @@ $row = mysqli_fetch_array($result);
                                         });
                                     });
                                     </script>
+                                    <!-- File Upload Script End -->
+
                                     <script>
                                     var div = document.getElementById("scroll_messages");
                                     div.scrollTop = div.scrollHeight;
@@ -196,13 +200,27 @@ $row = mysqli_fetch_array($result);
             </div>
         </div>
     </div>
-
+</div>
+<!-- Container End -->
 
 </div>
+<!-- Footer Start -->
+<footer class="bg-white sticky-footer">
+    <div class="container my-auto">
+        <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
+    </div>
+</footer>
+<!-- Footer End -->
 </div>
-<?php
-include("footer.php");    
-?>
+<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
+<script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
 </body>
-
 </html>

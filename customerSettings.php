@@ -23,56 +23,66 @@ $row = mysqli_fetch_array($result);
                 <div class="card-header">
                     <p class="text-gray-900 m-0 font-weight-bold">Profile Picture</p>
                 </div>
-                <div class="card-body text-center" id="uploaded_image">
-                    <img class="rounded-circle mb-3 mt-4" src="<?php echo $row['profile_pic']; ?>" width="160"
-                        height="160">
-                    <div class="mb-3">
-                        <div class="text-center">
-                            <input type="file" id="file" accept="image/*" name="file" value="Upload Image">
-                            <script>
-                            $(document).ready(function() {
-                                $(document).on('change', '#file', function() {
-                                    var name = document.getElementById("file").files[0].name;
-                                    var form_data = new FormData();
-                                    var ext = name.split('.').pop().toLowerCase();
-                                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-                                        alert("Invalid Image File");
-                                    }
-                                    var oFReader = new FileReader();
-                                    oFReader.readAsDataURL(document.getElementById("file").files[0]);
-                                    var f = document.getElementById("file").files[0];
-                                    var fsize = f.size || f.fileSize;
-                                    if (fsize > 2000000) {
-                                        alert("Image File Size is very big");
-                                    } else {
-                                        form_data.append("file", document.getElementById('file').files[
-                                            0]);
-                                        $.ajax({
-                                            url: "profileUpload.php",
-                                            method: "POST",
-                                            data: form_data,
-                                            contentType: false,
-                                            cache: false,
-                                            processData: false,
-                                            beforeSend: function() {
-                                                $('#uploaded_image img').attr('src',
-                                                    'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
-                                                );
-                                            },
-                                            success: function(data) {
-                                                // $('#uploaded_image').html(data);
-                                                var rdimagepath = data;
-                                                $('#uploaded_image img, #uploaded_image_header img')
-                                                    .attr('src', data);
-                                            }
-                                        });
-                                    }
-                                });
+
+<!-- Image Start -->
+
+
+<div class="card-body text-center " id="uploaded_image" >
+    <div class="">
+        <i class=" rounded-circle img _1-yc profpic" aria-label="Rashtradeep Tripathi, profile picture" role="img" style="background:#d8dce6 url('<?php echo $row['profile_pic']; ?>') no-repeat center; width:160px; height:160px; display: inline-block;"></i>
+        <div class="mb-3">
+            <div class="text-center">
+                <input type="file" id="file" style="width: 40px; height: 40px;" accept="image/*" name="file" value="Upload Image">
+                <svg class="gb_sb" enable-background="new 0 0 24 24" focusable="false" height="40" viewBox="0 0 24 24" width="40" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M20 5h-3.17L15 3H9L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h16v12zM12 9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg>
+                <script>
+                $(document).ready(function() {
+                    $(document).on('change', '#file', function() {
+                        var name = document.getElementById("file").files[0].name;
+                        var form_data = new FormData();
+                        var ext = name.split('.').pop().toLowerCase();
+                        if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                            alert("Invalid Image File");
+                        }
+                        var oFReader = new FileReader();
+                        oFReader.readAsDataURL(document.getElementById("file").files[0]);
+                        var f = document.getElementById("file").files[0];
+                        var fsize = f.size || f.fileSize;
+                        if (fsize > 2000000) {
+                            alert("Image File Size is very big");
+                        } else {
+                            form_data.append("file", document.getElementById('file').files[
+                                0]);
+                            $.ajax({
+                                url: "profileUpload.php",
+                                method: "POST",
+                                data: form_data,
+                                contentType: false,
+                                cache: false,
+                                processData: false,
+                                beforeSend: function() {
+                                    $('#uploaded_image img').attr('src',
+                                        'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
+                                    );
+                                },
+                                success: function(data) {
+                                    // $('#uploaded_image').html(data);
+                                    var rdimagepath = data;
+                                    $('#uploaded_image img, #uploaded_image_header img')
+                                        .attr('src', data);
+                                }
                             });
-                            </script>
-                        </div>
-                    </div>
-                </div>
+                        }
+                    });
+                });
+                </script>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Image End -->
+
             </div>
         </div>
         <div class="col-lg-8">
@@ -140,9 +150,22 @@ $row = mysqli_fetch_array($result);
 </div>
 </div>
 </div>
-<?php
-include("footer.php");    
-?>
+<footer class="bg-white sticky-footer">
+    <div class="container my-auto">
+        <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
+    </div>
+</footer>
+</div>
+<a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="rd/assets/js/script.min.js"></script>
+<script src="assets/js/rdjsfile.js"></script>
+<script src="assets/js/demo.js"></script>
 <!-- outside JS  -->
 
 <script>

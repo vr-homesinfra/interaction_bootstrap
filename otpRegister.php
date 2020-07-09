@@ -16,30 +16,30 @@ $otp_failure="";
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Register - HomesInfra</title>
+        <title>Login - HomesInfra</title>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
         <link rel="stylesheet" href="assets/css/styles.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js " crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
     </head>
 
-    <body class="">
+    <body>
         <nav class="navbar shadow navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="#"><img
-                        src="https://homesinfra.com/wp-content/uploads/2019/06/logo-hi.svg" width="60"
+                        src="<?php echo $logoSrc; ?>" width="60"
                         alt="homesinfra logo"></a>
                 <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
         </nav>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
                     <div class="card border  o-hidden border my-5">
@@ -155,62 +155,10 @@ $otp_failure="";
 
                 ### Parse API Response to check if OTP matched or mismatched
                     $Response_json=json_decode($Response,false);
-                    if ( $Response_json->Details =='OTP Matched'){                 
-                   
-                                            //random assignment of template profile pic
-                                            $rand=rand(1,16);
-                                            switch ($rand) {
-                                                case 1:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_alizarin.png";
-                                                break;
-                                                case 2:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_amethyst.png";
-                                                break;
-                                                case 3:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_belize_hole.png";
-                                                break;
-                                                case 4:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_carrot.png";
-                                                break;
-                                                case 5:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_deep_blue.png";
-                                                break;
-                                                case 6:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_emerald.png";
-                                                break;
-                                                case 7:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_green_sea.png";
-                                                break;
-                                                case 8:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_nephritis.png";
-                                                break;
-                                                case 9:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_pete_river.png";
-                                                break;
-                                                case 10:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_pomegranate.png";
-                                                break;
-                                                case 11:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_pumpkin.png";
-                                                break;
-                                                case 12:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_red.png";
-                                                break;
-                                                case 13:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_sun_flower.png";
-                                                break;
-                                                case 14:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_turquoise.png";
-                                                break;
-                                                case 15:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_wet_asphalt.png";
-                                                break;
-                                                case 16:
-                                                    $profile_pic="assets/images/profile_pics/defaults/head_wisteria.png";
-                                                break;
-                                                default:
-                                                $profile_pic="assets/images/profile_pics/defaults/head_carrot.png";
-                                            }
+                    if ( $Response_json->Details =='OTP Matched'){
+
+                    $profile_pic="assets/images/profile_pics/defaults/user-default.svg";
+
                 //Generate username by concatenating first name and last name
                 $fname=$_SESSION['reg_fname'];
                 $lname=$_SESSION['reg_lname'];
@@ -345,14 +293,15 @@ $otp_failure="";
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
- 
+        <script src="rd/assets/js/script.min.js"></script>
         <script src="assets/js/rdjsfile.js"></script>
+        <script src="assets/js/demo.js"></script>
     </body>
 
 </html>

@@ -38,13 +38,13 @@ if (isset($_SESSION['uname'])) {
         </script>
     </head>
 
-    <body class="">
+    <body>
         <nav class="navbar shadow navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="#"><img
-                        src="https://homesinfra.com/w/wp-content/uploads/2019/06/logo-hi.svg" width="60"
+                        src="<?php echo $logoSrc; ?>" width="60"
                         alt="homesinfra logo"></a>
-                <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
+                <a class="btn btn-primary " href="./otpRegister.php">Sign Up</a>
             </div>
         </nav>
         <div class="container-fluid">

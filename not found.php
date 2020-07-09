@@ -35,7 +35,7 @@
             <div class="container">
               <a class="navbar-brand" href="#"
                 ><img
-                  src="https://homesinfra.com/w/wp-content/uploads/2019/06/logo-hi.svg"
+                  src="<?php echo $logoSrc; ?>"
                   width="60"
                   alt="homesinfra logo"
               /></a>
