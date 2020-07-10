@@ -190,7 +190,7 @@ $row = mysqli_fetch_array($result);
                                     <script>
                                     var div = document.getElementById("scroll_messages");
                                     div.scrollTop = div.scrollHeight;
-                                    e.preventDefault();
+                                    // e.preventDefault();
                                     </script>
                                 </div>
                             </div>
@@ -223,4 +223,5 @@ $row = mysqli_fetch_array($result);
 <script src="assets/js/rdjsfile.js"></script>
 <script src="assets/js/demo.js"></script>
 </body>
+
 </html>

@@ -97,7 +97,7 @@ $row = mysqli_fetch_array($result);
                                 oFReader.readAsDataURL(document.getElementById("file").files[0]);
                                 var f = document.getElementById("file").files[0];
                                 var fsize = f.size || f.fileSize;
-                                if (fsize > 2000000) {
+                                if (fsize > 10485760) {
                                     alert("Image File Size is very big");
                                 } else {
                                     form_data.append("file", document.getElementById('file').files[
