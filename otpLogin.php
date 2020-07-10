@@ -23,7 +23,6 @@ if (isset($_SESSION['uname'])) {
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -47,10 +46,10 @@ if (isset($_SESSION['uname'])) {
                 <a class="btn btn-primary " href="./otpRegister.php">Sign Up</a>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
-                    <div class="card o-hidden border my-5">
+                    <div class="card o-hidden shadow-sm my-5">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-flex">
@@ -60,8 +59,11 @@ if (isset($_SESSION['uname'])) {
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-4 p-md-5">
-                                        <div class="text-center">
-                                            <h4 class="text-gray-900 mb-4">Welcome to HomesInfra</h4>
+                                        <div class="">
+                                            <div class="h4 mb-2 text-center text-gray-900 mb-4">Welcome to HomesInfra</div>
+                                            <?php lottieImg('https://assets5.lottiefiles.com/packages/lf20_u8o7BL.json','100px', 'm-auto') ?>
+                                            <h5>Sign In</h5>
+                                            <p class="my-3">Enter your mobile number to get OTP and Sign In to your account.</p>
                                         </div>
                                         <?php
                                     if (isset($_POST['send_otp'])){ 
@@ -213,7 +215,7 @@ if (isset($_POST['verify_otp'])){
                                             </div>
                                             <!--send otp button -->
                                             <button class="btn btn-outline-primary btn-block btn-user" type="submit"
-                                                name="send_otp">Send OTP</button>
+                                                name="send_otp"> <i></i> Send OTP</button>
                                             <div id="otp_sent" class="text-center">
                                                 <?php
                                                 echo $otp_success;  
@@ -238,7 +240,7 @@ if (isset($_POST['verify_otp'])){
                                             <!-- validate mobile no. in db & otp -->
                                             <!-- & then redirect to profile page -->
                                             <button class="btn btn-primary bg-gradient-primary btn-block btn-user"
-                                                type="submit" name="verify_otp">Verify & Login</button>
+                                                type="submit" name="verify_otp">Verify & Sign In</button>
                                             <div id="verify_sent_otp" class="text-center">
                                                 <?php
                                                 echo $otp_failure;

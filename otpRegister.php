@@ -19,7 +19,7 @@ $otp_failure="";
     <head>
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Login - HomesInfra</title>
+        <title>Registration Page - HomesInfra</title>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Actor">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
@@ -39,10 +39,10 @@ $otp_failure="";
                 <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
         </nav>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-9 col-lg-12 col-xl-10 offset-lg-0">
-                    <div class="card border  o-hidden border my-5">
+                    <div class="card shadow-sm o-hidden border my-5">
                         <div class="card-body p-0">
                             <div class="row">
                                 <div class="col-lg-6 d-none d-lg-flex">
@@ -53,8 +53,11 @@ $otp_failure="";
 
                                 <div class="col-lg-6">
                                     <div class="p-4">
-                                        <div class="text-center">
-                                            <h4 class="text-gray-900 mb-4">Create an Account</h4>
+                                    <div class="">
+                                    
+                                            <div class="h3 text-center mb-2 text-gray-900 mb-4">Create Your Account</div><?php lottieImg('https://assets5.lottiefiles.com/packages/lf20_u8o7BL.json','100px', 'm-auto') ?>
+                                            <h5>Sign Up</h5>
+                                            <p class="my-3">Enter your details and verify mobile number to sign up.</p>
                                         </div>
 
                                         <?php
