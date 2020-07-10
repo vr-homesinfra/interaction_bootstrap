@@ -83,15 +83,11 @@ include("includes/header.php");
                 </span>
                 <span>
                     <?php
-                    echo " <a class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
-                    if($user_profile==='interior'){
-                        echo "Get Interior Designer's Number";
-                    }else if($user_profile==='architects'){
-                        echo "Get Architect's Number";
-                    }
+                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
+                    echo "Request No.";
                     echo "</a>";
                     ?>
-            </span>
+                </span>
             </div>
         </div>
     </div>

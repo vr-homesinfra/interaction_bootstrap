@@ -19,14 +19,14 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
                     var name = document.getElementById("file").files[0].name;
                     var form_data = new FormData();
                     var ext = name.split('.').pop().toLowerCase();
-                    if (jQuery.inArray(ext, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                    if (jQuery.inArray(ext, ['png', 'jpg', 'jpeg']) == -1) {
                         alert("Invalid Image File");
                     }
                     var oFReader = new FileReader();
                     oFReader.readAsDataURL(document.getElementById("file").files[0]);
                     var f = document.getElementById("file").files[0];
                     var fsize = f.size || f.fileSize;
-                    if (fsize > 2000000) {
+                    if (fsize > 200000000) {
                         alert("Image File Size is very big");
                     } else {
                         form_data.append("file", document.getElementById('file').files[
