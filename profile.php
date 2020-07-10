@@ -77,12 +77,8 @@ include("includes/header.php");
             <div class="col-md-6 mx-auto">
                 <span>
                     <?php   
-                     if ($mobile_no=="") {
-                    echo "No. not added";
-                    } else {
                     $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);
                     echo $mask_number;
-                }                  
                 ?>
                 </span>
                 <span>
