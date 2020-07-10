@@ -49,17 +49,7 @@ $row = mysqli_fetch_array($result);
                         
                         <div class="chat-list">
                             <!-- Chat List started -->
-                            <!-- <div class='row py-2 active'>
-                                <div class='col-md-2 m-auto'>
-                                    <img class='img-profile p-1 rounded-circle'
-                                        src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
-                                </div>
-                                <div class='col-md-10 m-auto'>
-                                    <b>Varonika John</b> -->
-                                    <?php echo $message_obj->getConvos(); ?>
-
-                                <!-- </div>
-                            </div> -->
+                                    <?php echo $message_obj->getConvos();?>
                             <!-- Chat List end -->
                         </div>                     
                     </div>
@@ -85,9 +75,9 @@ $row = mysqli_fetch_array($result);
         $user_to=$message_obj->getMostRecentUser();
         $user_to_obj=new User($con,$user_to);
         
-        echo "<h4 class='text-gray-900' >You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></h4>"; 
-                            
-                          }
+        echo "<h4 class='text-gray-900' >You & <a href='$user_to'>".$user_to_obj->getFirstAndLastName()."</a></h4>";
+    
+    }
                         ?>
                 </div>
                 <div class="card-body">

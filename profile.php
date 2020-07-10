@@ -36,7 +36,7 @@ include("includes/header.php");
         <img class="rounded-circle img-fluid border rounded profile-pic" src="<?php
           echo $profilePic;
         ?>">
-        <h3 class="text-dark ">
+        <h3 class="text-dark">
             <?php
             echo $full_name=$fname." ".$lname;
         ?>
@@ -77,13 +77,13 @@ include("includes/header.php");
             <div class="col-md-6 mx-auto">
                 <span>
                 <?php                      
-                // $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
-                // echo $mask_number;
+                $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
+                echo $mask_number;
                 ?>
                 </span>
                 <span>
                     <?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
+                    echo " <a class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
                     if($user_profile==='interior'){
                         echo "Get Interior Designer's Number";
                     }else if($user_profile==='architects'){
