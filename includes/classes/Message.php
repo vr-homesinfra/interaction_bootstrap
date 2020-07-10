@@ -192,14 +192,39 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
         $split = str_split($latest_message_details[1], 12);
         $split = $split[0] . $dots;
 
-        $return_string .= "<a href='messages.php?u=$username'>
-        <div class='user_found_messages pl-2 pt-2'>
-                <img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;height:50px;width:50px;'>
-                " . $user_found_obj->getFirstAndLastName() ."
-                <span class='timestamp_smaller' id='grey'> <br>" . $latest_message_details[2] . "</span>
-                <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
-            </div><hr>
-        </a>";
+        // $return_string .= "<a href='messages.php?u=$username'>
+        // <div class='user_found_messages pl-2 pt-2'>
+        //         <img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;height:50px;width:50px;'>
+        //         " . $user_found_obj->getFirstAndLastName() ."
+        //         <span class='timestamp_smaller' id='grey'> <br>" . $latest_message_details[2] . "</span>
+        //         <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+        //     </div><hr>
+        // </a>";
+        $return_string .= "
+    <a href='messages.php?u=$username'>
+        <div class='row py-2'>
+            <div class='col-md-2 m-auto'>
+                <img width='40px' height='40px' class='img-profile p-1 rounded-circle'
+                src='" . $user_found_obj->getProfilePic() . "'>
+            </div>
+            <div class='col-md-10 m-auto'>
+                <div class='row'>
+                    <div class='col'>
+                        <b>" . $user_found_obj->getFirstAndLastName() ."</b>
+                    </div>
+                    <div class='col'>
+                        <span class='timestamp_smaller' id='grey'>" . $latest_message_details[2] . "</span>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </a>";
         }
         return $return_string;
         }
