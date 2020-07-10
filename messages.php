@@ -46,23 +46,22 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <div class="card-body">
                     <div class="inbox-chat">
-                        <!-- Chat List started -->
+                        
                         <div class="chat-list">
-                            <div class='row py-2 active'>
+                            <!-- Chat List started -->
+                            <!-- <div class='row py-2 active'>
                                 <div class='col-md-2 m-auto'>
                                     <img class='img-profile p-1 rounded-circle'
                                         src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
                                 </div>
                                 <div class='col-md-10 m-auto'>
-                                    <b>Varonika John</b>
+                                    <b>Varonika John</b> -->
                                     <?php echo $message_obj->getConvos(); ?>
 
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <!-- Chat List end -->
+                                <!-- </div>
+                            </div> -->
+                            <!-- Chat List end -->
+                        </div>                     
                     </div>
                 </div>
             </div>
@@ -190,7 +189,7 @@ $row = mysqli_fetch_array($result);
                                     <script>
                                     var div = document.getElementById("scroll_messages");
                                     div.scrollTop = div.scrollHeight;
-                                    e.preventDefault();
+                                    // e.preventDefault();
                                     </script>
                                 </div>
                             </div>

@@ -133,8 +133,7 @@ echo "
         }
     }
         ?>
-    <?php
-include("<footer class="bg-white sticky-footer">
+<footer class="bg-white sticky-footer">
     <div class="container my-auto">
         <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
     </div>
@@ -149,8 +148,6 @@ include("<footer class="bg-white sticky-footer">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
-<script src="assets/js/demo.js"></script>");
-?>
+<script src="assets/js/demo.js"></script>
     </body>
-
     </html>

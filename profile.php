@@ -75,19 +75,22 @@ include("includes/header.php");
         </div>
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <span><?php                      
-                    $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
-                echo $mask_number;
-                ?></span>
-                <span><?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='" . $msg. $username ."' role='button'>";
+                <span>
+                <?php                      
+                // $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
+                // echo $mask_number;
+                ?>
+                </span>
+                <span>
+                    <?php
+                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
                     if($user_profile==='interior'){
                         echo "Get Interior Designer's Number";
                     }else if($user_profile==='architects'){
                         echo "Get Architect's Number";
                     }
                     echo "</a>";
-                ?>
+                    ?>
             </span>
             </div>
         </div>
