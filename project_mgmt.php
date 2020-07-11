@@ -11,9 +11,9 @@ if(isset($_POST['upload_project_file'])) {
 	
 	if($imageName2 != "") {
 		$targetDir2 = "assets/projectFiles/";
-		 $image_name_orig2=basename($imageName2); 
-		 $imageName2 = $targetDir2 . uniqid() . basename($imageName2);
-		 $imageFileType2 = pathinfo($imageName2, PATHINFO_EXTENSION);
+		$image_name_orig2=basename($imageName2); 
+		$imageName2 = $targetDir2 . uniqid() . basename($imageName2);
+		$imageFileType2 = pathinfo($imageName2, PATHINFO_EXTENSION);
 
 		if($_FILES['fileToUpload2']['size'] > 10000000) {
 			$errorMessage2 = "Sorry your file is too large";
@@ -49,70 +49,86 @@ if(isset($_POST['upload_project_file'])) {
 //project file upload section ends
 ?>
 
-<div class="card shadow mb-3">
-    <div class="card-header py-1">
-        <p class="text-primary m-0 font-weight-bold">Upload a Project</p>
-    </div>
-    <div class="card-body">
-
-        <form action="" method="post" enctype="multipart/form-data">
-            <div>
-                <input type="file" id="user_group_logo" class="custom-file-input" name="fileToUpload2">
-                <div class="text-center">
-                    <label id="user_group_label" for="user_group_logo"><i class="fas fa-upload"></i>&nbsp;Choose a
-                        file...</label>
-                </div>
-                <div class="text-center mt-2">
-                    <button class="btn btn-primary" type="submit" name="upload_project_file">Upload</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="text-primary font-weight-bold m-0">Track Projects</h6>
-    </div>
-    <div class="card-body scroll">
-        <?php                       
-   $stmt=$db->prepare("SELECT * FROM fileupload WHERE uploaded_by='$userLoggedIn' ORDER BY id DESC ");  
-   $stmt->execute();
-   while($row=$stmt->fetch()){       
-       ?>
-        <h4 class="small font-weight-bold">
-            <?php
-                        echo "Filename:";
-                        echo $row['filename']; 
-                        echo "  ";
-                        echo "Uploaded on:";
-                        echo $row['uploaded_on']; 
-                            ?>
-        </h4>
-
-        <div class="progress progress-sm mb-3" style="height: 15px;">
-
-            <div class="progress-bar bg-success" aria-valuemin="0" aria-valuemax="40" style="width: <?php 
-                                        echo $row['sketchup_status'].'%'
-                                        ?>;">sketchup
-            </div>
-
-            <div class="progress-bar bg-warning" aria-valuemin="0" aria-valuemax="40" style="width: <?php 
-                                        echo $row['lumion_status'].'%'
-                                        ?>;">lumion
-            </div>
-
-            <div class="progress-bar bg-primary" aria-valuemin="0" aria-valuemax="20" style="width: <?php 
-                                        echo $row['vr_status'].'%'
-                                        ?>;">vr
-            </div>
-
+<div class="container-fluid">
+    <div class="row div col-12">
+        <div class="text-gray-900 h3 display-4 mb-3">
+            Project Management
         </div>
-        <?php
-   }  
-?>
-
     </div>
+    <div class="row">
+        <div class="col-12 m-auto">
+            <div class="card shadow-sm mb-3">
+                <div class="card-header py-1">
+                    <p class="text-gray-900 m-0 font-weight-bold">Upload a Project</p>
+                </div>
+                <div class="card-body">
+            
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <div>
+                            <input type="file" id="user_group_logo" class="custom-file-input" name="fileToUpload2">
+                            <div class="text-center">
+                                <label id="user_group_label" for="user_group_logo"><i class="fas fa-upload"></i> Choose a
+                                    file...</label>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button class="btn btn-primary" type="submit" name="upload_project_file">Upload</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header py-3">
+                    <div class="h4 text-gray-900 font-weight-bold m-0">Track Projects</div>
+                </div>
+                <div class="card-body scroll">
+                    <?php                       
+               $stmt=$db->prepare("SELECT * FROM fileupload WHERE uploaded_by='$userLoggedIn' ORDER BY id DESC ");  
+                $stmt->execute();
+                while($row=$stmt->fetch()){       
+                ?>
+                    <h4 class="small font-weight-bold">
+                        <?php
+                                    echo "Filename:";
+                                    echo $row['filename']; 
+                                    echo "  ";
+                                    echo "Uploaded on:";
+                                    echo $row['uploaded_on']; 
+                                        ?>
+                    </h4>
+            
+                    <div class="progress progress-sm mb-3" style="height: 15px;">
+            
+                        <div class="progress-bar bg-success" aria-valuemin="0" aria-valuemax="40" style="width: <?php 
+                                                    echo $row['sketchup_status'].'%'
+                                                    ?>;">sketchup
+                        </div>
+            
+                        <div class="progress-bar bg-warning" aria-valuemin="0" aria-valuemax="40" style="width: <?php 
+                                                    echo $row['lumion_status'].'%'
+                                                    ?>;">lumion
+                        </div>
+            
+                        <div class="progress-bar bg-primary" aria-valuemin="0" aria-valuemax="20" style="width: <?php 
+                                                    echo $row['vr_status'].'%'
+                                                    ?>;">vr
+                        </div>
+            
+                    </div>
+                    <?php
+                }  
+            ?>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
 </div>
 
