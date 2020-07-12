@@ -79,7 +79,6 @@ if(isset($_POST['upload_project_file'])) {
             </div>
         </div>
     </div>
-    
     <div class="row">
         <div class="col-12">
             <div class="card shadow-sm mb-4">

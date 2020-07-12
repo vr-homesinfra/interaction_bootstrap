@@ -275,7 +275,7 @@ $row = mysqli_fetch_array($result);
                                                 ?>
                                             </span>
                                             <span id="uploaded_image_header">
-                                                <img id="uploaded_image_img" class="rounded-circle mb-3 mt-4"
+                                                <img id="uploaded_image_img" class="rounded-circle border mb-3 mt-4"
                                                     src="<?php echo $row['profile_pic']; ?>" width="40"
                                                     height="40"></span>
                                         </a>
