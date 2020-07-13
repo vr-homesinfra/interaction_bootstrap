@@ -204,7 +204,7 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
         $return_string .= "
     <a class='text-decoration-none' href='messages.php?u=$username'>
         <div class='each-chat border-top row py-2'>
-            <div class='col-2 col-md-2 m-auto'>
+            <div class='col-2 pl-1 col-md-2 m-auto'>
                 <img width='60px' height='60px' class='img-profile p-1 rounded-circle'
                 src='" . $user_found_obj->getProfilePic() . "'>
             </div>
