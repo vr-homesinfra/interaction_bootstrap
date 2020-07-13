@@ -82,10 +82,10 @@ class Message {
 // $imageDiv ="";
 // }
 //ternary operator
-$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='row'><div class='col p-4'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
+$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='row'><div class='col px-4 py-2'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
         // $user_logged_in="<div>$userLoggedIn</div>";
         // $button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>x</span>";
-        $data = $data . $div_top . $body .$imageDiv."</div></div></div>";
+        $data = $data . $div_top . $body."</div>$imageDiv</div></div>";
         // $data = $data .$imageDiv. $div_top . $button . $body . "</div><br><br>";
 
     }
