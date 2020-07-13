@@ -35,7 +35,7 @@ class Message {
 	}
 
 	public function getMessages($otherUser) {
-		$userLoggedIn = $this->user_obj->getUsername();
+        $userLoggedIn = $this->user_obj->getUsername();
 		$data = "";
 
 		$query = mysqli_query($this->con, "UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUser'");
@@ -82,10 +82,10 @@ class Message {
 // $imageDiv ="";
 // }
 //ternary operator
-$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='message' id='grey'>";
+$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='row'><div class='col p-4'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
         // $user_logged_in="<div>$userLoggedIn</div>";
         // $button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>x</span>";
-        $data = $data . $div_top . $body .$imageDiv."</div><br><br>";
+        $data = $data . $div_top . $body .$imageDiv."</div></div></div>";
         // $data = $data .$imageDiv. $div_top . $button . $body . "</div><br><br>";
 
     }

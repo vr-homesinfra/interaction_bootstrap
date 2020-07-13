@@ -33,10 +33,11 @@ $row = mysqli_fetch_array($result);
 
     </head>
 
-    <body id="page-top" class="">
+    <body id="page-top">
+        <!-- Page Wrapper -->
         <div id="wrapper">
-            <nav
-                class="navbar navbar-light border align-items-start sidebar sidebar-light accordion bg-light p-0 toggled">
+            <!-- Sidebar -->
+            <nav class="navbar navbar-light border align-items-start sidebar sidebar-light accordion bg-light p-0 toggled">
                 <div class="container-fluid d-flex flex-column p-0">
                     <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                         <div class="sidebar-brand-icon">
@@ -133,13 +134,17 @@ $row = mysqli_fetch_array($result);
                             id="sidebarToggle" type="button"></button></div>
                 </div>
             </nav>
+            <!-- End of Sidebar -->
             <?php
               //unread messages
             $messages=new Message($con,$userLoggedIn);
             $num_messages=$messages->getUnreadNumber();  
             ?>
-            <div class="d-flex flex-column" id="content-wrapper">
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+                <!-- Main Content -->
                 <div id="content">
+                    <!-- Topbar -->
                     <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                         <div class="container-fluid checkTest">
                             <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop"
@@ -290,3 +295,4 @@ $row = mysqli_fetch_array($result);
                             </ul>
                         </div>
                     </nav>
+                    <!-- End of Topbar -->
