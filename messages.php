@@ -28,7 +28,7 @@
               $body=mysqli_real_escape_string($con,$_POST['message_body']);
               $date=date("Y-m-d H:i:s");
               $user_to=$message_obj->getMostRecentUser();
-              $message_obj->sendMessage($user_to,$body,$date, $imageName,$image_name_orig);
+              $message_obj->sendMessage($user_to,$body,$date);
             }
           }
         }
@@ -70,11 +70,26 @@ $row = mysqli_fetch_array($result);
                     <div class="inbox-chat">
                         <div class="chat-list">
                             <!-- Chat List started -->
-                            <?php echo $message_obj->getConvos();?>
-                            <!-- Chat List end -->
+                            <<<<<<< HEAD <!-- <div class='row py-2 active'>
+                                <div class='col-md-2 m-auto'>
+                                    <img class='img-profile p-1 rounded-circle'
+                                        src='https://source.unsplash.com/QAB-WJcbgJk/40x40'>
+                                </div>
+                                <div class='col-md-10 m-auto'>
+                                    <b>Varonika John</b> -->
+                                    <?php echo $message_obj->getConvos(); ?>
+
+                                    <!-- </div>
+                            </div> -->
+                                    =======
+                                    <?php echo $message_obj->getConvos();?>
+                                    >>>>>>> e7be0d2037799a5f005f1a16513eb7395ef06333
+                                    <!-- Chat List end -->
+                                </div>
                         </div>
                     </div>
                 </div>
+                <!-- Card End -->
             </div>
             <!-- Card End -->
         </div>
@@ -111,6 +126,7 @@ $row = mysqli_fetch_array($result);
                                 </div>
                             </div>
                         </div>
+                        <!-- Chat End -->
                     </div>
                 </div>
                 <div class="card-footer">
@@ -132,6 +148,7 @@ $row = mysqli_fetch_array($result);
                         </div>
                     </form>
                 </div>
+                <!-- Card End -->
             </div>
         </div>
         <!-- End of Conversation Column -->
@@ -143,12 +160,7 @@ $row = mysqli_fetch_array($result);
             var name = document.getElementById("file").files[0].name;
             var form_data = new FormData();
             var ext = name.split('.').pop().toLowerCase();
-            if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg',
-                'pdf',
-                'dwg'
-            ]) ==
-                -
-                1) {
+            if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg','pdf','dwg']) == -1) {
                 alert("Invalid Image File");
             }
             var oFReader = new FileReader();

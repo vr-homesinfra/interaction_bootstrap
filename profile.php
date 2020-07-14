@@ -6,6 +6,7 @@ include("includes/header.php");
     <?php
         if(isset($_GET['profile_username'])) {
               $username = $_GET['profile_username'];
+              $_SESSION['uname']=$username;
                $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
                $user_array = mysqli_fetch_array($user_details_query);
                $fname=$user_array['first_name'];
@@ -81,13 +82,21 @@ include("includes/header.php");
                 echo $mask_number;
                 ?>
                 </span>
+                <!-- <form id="request_mob_no"> -->
                 <span>
-                    <?php
-                    echo " <a name='' id='' class='btn btn-primary btn-sm' href='$msg$username' role='button'>";
-                    echo "Request No.";
-                    echo "</a>";
-                    ?>
+                    <!-- <input type="hidden" class="form-control" name="" id='reqMobNoHid'
+                            value='<?php echo $msg.$username?>'>
+
+                        <a class='btn btn-primary btn-sm' role='button' name='' id='reqMobNo'
+                            href='<?php echo $msg.$username?>'>Request No.</a> -->
+
+                    <!-- <a href="<?php echo $msg.$username?>"> -->
+                    <button type="button" id='reqMobNo' value='<?php echo $msg.$username?>' class="btn btn-info">Request
+                        No.</button>
+                    <!-- </a> -->
+
                 </span>
+                <!-- </form> -->
             </div>
         </div>
     </div>
@@ -170,5 +179,25 @@ include("includes/header.php");
 <script src="rd/assets/js/script.min.js"></script>
 <script src="assets/js/rdjsfile.js"></script>
 <script src="assets/js/demo.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#reqMobNo').on('click', function(e) {
+        //Stop the form from submitting itself to the server.
+        e.preventDefault();
+        var reqMobNo = $('#reqMobNo').val();
+        $.ajax({
+            type: "POST",
+            url: 'testProfile.php',
+            data: {
+                reqMobNo: reqMobNo
+            },
+            success: function(data) {
+                window.location.replace(reqMobNo);
+            }
+        });
+    });
+});
+</script>
 
 </html>
