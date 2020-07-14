@@ -30,9 +30,7 @@ $row = mysqli_fetch_array($result);
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" type="text/css" href="assets/css/mystyles.css">
         <link rel="stylesheet" type="text/css" href="rd/assets/css/styles.min.css">
-
     </head>
-
     <body id="page-top">
         <!-- Page Wrapper -->
         <div id="wrapper">

@@ -52,9 +52,9 @@ class Message {
             $ext = end($test);
             // if ($imagePath!="") {
             if ($ext=="jpg" || $ext=="png" || $ext=="jpeg" || $ext=="bmp") {
-            $imageDiv="<div class='postedImage'>
+            $imageDiv="<div class='postedImage rounded border'>
             <a href='$imagePath' download>
-                <img src='$imagePath' >
+                <img class='rounded' src='$imagePath' >
             </a>
             </div>";
             }else {
@@ -82,10 +82,15 @@ class Message {
 // $imageDiv ="";
 // }
 //ternary operator
-$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='row'><div class='col px-4 py-2'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
         // $user_logged_in="<div>$userLoggedIn</div>";
         // $button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>x</span>";
-        $data = $data . $div_top . $body."</div>$imageDiv</div></div>";
+        if($imageDiv == ""){
+            $div_top = ($user_to == $userLoggedIn) ? "<div class='row'><div class='col px-4 py-2'><div class='float-left rounded-pill bg-primary text-white p-2 px-4'>" : "<div class='row'><div class='col px-4 py-2'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
+        $data = $data . $div_top . $body . $imageDiv . "</div></div></div>";
+        } else {
+            $div_top = ($user_to == $userLoggedIn) ? "<div class='row'><div class='col px-1 py-2'><div class='float-left text-white p-2 px-4'>" : "<div class='row'><div class='col px-1 py-2'><div class='float-right text-white p-2 px-4'>";
+            $data = $data . $div_top . $imageDiv . "</div></div></div>";
+        }
         // $data = $data .$imageDiv. $div_top . $button . $body . "</div><br><br>";
 
     }
@@ -108,11 +113,11 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
     $interval = $start_date->diff($end_date); //Difference between dates
     if($interval->y >= 1) {
     if($interval->y == 1) {
-    $time_message = $interval->y . " year ago"; //1 year ago
+    $time_message = $interval->y . " yr ago"; //1 year ago
     $time_msg_abbr = $interval->y . " yr";
     }
     else
-    $time_message = $interval->y . " years ago"; //1+ year ago
+    $time_message = $interval->y . " yrs ago"; //1+ year ago
     }
     else if ($interval->m >= 1) {
     if($interval->d == 0) {
@@ -144,18 +149,18 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
     }
     else if($interval->h >= 1) {
     if($interval->h == 1) {
-    $time_message = $interval->h . " hour ago";
+    $time_message = $interval->h . " hr ago";
     }
     else {
-    $time_message = $interval->h . " hours ago";
+    $time_message = $interval->h . " hrs ago";
     }
     }
     else if($interval->i >= 1) {
     if($interval->i == 1) {
-    $time_message = $interval->i . " minute ago";
+    $time_message = $interval->i . " min ago";
     }
     else {
-    $time_message = $interval->i . " minutes ago";
+    $time_message = $interval->i . " mins ago";
     }
     }
     else {
@@ -213,7 +218,7 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
                     <div class='col-8'>
                         <b>" . $user_found_obj->getFirstAndLastName() ."</b>
                     </div>
-                    <div class='col-4 px-2'>
+                    <div class='col-4'>
                         <abbr class='inbox-timestamp text-decoration-none text-gray-600' title='" . $latest_message_details[2] . "'>" . $latest_message_details[2] . "</abbr>
                     </div>
                 </div>
