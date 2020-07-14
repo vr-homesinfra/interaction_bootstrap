@@ -20,8 +20,8 @@ else {
     <h3 class="text-gray-900 mb-4">
         <?php $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);  echo $queryDisplay = strtoupper($queryDisplay); ?>
     </h3>
-</div>
-<div class="row m-3">
+
+<div class="row">
     <?php 
 	if($query == "")
 		echo "You must enter something in the search box.";
@@ -77,18 +77,47 @@ $msg="messages.php?u=";
         $extSearchProfile=rtrim($_GET['profile']);  
     
 echo "
-<div class='col-sm-12 col-md-4 col-lg-3 mx-3 mt-4'>
-        <div class='card shadow-sm border-0 rounded'>
-            <img src='". $row['profile_pic'] ."' class='w-100 card-img-top' alt='...'>
-            <div class='card-body px-2 text-center'>
-            <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
-            <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
-                <a name='' id='blockButton' class='btn btn-secondary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
-                <a id='blockButton' class='btn btn-sm btn-secondary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
+<div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
+    <div class='card shadow-sm border-0 rounded'>
+        <div class='card-header bg-white'>
+            <div class='row'>
+                <div class='col-4 '>
+                    <img style='max-width:100px;' src='". $row['profile_pic'] ."' class='w-100 rounded-circle border' alt='...'>
+                </div>
+                <div class='col-8 m-auto'>
+                    <h4 class='m-0'> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h4>
+                </div>
+            </div>
         </div>
+        <div class='card-body px-2 text-center'>
+            <div class='row'>
+                <div class='col'><p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p></div>
+            </div>
+            <div class='row'>
+                <div class='col'>
+                    <a name='' id='blockButton' class='btn btn-secondary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
+                </div>
+                <div class='col'>
+                    <a id='blockButton' class='btn btn-sm btn-secondary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
+                </div>
+            </div>
         </div>
-        </div>
+    </div>
+</div>
         ";  
+// echo "
+// <div class='col-sm-12 col-md-4 col-lg-3 mx-3 mt-4'>
+//         <div class='card shadow-sm border-0 rounded'>
+//             <img src='". $row['profile_pic'] ."' class='w-100 card-img-top' alt='...'>
+//             <div class='card-body px-2 text-center'>
+//             <h5> <a href='" . $row['username'] ."' class='text-dark'>" . $row['first_name'] . " " . $row['last_name'] .$blank_space.$coa_stat."</a></h5>
+//             <p class='small text-muted font-italic'>". substr($row['about_me'],0,100) .$read_more."</p>
+//                 <a name='' id='blockButton' class='btn btn-secondary btn-sm' href='" . $row['username'] ."' role='button'>Visit Profile</a>
+//                 <a id='blockButton' class='btn btn-sm btn-secondary ml-2' href='" .$msg. $row['username'] ."' role='button'>Send Message</a>
+//         </div>
+//         </div>
+//         </div>
+//         ";  
         }
         }
 
@@ -133,12 +162,13 @@ echo "
         }
     }
         ?>
-    <footer class="bg-white sticky-footer">
+    </div>
+</div>
+<footer class="bg-white mt-2 sticky-footer">
         <div class="container my-auto">
             <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
         </div>
     </footer>
-</div>
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"

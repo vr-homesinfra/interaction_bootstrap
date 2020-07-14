@@ -37,7 +37,7 @@ include("includes/header.php");
         <img class="rounded-circle img-fluid border rounded profile-pic" src="<?php
           echo $profilePic;
         ?>">
-        <h3 class="text-dark ">
+        <h3 class="text-dark">
             <?php
             echo $full_name=$fname." ".$lname;
         ?>
@@ -77,9 +77,9 @@ include("includes/header.php");
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <span>
-                    <?php   
-                    $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);
-                    echo $mask_number;
+                <?php                      
+                $mask_number =  str_repeat("*", strlen($mobile_no)-4) . substr($mobile_no, -4);                                         
+                echo $mask_number;
                 ?>
                 </span>
                 <!-- <form id="request_mob_no"> -->

@@ -35,7 +35,7 @@ class Message {
 	}
 
 	public function getMessages($otherUser) {
-		$userLoggedIn = $this->user_obj->getUsername();
+        $userLoggedIn = $this->user_obj->getUsername();
 		$data = "";
 
 		$query = mysqli_query($this->con, "UPDATE messages SET opened='yes' WHERE user_to='$userLoggedIn' AND user_from='$otherUser'");
@@ -82,10 +82,10 @@ class Message {
 // $imageDiv ="";
 // }
 //ternary operator
-$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='message' id='grey'>";
+$div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "<div class='row'><div class='col px-4 py-2'><div class='float-right rounded-pill bg-primary text-white p-2 px-4'>";
         // $user_logged_in="<div>$userLoggedIn</div>";
         // $button = "<span class='deleteButton' onclick='deleteMessage($id, this)'>x</span>";
-        $data = $data . $div_top . $body .$imageDiv."</div><br><br>";
+        $data = $data . $div_top . $body."</div>$imageDiv</div></div>";
         // $data = $data .$imageDiv. $div_top . $button . $body . "</div><br><br>";
 
     }
@@ -107,8 +107,10 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
     $end_date = new DateTime($date_time_now); //Current time
     $interval = $start_date->diff($end_date); //Difference between dates
     if($interval->y >= 1) {
-    if($interval->y == 1)
+    if($interval->y == 1) {
     $time_message = $interval->y . " year ago"; //1 year ago
+    $time_msg_abbr = $interval->y . " yr";
+    }
     else
     $time_message = $interval->y . " years ago"; //1+ year ago
     }
@@ -183,13 +185,12 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
         array_push($convos, $user_to_push);
         }
         }
-
         foreach($convos as $username) {
         $user_found_obj = new User($this->con, $username);
         $latest_message_details = $this->getLatestMessage($userLoggedIn, $username);
 
-        $dots = (strlen($latest_message_details[1]) >= 12) ? "..." : "";
-        $split = str_split($latest_message_details[1], 12);
+        $dots = (strlen($latest_message_details[1]) >= 30) ? "..." : "";
+        $split = str_split($latest_message_details[1], 30);
         $split = $split[0] . $dots;
 
         // $return_string .= "<a href='messages.php?u=$username'>
@@ -201,24 +202,24 @@ $div_top = ($user_to == $userLoggedIn) ? "<div class='message' id='orange'>" : "
         //     </div><hr>
         // </a>";
         $return_string .= "
-    <a href='messages.php?u=$username'>
-        <div class='row py-2'>
-            <div class='col-md-2 m-auto'>
-                <img width='40px' height='40px' class='img-profile p-1 rounded-circle'
+    <a class='text-decoration-none' href='messages.php?u=$username'>
+        <div class='each-chat border-top row py-2'>
+            <div class='col-2 pl-1 col-md-2 m-auto'>
+                <img width='60px' height='60px' class='img-profile p-1 rounded-circle'
                 src='" . $user_found_obj->getProfilePic() . "'>
             </div>
-            <div class='col-md-10 m-auto'>
+            <div class='col-10 pl-4 pr-0 col-md-10 m-auto'>
                 <div class='row'>
-                    <div class='col'>
+                    <div class='col-8'>
                         <b>" . $user_found_obj->getFirstAndLastName() ."</b>
                     </div>
-                    <div class='col'>
-                        <span class='timestamp_smaller' id='grey'>" . $latest_message_details[2] . "</span>
+                    <div class='col-4 px-2'>
+                        <abbr class='inbox-timestamp text-decoration-none text-gray-600' title='" . $latest_message_details[2] . "'>" . $latest_message_details[2] . "</abbr>
                     </div>
                 </div>
                 <div class='row'>
                     <div class='col'>
-                        <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
+                        <p class='inbox-msg text-gray-800' style='margin: 0;'>". $split . " </p>
                     </div>
                 </div>
             </div>
