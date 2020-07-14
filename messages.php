@@ -28,7 +28,7 @@
               $body=mysqli_real_escape_string($con,$_POST['message_body']);
               $date=date("Y-m-d H:i:s");
               $user_to=$message_obj->getMostRecentUser();
-              $message_obj->sendMessage($user_to,$body,$date, $imageName,$image_name_orig);
+              $message_obj->sendMessage($user_to,$body,$date);
             }
           }
     }
@@ -46,7 +46,7 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <div class="card-body">
                     <div class="inbox-chat">
-                        
+
                         <div class="chat-list">
                             <!-- Chat List started -->
                             <!-- <div class='row py-2 active'>
@@ -56,12 +56,12 @@ $row = mysqli_fetch_array($result);
                                 </div>
                                 <div class='col-md-10 m-auto'>
                                     <b>Varonika John</b> -->
-                                    <?php echo $message_obj->getConvos(); ?>
+                            <?php echo $message_obj->getConvos(); ?>
 
-                                <!-- </div>
+                            <!-- </div>
                             </div> -->
                             <!-- Chat List end -->
-                        </div>                     
+                        </div>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@ $row = mysqli_fetch_array($result);
                                             var name = document.getElementById("file").files[0].name;
                                             var form_data = new FormData();
                                             var ext = name.split('.').pop().toLowerCase();
-                                            if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg',
+                                            if (jQuery.inArray(ext, ['png', 'jpg', 'jpeg',
                                                     'pdf',
                                                     'dwg'
                                                 ]) ==
