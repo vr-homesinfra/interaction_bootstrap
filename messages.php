@@ -39,24 +39,24 @@ $row = mysqli_fetch_array($result);
 <style>
     /* width */
     ::-webkit-scrollbar {
-      width: 10px;
+        width: 10px;
     }
-    
+
     /* Track */
     ::-webkit-scrollbar-track {
-      background: #f1f1f1; 
+        background: #f1f1f1;
     }
-     
+
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #888; 
+        background: #888;
     }
-    
+
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-      background: #555; 
+        background: #555;
     }
-    </style>
+</style>
 <!-- Container Start -->
 <div class="container">
     <div class="row">
@@ -95,39 +95,40 @@ $row = mysqli_fetch_array($result);
                     ?>
                 </div>
                 <div class="card-body">
-                    <div class="">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class='bootstrap_chat'>
-                                    <?php
+                    <div class="row">
+                        <div class="col-12">
+                            <div class='bootstrap_chat'>
+                                <?php
                                     if (isset($_GET['u'])) {
                                       $user_to=$_GET['u'];
                                               echo $message_obj->getMessages($user_to);  
-                                    }else{
+                                    } else {
                                         $user_to=$message_obj->getMostRecentUser();
                                         echo $message_obj->getMessages($user_to);                                
-                                         }
-                                    ?>
-                                </div>
+                                    }
+                                ?>
                             </div>
                         </div>
                     </div>
                 </div>
+                <style>
+                input#file-upload-button{cursor: pointer;}
+                </style>
                 <div class="card-footer">
                     <form action="" class="bg-light" method="POST">
                         <div class="input-group border-0">
                             <input type="text" placeholder="Type a message" aria-describedby="button-addon2"
-                                class="form-control rounded-pill border bg-white py-4 bg-light"
-                                name="message_body"/>
-                            <div class="text-center">
-                                <input type="file" id="file" name="file"/>
-
-                                <div class="input-group-append">
-                                    <button id="button-addon2" type="submit" class="btn btn-link"
-                                        name="post_message">
-                                        <i class="fa fa-paper-plane"></i>
-                                    </button>
+                                class="form-control rounded-pill border bg-white py-4 bg-light" name="message_body" />
+                            <input  style='width:40px; opacity:0; cursor: pointer; transform: translateX(48px); z-index: 3;' type="file" id="file" name="file" />
+                            
+                            <div style="cursor: pointer;" class="input-group-append">
+                                <div style="cursor: pointer;" class="btn btn-link ">
+                                    <i style="cursor: pointer;" class="btn btn-link fa fa-paperclip"></i>
                                 </div>
+                                <button id="button-addon2" type="submit" class="btn btn-link" name="post_message">
+                                    <i class="fa fa-paper-plane"></i>
+                                </button>
+                                
                             </div>
                         </div>
                     </form>
@@ -136,70 +137,55 @@ $row = mysqli_fetch_array($result);
         </div>
         <!-- End of Conversation Column -->
 
-<!-- File Upload Script Start -->
-<script>
-    $(document).ready(function () {
-        $(document).on('change', '#file', function () {
-            var name = document.getElementById("file").files[0].name;
-            var form_data = new FormData();
-            var ext = name.split('.').pop().toLowerCase();
-            if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg',
-                'pdf',
-                'dwg'
-            ]) ==
-                -
-                1) {
-                alert("Invalid Image File");
-            }
-            var oFReader = new FileReader();
-            oFReader.readAsDataURL(document
-                .getElementById("file").files[0]);
-            var f = document.getElementById("file").files[0];
-            var fsize = f.size || f.fileSize;
-            if (fsize > 20971520) {
-                alert("Image File Size is very big");
-            } else {
-                form_data.append("file", document.getElementById('file')
-                    .files[
-                    0]);
-                $.ajax({
-                    url: "msgUploadFiles.php",
-                    method: "POST",
-                    data: form_data,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    beforeSend: function () {
-                        $('#uploaded_imagex').html(
-                            "<label class='text-success'>Image Uploading...</label>"
-                        );
-                    },
-                    success: function (data) {
-                        $('#uploaded_imagex').html(data);
-                        // alert("File Uploaded");
-                        location.reload();
+        <!-- File Upload Script Start -->
+        <script>
+            $(document).ready(function () {
+                $(document).on('change', '#file', function () {
+                    var name = document.getElementById("file").files[0].name;
+                    var form_data = new FormData();
+                    var ext = name.split('.').pop().toLowerCase();
+                    if (jQuery.inArray(ext, ['jpeg', 'png', 'jpg', 'jpeg',
+                        'pdf',
+                        'dwg'
+                    ]) ==
+                        -
+                        1) {
+                        alert("Invalid Image File");
+                    }
+                    var oFReader = new FileReader();
+                    oFReader.readAsDataURL(document
+                        .getElementById("file").files[0]);
+                    var f = document.getElementById("file").files[0];
+                    var fsize = f.size || f.fileSize;
+                    if (fsize > 20971520) {
+                        alert("Image File Size is very big");
+                    } else {
+                        form_data.append("file", document.getElementById('file')
+                            .files[
+                            0]);
+                        $.ajax({
+                            url: "msgUploadFiles.php",
+                            method: "POST",
+                            data: form_data,
+                            contentType: false,
+                            cache: false,
+                            processData: false,
+                            beforeSend: function () {
+                                $('#uploaded_imagex').html(
+                                    "<label class='text-success'>Image Uploading...</label>"
+                                );
+                            },
+                            success: function (data) {
+                                $('#uploaded_imagex').html(data);
+                                // alert("File Uploaded");
+                                location.reload();
+                            }
+                        });
                     }
                 });
-            }
-        });
-    });
-</script>
-<!-- File Upload Script End -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            });
+        </script>
+        <!-- File Upload Script End -->
     </div>
     <!-- End Row -->
 </div>
