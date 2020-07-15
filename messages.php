@@ -97,16 +97,20 @@ $row = mysqli_fetch_array($result);
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <div class='bootstrap_chat'>
+                            <div id='chat_system' class='bootstrap_chat'>
                                 <?php
                                     if (isset($_GET['u'])) {
                                       $user_to=$_GET['u'];
                                               echo $message_obj->getMessages($user_to);  
                                     } else {
                                         $user_to=$message_obj->getMostRecentUser();
-                                        echo $message_obj->getMessages($user_to);                                
+                                        echo $message_obj->getMessages($user_to);      
                                     }
                                 ?>
+                                <!-- Scroll to Bottom JavaScript -->
+                                <script>
+                                    document.getElementById('chat_system').scrollTop = document.getElementById('chat_system').scrollHeight;
+                                </script>
                             </div>
                         </div>
                     </div>
