@@ -239,7 +239,7 @@ class Message {
 
         $page = $data['page'];
         $userLoggedIn = $this->user_obj->getUsername();
-        $return_string = "";
+        $return_string = "<h6 class='dropdown-header'>Message Center</h6>";
         $convos = array();
 
         if($page == 1)
@@ -284,15 +284,18 @@ class Message {
             $split = str_split($latest_message_details[1], 12);
             $split = $split[0] . $dots;
 
-            $return_string .= "<a href='messages.php?u=$username'>
-                <div class='user_found_messages pl-2 pt-1' style='" . $style . "'>
-                    <img src='" . $user_found_obj->getProfilePic() . "' style='border-radius: 5px; margin-right: 5px;width:50px;height:50px;'>
-                    " . $user_found_obj->getFirstAndLastName() ."
-                    <span class='timestamp_smaller' id='grey'> <br> " . $latest_message_details[2] . "</span>
-                    <p id='grey' style='margin: 0;'>" . $latest_message_details[0] . $split . " </p>
-                </div><hr>
-            </a>";
+            $return_string .= "<a class='dropdown-item d-flex align-items-center' href='messages.php?u=$username'>
+            <div class='dropdown-list-image mr-3'>
+            <img class='rounded-circle' src='" . $user_found_obj->getProfilePic() . "' alt=''>
+            <div class='status-indicator bg-success'></div>
+          </div>
+          <div class='font-weight-bold'>
+            <div class='text-truncate'>" . $latest_message_details[0] . $split . "</div>
+            <div class='small text-gray-500'>" . $user_found_obj->getFirstAndLastName() ." · 58m</div>
+          </div>
+        </a>";
             }
+
 
 
             //If posts were loaded
@@ -301,8 +304,7 @@ class Message {
                 type='hidden' class='noMoreDropdownData' value='false'>";
             else
             $return_string .= "<input type='hidden' class='noMoreDropdownData' value='true'>
-            <p style='text-align: center;'>No more messages to load!</p>";
-
+            <p style='text-align: center;' class='text-center border p-2 m-0 small text-gray-500'>No more messages to load!</p>";
             return $return_string;
             }
 

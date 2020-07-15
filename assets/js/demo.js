@@ -19,11 +19,11 @@ $(document).click(function(e){
 		$('.search_results_footer').toggleClass("search_results_footer");
 	}
 
-	if(e.target.className != "dropdown_data_window") {
+	// if(e.target.className != "dropdown_data_window") {
 
-		$(".dropdown_data_window").html("");
-		$(".dropdown_data_window").css({"padding" : "0px", "height" : "0px"});
-	}
+	// 	$(".dropdown_data_window").html("");
+	// 	$(".dropdown_data_window").css({"padding" : "0px", "height" : "0px"});
+	// }
 
 
 });
@@ -36,8 +36,7 @@ $(document).click(function(e){
 
 function getDropdownData(user, type) {
 
-	if($(".dropdown_data_window").css("height") == "0px") {
-
+	if($(".dropdown_data_window.show").length <= 0) {
 		var pageName;
 
 		if(type == 'notification') {
@@ -57,16 +56,13 @@ function getDropdownData(user, type) {
 
 			success: function(response) {
 				$(".dropdown_data_window").html(response);
-				$(".dropdown_data_window").css({"padding" : "0px", "height": "280px", "border" : "1px solid #DADADA"});
+				//$(".dropdown_data_window").removeClass('show');
 				$("#dropdown_data_type").val(type);
 			}
 
 		});
-
-	}
-	else {
-		$(".dropdown_data_window").html("");
-		$(".dropdown_data_window").css({"padding" : "0px", "height": "0px", "border" : "none"});
+	}else if($(".dropdown_data_window.show").length > 0) {
+		$(".dropdown_data_window").html(" ");
 	}
 
 }

@@ -199,7 +199,7 @@ $row = mysqli_fetch_array($result);
 
                                         <form class="form-inline mr-auto navbar-search w-100" action="search.php"
                                             method="GET" role="search" name="search_form">
-                                            <!--mobile view search select  -->
+                                            <!-- Mobile view search select -->
                                             <div class="row mx-auto">
                                                 <div class="col-12">
                                                     <fieldset style="width:290px">
@@ -251,21 +251,23 @@ $row = mysqli_fetch_array($result);
                                         <!-- </div> -->
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                                    <div class="nav-item dropdown no-arrow">
-                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false"
-                                            href="javascript:void(0);"
-                                            onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
-                                            <span class="badge badge-danger badge-counter"><?php
-                                                echo $num_messages;  
-                                            ?></span>
-                                            <i class="fas fa-envelope fa-fw"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in dropdown_data_window"
-                                            role="menu" style="height:0px; border:none;overflow-y:scroll;">
-                                        </div>
-                                    </div>
-                                </li>
+                                <!-- Nav Item - Messages -->
+                                
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="getDropdownData('<?php echo $userLoggedIn; ?>', 'message')">
+                <i class="fas fa-envelope fa-fw"></i>
+                <!-- Counter - Messages -->
+                <span class="badge badge-danger badge-counter"><?php echo $num_messages; ?></span>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div style="" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in dropdown_data_window" aria-labelledby="messagesDropdown">
+              <!-- End of Dropdown - Messages -->
+                <h6 class="dropdown-header">
+                  Message Center
+                </h6>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+              </div>
+            </li>
                                 <div class="d-none d-sm-block topbar-divider">
                                 </div>
                                 <li class="nav-item dropdown no-arrow" role="presentation">
