@@ -18,22 +18,22 @@
                             <a class="nav-link active" href="#">Find Creatives</a>
                         </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/virtualreality/">Virtual Reality</a>
+                                href="https://homesinfra.com/w/virtualreality/">Virtual Reality</a>
                         </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/homesinfra-showcase/">Showcase</a>
+                                href="https://homesinfra.com/w/homesinfra-showcase/">Showcase</a>
                         </li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/3d-visualization-to-implementation/">3D to Reality</a>
+                                href="https://homesinfra.com/w/3d-visualization-to-implementation/">3D to Reality</a>
                         </li>
                         <li role="presentation" class="nav-item"></li>
                         <li role="presentation" class="nav-item"></li>
                         <li role="presentation" class="nav-item"><a class="nav-link active"
-                                href="https://homesinfra.com/about-us/">About Us</a></li>
+                                href="https://homesinfra.com/w/about-us/">About Us</a></li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/contact-us/">Contact Us</a></li>
+                                href="https://homesinfra.com/w/contact-us/">Contact Us</a></li>
                         <li role="presentation" class="nav-item"><a class="nav-link"
-                                href="https://homesinfra.com/privacy-policy/">Privacy Policy</a></li>
+                                href="https://homesinfra.com/w/privacy-policy/">Privacy Policy</a></li>
                     </ul>
                 </div>
             </nav>
@@ -42,5 +42,4 @@
             </ul>
             <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
                 href="./otpLogin.php">Sign in</a>
-
         </nav>

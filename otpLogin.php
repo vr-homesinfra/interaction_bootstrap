@@ -40,8 +40,8 @@ if (isset($_SESSION['uname'])) {
     <body>
         <nav class="navbar shadow navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img
-                        src="<?php echo $logoSrc; ?>" width="60"
+                <a class="navbar-brand py-0" href="/"><img
+                        src="<?php echo $logoSrc; ?>" width="80"
                         alt="homesinfra logo"></a>
                 <a class="btn btn-primary " href="./otpRegister.php">Sign Up</a>
             </div>
