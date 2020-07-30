@@ -24,19 +24,23 @@ else {
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Search Listing</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
         <link rel="stylesheet" href="rd/assets/css/main.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
         <link rel="stylesheet" href="rd/assets/css/styles.min.css?h=2cfe18d2d8a32b71eadff2883706ad0e">
     </head>
     <body>
+
     <?php require('./includes/bs_navbar.php');?>
         <div class="container mt-5">
             <div class="row border-right-0 border-left-0 border p-4">
                 <div class="col">
                     <?php
-       $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
-      echo $queryDisplay = strtoupper($queryDisplay);
-?>
+                    $queryDisplay = $_GET['profile']."(s)"." ".$str." ".rtrim($_GET['city']);
+                    echo $queryDisplay = strtoupper($queryDisplay);
+                    ?>
                 </div>
             </div>
             <div class="row">
@@ -106,9 +110,9 @@ $read_more="...";
 //     </div>		
 // </div>
 // </div>
-       $extSearchUname=$row['username'];     
-       $extSearchCity=rtrim($_GET['city']);     
-       $extSearchProfile=rtrim($_GET['profile']);  
+        $extSearchUname=$row['username'];     
+        $extSearchCity=rtrim($_GET['city']);     
+        $extSearchProfile=rtrim($_GET['profile']);  
        
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
@@ -143,9 +147,9 @@ echo "
 				$coa_stat= "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
-       $extSearchUname=$row['username'];     
-       $extSearchCity=rtrim($_GET['city']);     
-       $extSearchProfile=rtrim($_GET['profile']);  
+        $extSearchUname=$row['username'];     
+        $extSearchCity=rtrim($_GET['city']);     
+        $extSearchProfile=rtrim($_GET['profile']);  
        
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
@@ -167,7 +171,6 @@ echo "
     }
         ?>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js">
             </script>
             <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
