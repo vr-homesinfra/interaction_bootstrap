@@ -92,7 +92,7 @@
     
     @media (max-width: 800px) {
         .toggle input + label {
-        padding: .35rem .25rem;
+        padding: .8rem .25rem;
         flex: 0 0 50%;
         display: flex;
         justify-content: center;
