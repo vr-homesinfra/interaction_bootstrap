@@ -45,28 +45,30 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <style>
             .nav-item a:hover {
                 border-bottom:3px solid #ff7555;
                 
             }
         </style>
-        <ul class="navbar-nav navbar-dark bd-navbar-nav flex-row">
-            <li class="nav-item">
-                <a class="text-dark text-decoration-none pb-2 my-2 my-sm-0"
-                href="./extSearch.php">Find Creatives</a>
-            </li>
-            <li class="nav-item">
-                <a class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
-                href="https://homesinfra.com/w/virtualreality/">Virtual Reality</a>
-            </li>
-            <li class="nav-item">
-                <a style="border-bottom:3px solid #ff7555;" class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
-                href="https://homesinfra.com/w/">What is HomesInfra ?</a>
-            </li>
-        </ul>
-        <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
-        href="./otpLogin.php">Sign in</a>
-    </div>
+        <div class="col-8 col-md-8 col-lg-6 offset-md-2 offset-lg-2">
+            <ul class="navbar-nav navbar-dark bd-navbar-nav flex-row d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="text-dark text-decoration-none pb-2 my-2 my-sm-0"
+                    href="./extSearch.php">Find Creatives</a>
+                </li>
+                <li class="nav-item">
+                    <a class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
+                    href="https://homesinfra.com/w/virtualreality/">Virtual Reality</a>
+                </li>
+                <li class="nav-item">
+                    <a style="border-bottom:8px solid #ff7555;" class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
+                    href="https://homesinfra.com/w/">What is HomesInfra ?</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-4 col-md-2"><a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
+            href="./otpLogin.php">Sign in</a></div>
+    </div>    
 </nav>
