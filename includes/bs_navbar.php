@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top topbar navbar-dark shadow bg-white">
+<nav class="navbar fixed-top topbar navbar-dark shadow-sm bg-white">
     <nav class="navbar navbar-dark fixed-top bg-primary off-canvas orange-drawer" data-right-drawer="0"
         data-open-drawer="0">
         <div class="container-fluid flex-column">
@@ -46,10 +46,24 @@
         </div>
     </nav>
     <div class="container">
+        <style>
+            .nav-item a:hover {
+                border-bottom:3px solid #ff7555;
+                
+            }
+        </style>
         <ul class="navbar-nav navbar-dark bd-navbar-nav flex-row">
             <li class="nav-item">
-                <a style="border-radius:24px;" class="text-dark my-2 my-sm-0"
+                <a class="text-dark text-decoration-none pb-2 my-2 my-sm-0"
                 href="./extSearch.php">Find Creatives</a>
+            </li>
+            <li class="nav-item">
+                <a class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
+                href="https://homesinfra.com/w/virtualreality/">Virtual Reality</a>
+            </li>
+            <li class="nav-item">
+                <a style="border-bottom:3px solid #ff7555;" class="text-dark text-decoration-none my-2 mx-3 pb-2 my-sm-0" target="_blank"
+                href="https://homesinfra.com/w/">What is HomesInfra ?</a>
             </li>
         </ul>
         <a style="border-radius:24px; width:100px; border-width:2px;" class="btn btn-outline-primary my-2 my-sm-0"
