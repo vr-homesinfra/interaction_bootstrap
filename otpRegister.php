@@ -16,8 +16,9 @@ $otp_failure="";
 ?>
 <!DOCTYPE html>
 <html>
+
     <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Registration Page - HomesInfra</title>
         <link rel="stylesheet" href="rd/assets/css/main.css">
@@ -33,8 +34,7 @@ $otp_failure="";
     <body>
         <nav class="navbar shadow navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img
-                        src="<?php echo $logoSrc; ?>" width="60"
+                <a class="navbar-brand" href="#"><img src="<?php echo $logoSrc; ?>" width="60"
                         alt="homesinfra logo"></a>
                 <a class="btn btn-primary " href="./otpLogin.php">Sign In</a>
             </div>
@@ -53,9 +53,11 @@ $otp_failure="";
 
                                 <div class="col-lg-6">
                                     <div class="p-4">
-                                    <div class="">
-                                    
-                                            <div class="h3 text-center mb-2 text-gray-900 mb-4">Create Your Account</div><?php lottieImg('https://assets5.lottiefiles.com/packages/lf20_u8o7BL.json','100px', 'm-auto') ?>
+                                        <div class="">
+
+                                            <div class="h3 text-center mb-2 text-gray-900 mb-4">Create Your Account
+                                            </div>
+                                            <?php lottieImg('https://assets5.lottiefiles.com/packages/lf20_u8o7BL.json','100px', 'm-auto') ?>
                                             <h5>Sign Up</h5>
                                             <p class="my-3">Enter your details and verify mobile number to sign up.</p>
                                         </div>
@@ -129,8 +131,7 @@ $otp_failure="";
                                         ### Check if OTP is matching
                                         if ( $VerificationStatus =='OTP Matched')
                                         {
-                                        
-                                        echo "Congratulations you  has been verified. ";
+                echo "Congrats,your mobile is registered & verified";
                                             die();
                                             
                                         }
@@ -176,7 +177,6 @@ $otp_failure="";
                     $username = $username . "_" . $i;
                     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
                 }
-                echo "Congrats,your mobile is registered & verified";
                     $date = date("Y-m-d"); //Current date
                     $user_profile=$_SESSION['user_profile'];//from dropdown 
                     $mobile_no=$_SESSION['mobile_no'];
@@ -184,10 +184,42 @@ $otp_failure="";
                     $lname=$_SESSION['reg_lname'];
                 //start doing everything from here eg. db works
                 $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','no','','$mobile_no','','','','','','','','','','no','')");
-                 
-                header("Location: otpLogin.php");
+                 //redirect to internal pages
+                $mobile_no=$_SESSION['mobile_no'];
+                                            
+            $check_database_query = mysqli_query($con, "SELECT * FROM users WHERE mobile_no='$mobile_no'");
+            $check_login_query = mysqli_num_rows($check_database_query);
+            
+        if($check_login_query == 1) {
+            $row = mysqli_fetch_array($check_database_query);
+            $mobile_no = $row['mobile_no'];    
+            $userLoggedIn=$row['username'];
+	        $user_profile = $_row['profile'];
 
+     //after login,the session variable is set for the user from here
+            $_SESSION['mobile_no'] = $mobile_no;
+            $_SESSION['userLoggedIn'] = $userLoggedIn;
+            $_SESSION['user_profile'] = $user_profile;
+            
+            //profile based redirection
+            if (isset($_SESSION['mobile_no'])|| isset(($_SESSION['userLoggedIn']))) {
                 
+                $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
+                $user = mysqli_fetch_array($user_details_query);
+                $profile= $user['profile'];
+                    if ($profile=="architect") {
+                    header("Location: architectSettings.php");
+                    exit();  
+                    }elseif ($profile=="interior") {
+                        header("Location: interiorDesignerSettings.php");
+                        exit(); 
+                    }else {
+                        header("Location: customerSettings.php");
+                        exit();
+                    }                
+            }           
+        }   
+                // header("Location: otpLogin.php");                
             }else{                
                 $otp_failure="Enter correct OTP";
 
