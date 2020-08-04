@@ -226,13 +226,13 @@ $otp_failure="";
             }
         }
             
-                                   #echo $VerificationStatus= $API_Response_json->Details;
-                                       
+        #echo $VerificationStatus= $API_Response_json->Details;
+                                
         // $_SESSION['reg_fname'] = "";
         // $_SESSION['reg_lname'] = "";
         // $_SESSION['user_profile'] = "";
         // $_SESSION['register_mobile_no'] = "";                                                       
-                                   ?>
+                            ?>
                                         <form class="user" method="POST" action="otpRegister.php">
                                             <div class="form-group">
                                                 <select class=" border rounded form-control custom-select"
@@ -243,7 +243,6 @@ $otp_failure="";
                                                     <option value="interior">Interior Designer</option>
                                                 </select>
                                             </div>
-
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3  mb-sm-0">
                                                     <input class="form-control  form-control-user" type="text"
@@ -309,7 +308,6 @@ $otp_failure="";
                                             </div>
                                             <button class="btn  btn-outline-primary btn-block btn-user" type="submit"
                                                 name="verify_otp">Verify</button>
-
                                             <hr>
                                         </form>
                                         <div class="text-center">
@@ -333,5 +331,4 @@ $otp_failure="";
         <script src="assets/js/rdjsfile.js"></script>
         <script src="assets/js/demo.js"></script>
     </body>
-
 </html>
