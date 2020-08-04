@@ -253,7 +253,6 @@ $otp_failure="";
                                                     echo $_SESSION['reg_fname'];  
                                                 }
                                                 ?>">
-
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <input class="form-control  form-control-user" type="text"
@@ -263,10 +262,8 @@ $otp_failure="";
                                                     echo $_SESSION['reg_lname'];
                                                 }
                                                 ?>">
-
                                                 </div>
                                             </div>
-
                                             <div class="form-group">
                                                 <!--enter valid mobile no. textbox  -->
                                                 <input class="form-control  form-control-user" type="text"
