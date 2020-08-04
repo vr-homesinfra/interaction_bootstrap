@@ -259,9 +259,9 @@ $otp_failure="";
                                                     <input class="form-control  form-control-user" type="text"
                                                         id="textboxLastName" placeholder="Last Name" name="reg_lname"
                                                         autocomplete="off" value="<?php
-                                                  if(isset($_SESSION['reg_lname']))  {
-                                                      echo $_SESSION['reg_lname'];
-                                                  }
+                                                if(isset($_SESSION['reg_lname']))  {
+                                                    echo $_SESSION['reg_lname'];
+                                                }
                                                 ?>">
 
                                                 </div>
@@ -273,9 +273,9 @@ $otp_failure="";
                                                     id="exampleInputPassword" placeholder="Enter valid mobile no."
                                                     name="register_mobile_no" minlength="10" maxlength="10"
                                                     autocomplete="off" value="<?php
-                                                  if(isset($_SESSION['mobile_no']))  {
-                                                      echo $_SESSION['mobile_no'];
-                                                  }
+                                                if(isset($_SESSION['mobile_no']))  {
+                                                echo $_SESSION['mobile_no'];
+                                                }
                                                 ?>">
                                             </div>
                                             <!--send otp to entered mobile no. button  -->
@@ -290,7 +290,6 @@ $otp_failure="";
                                             var fade_out = function() {
                                                 $("#otp_sent").fadeOut().empty();
                                             }
-
                                             setTimeout(fade_out, 3000);
                                             </script>
                                             <hr>
@@ -331,7 +330,6 @@ $otp_failure="";
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="rd/assets/js/script.min.js"></script>
