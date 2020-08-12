@@ -183,7 +183,7 @@ $otp_failure="";
                     $fname=$_SESSION['reg_fname'];
                     $lname=$_SESSION['reg_lname'];
                 //start doing everything from here eg. db works
-                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','no','','$mobile_no','','','','','','','','','','no','')");
+                $query = mysqli_query($con, "INSERT INTO users VALUES ('','$fname','$lname','$user_profile','','','$username','','','$date','$profile_pic','','','yes','','$mobile_no','','','','','','','','','','no','')");
                  //redirect to internal pages
                 $mobile_no=$_SESSION['mobile_no'];
                                             
@@ -226,13 +226,13 @@ $otp_failure="";
             }
         }
             
-        #echo $VerificationStatus= $API_Response_json->Details;
-                                
+                                   #echo $VerificationStatus= $API_Response_json->Details;
+                                       
         // $_SESSION['reg_fname'] = "";
         // $_SESSION['reg_lname'] = "";
         // $_SESSION['user_profile'] = "";
         // $_SESSION['register_mobile_no'] = "";                                                       
-                            ?>
+                                   ?>
                                         <form class="user" method="POST" action="otpRegister.php">
                                             <div class="form-group">
                                                 <select class=" border rounded form-control custom-select"
@@ -243,6 +243,7 @@ $otp_failure="";
                                                     <option value="interior">Interior Designer</option>
                                                 </select>
                                             </div>
+
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3  mb-sm-0">
                                                     <input class="form-control  form-control-user" type="text"
@@ -252,26 +253,29 @@ $otp_failure="";
                                                     echo $_SESSION['reg_fname'];  
                                                 }
                                                 ?>">
+
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <input class="form-control  form-control-user" type="text"
                                                         id="textboxLastName" placeholder="Last Name" name="reg_lname"
                                                         autocomplete="off" value="<?php
-                                                if(isset($_SESSION['reg_lname']))  {
-                                                    echo $_SESSION['reg_lname'];
-                                                }
+                                                  if(isset($_SESSION['reg_lname']))  {
+                                                      echo $_SESSION['reg_lname'];
+                                                  }
                                                 ?>">
+
                                                 </div>
                                             </div>
+
                                             <div class="form-group">
                                                 <!--enter valid mobile no. textbox  -->
                                                 <input class="form-control  form-control-user" type="text"
                                                     id="exampleInputPassword" placeholder="Enter valid mobile no."
                                                     name="register_mobile_no" minlength="10" maxlength="10"
                                                     autocomplete="off" value="<?php
-                                                if(isset($_SESSION['mobile_no']))  {
-                                                echo $_SESSION['mobile_no'];
-                                                }
+                                                  if(isset($_SESSION['mobile_no']))  {
+                                                      echo $_SESSION['mobile_no'];
+                                                  }
                                                 ?>">
                                             </div>
                                             <!--send otp to entered mobile no. button  -->
@@ -286,6 +290,7 @@ $otp_failure="";
                                             var fade_out = function() {
                                                 $("#otp_sent").fadeOut().empty();
                                             }
+
                                             setTimeout(fade_out, 3000);
                                             </script>
                                             <hr>
@@ -308,6 +313,7 @@ $otp_failure="";
                                             </div>
                                             <button class="btn  btn-outline-primary btn-block btn-user" type="submit"
                                                 name="verify_otp">Verify</button>
+
                                             <hr>
                                         </form>
                                         <div class="text-center">
@@ -325,10 +331,12 @@ $otp_failure="";
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
         </script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
         <script src="rd/assets/js/script.min.js"></script>
         <script src="assets/js/rdjsfile.js"></script>
         <script src="assets/js/demo.js"></script>
     </body>
+
 </html>

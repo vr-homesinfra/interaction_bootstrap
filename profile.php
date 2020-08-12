@@ -1,12 +1,16 @@
 <?php
 include("includes/header.php");
-
 ?>
 <div class="container-fluid">
     <?php
         if(isset($_GET['profile_username'])) {
               $username = $_GET['profile_username'];
-              $_SESSION['uname']=$username;
+              
+              if (isset($_SESSION['uname'])) {
+                # code...
+                $_SESSION['uname']=$username;
+                // print_r($check);
+                unset($_SESSION["uname"]);}
                $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
                $user_array = mysqli_fetch_array($user_details_query);
                $fname=$user_array['first_name'];
@@ -43,14 +47,13 @@ include("includes/header.php");
         ?>
             <?php
     if ($coa_verified=="yes") {
-        echo "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+        echo "<i class='fa fa-check' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;' data-toggle='tooltip' data-placement='right' title='Verified'>
             </i>";
     } else {
-        echo "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
+        echo "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;' data-toggle='tooltip' data-placement='right' title='Not Verified'>
             </i>";
     }
 ?>
-
         </h3>
         <form method="POST" action="<?php echo $username; ?>">
             <?php
@@ -171,8 +174,7 @@ include("includes/header.php");
 </div>
 <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
@@ -181,6 +183,11 @@ include("includes/header.php");
 <script src="assets/js/demo.js"></script>
 
 <script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+
 $(document).ready(function() {
     $('#reqMobNo').on('click', function(e) {
         //Stop the form from submitting itself to the server.
