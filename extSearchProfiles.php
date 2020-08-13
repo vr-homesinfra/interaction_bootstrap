@@ -53,7 +53,6 @@ else {
 			$usersReturnedQuery = mysqli_query($con, "SELECT * FROM users WHERE username LIKE '$query%' AND user_closed='no' LIMIT 8");
 		//If there are two words, assume they are first and last names respectively
 		else {
-
 			$names = explode(" ", $query);
 			
 //If there are three words (for architects), assume they are profile and location names respectively			
@@ -96,7 +95,6 @@ $read_more="...";
 				$coa_stat= "<i class='fa fa-exclamation-circle' style='font-size: 19px;color: rgb(23,99,247);padding-left: 0px;padding-right: 0px;'>
 				</i>";
 		}
-
 //         <div class='col-lg-3 col-md-3 mb-4 mb-lg-0'>
 //         <div class='card rounded shadow-sm border-0'>
 //             <div class='card-body p-4'>
@@ -115,8 +113,7 @@ $read_more="...";
 // </div>
         $extSearchUname=$row['username'];     
         $extSearchCity=rtrim($_GET['city']);     
-        $extSearchProfile=rtrim($_GET['profile']);  
-       
+        $extSearchProfile=rtrim($_GET['profile']);
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
         <div class='card'>
@@ -152,8 +149,7 @@ echo "
 		}
         $extSearchUname=$row['username'];     
         $extSearchCity=rtrim($_GET['city']);     
-        $extSearchProfile=rtrim($_GET['profile']);  
-       
+        $extSearchProfile=rtrim($_GET['profile']);
 echo "
 <div class='col-sm-12 col-md-4 col-lg-3 mt-4'>
         <div class='card'>
@@ -178,5 +174,4 @@ echo "
             </script>
             <script src="rd/assets/js/script.min.js?h=d2143303a086bde999cc9e80b9a772ce"></script>
     </body>
-
 </html>
