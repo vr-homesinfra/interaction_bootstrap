@@ -79,7 +79,7 @@ $row = mysqli_fetch_array($result);
                                                 processData: false,
                                                 beforeSend: function() {
                                                     $('#uploaded_image img').attr('src',
-                                                        './assets/images/icons/uploadcloud.gif'
+                                                        'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
                                                     );
                                                 },
                                                 success: function(data) {

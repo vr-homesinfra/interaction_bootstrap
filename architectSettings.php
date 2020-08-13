@@ -46,7 +46,7 @@ $added_profile = $user['added_profile'];
 // 		echo "<div style='text-align:center;' class='alert alert-danger'>
 // 				$errorMessage
 // 			</div>";
-// 	}c
+// 	}
 // }
 //gallery images upload section ends
 $result=$con->query("SELECT * FROM users WHERE username='$userLoggedIn'");
@@ -118,7 +118,7 @@ $row = mysqli_fetch_array($result);
                                                 processData: false,
                                                 beforeSend: function() {
                                                     $('#uploaded_image img').attr('src',
-                                                        './assets/images/icons/uploadcloud.gif'
+                                                        'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
                                                     );
                                                 },
                                                 success: function(data) {
