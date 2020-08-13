@@ -44,10 +44,8 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
                                 );
                             },
                             success: function(data) {
-                                // $('#uploaded_image').html(data);
-                                // var rdimagepath = data;
-                                // $('#uploaded_image img, #uploaded_image_header img')
-                                //     .attr('src', data);
+                                alert('Image Successfully Uploaded!');
+                                location.reload(true);
                             }
                         });
                     }
@@ -68,17 +66,17 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <?php
-				  $i=0;
-				  foreach ($result as $row) {
-					  $actives='';
-					  if ($i==0) {
-						  $actives="active";
-					  }
+                    $i=0;
+                    foreach ($result as $row) {
+                        $actives='';
+                        if ($i==0) {
+                            $actives="active";
+                        }
 				?>
                 <li data-target="#carouselExampleIndicators" data-slide-to="<?=
-				  $i;  
+				    $i;  
 				?>" class="<?=
-				  $actives;  
+				    $actives;  
 				?>"></li>
                 <?php
 				$i++;
@@ -87,23 +85,23 @@ $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$userLogg
             </ol>
             <div class="carousel-inner">
                 <?php
-				  $i=0;
-				  foreach ($result as $row) {
-					  $actives='';
-					  if ($i==0) {
-						  $actives="active";
-					  }				    
+                    $i=0;
+                    foreach ($result as $row) {
+                        $actives='';
+                        if ($i==0) {
+                            $actives="active";
+                        }				    
 				?>
                 <div class="carousel-item <?=
-				  $actives;  
+				    $actives;  
 				?>">
-                    <img class="d-block w-100" src="<?=
-					  $row['filepath'];  
-					?>" width="100%" height="400px">
+                    <img class="d-block m-auto" src="<?=
+					    $row['filepath'];  
+					?>"  height="400px">
                 </div>
                 <?php
 				$i++;
-				  }				  
+				    }				  
 				?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
