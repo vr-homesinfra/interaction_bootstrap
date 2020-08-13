@@ -4,25 +4,23 @@ include("includes/header.php");
 <div class="container-fluid">
     <?php
         if(isset($_GET['profile_username'])) {
-              $username = $_GET['profile_username'];
-              
-              if (isset($_SESSION['uname'])) {
+                $username = $_GET['profile_username'];
+                if (isset($_SESSION['uname'])) {
                 # code...
                 $_SESSION['uname']=$username;
                 // print_r($check);
                 unset($_SESSION["uname"]);}
-               $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
-               $user_array = mysqli_fetch_array($user_details_query);
-               $fname=$user_array['first_name'];
-               $lname=$user_array['last_name'];
-               $profilePic=$user_array['profile_pic'];
-               $mobile_no=$user_array['mobile_no'];
-               $about_me=$user_array['about_me'];
-               $coa_verified=$user_array['coa_verified'];
-               $user_profile=$user_array['profile'];
-               $msg="messages.php?u=";
-
-           }  
+                $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
+                $user_array = mysqli_fetch_array($user_details_query);
+                $fname=$user_array['first_name'];
+                $lname=$user_array['last_name'];
+                $profilePic=$user_array['profile_pic'];
+                $mobile_no=$user_array['mobile_no'];
+                $about_me=$user_array['about_me'];
+                $coa_verified=$user_array['coa_verified'];
+                $user_profile=$user_array['profile'];
+                $msg="messages.php?u=";
+        }  
            //for gallery
            $result=$con->query("SELECT * FROM creative_gallery WHERE uploaded_by='$username' ORDER BY id DESC");
            //remove friend functionality
@@ -39,7 +37,7 @@ include("includes/header.php");
         <div class="profile-back bg-white">
         </div>
         <img class="rounded-circle img-fluid border rounded profile-pic" src="<?php
-          echo $profilePic;
+            echo $profilePic;
         ?>">
         <h3 class="text-dark">
             <?php
@@ -57,8 +55,8 @@ include("includes/header.php");
         </h3>
         <form method="POST" action="<?php echo $username; ?>">
             <?php
- 			$logged_in_user_obj = new User($con, $userLoggedIn);
-             if($logged_in_user_obj->isFriend($username)) {
+            $logged_in_user_obj = new User($con, $userLoggedIn);
+            if($logged_in_user_obj->isFriend($username)) {
                 echo '<div class="form-group">
                 <button class=" btn btn-warning  btn-sm flex-fill" type="submit" name="remove_friend" style="color: rgb(0,0,0);line-height: 18px;">Remove as
                     Favourite</button>
@@ -114,17 +112,17 @@ include("includes/header.php");
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <?php
-				  $i=0;
-				  foreach ($result as $row) {
-					  $actives='';
-					  if ($i==0) {
-						  $actives="active";
-					  }
+                    $i=0;
+                    foreach ($result as $row) {
+					$actives='';
+					if ($i==0) {
+					$actives="active";
+					}
 				?>
                     <li data-target="#carouselExampleIndicators" data-slide-to="<?=
-				  $i;  
+				$i;  
 				?>" class="<?=
-				  $actives;  
+				$actives;  
 				?>"></li>
                     <?php
 				$i++;
@@ -133,23 +131,23 @@ include("includes/header.php");
                 </ol>
                 <div class="carousel-inner">
                     <?php
-				  $i=0;
-				  foreach ($result as $row) {
-					  $actives='';
-					  if ($i==0) {
-						  $actives="active";
-					  }				    
+				$i=0;
+				foreach ($result as $row) {
+				$actives='';
+				if ($i==0) {
+				$actives="active";
+				}				    
 				?>
                     <div class="carousel-item <?=
-				  $actives;  
+				$actives;  
 				?>">
-                        <img class="d-block w-100" src="<?=
-					  $row['filepath'];  
-					?>" width="100%" height="400px">
+                        <img class="d-block m-auto" src="<?=
+					$row['filepath'];  
+					?>" height="400px">
                     </div>
                     <?php
 				$i++;
-				  }				  
+				}				  
 				?>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -168,7 +166,7 @@ include("includes/header.php");
 
 <footer class="bg-white sticky-footer">
     <div class="container my-auto">
-        <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020</span></div>
+        <div class="text-center my-auto copyright"><span>Copyright © HomesInfra 2020 | Made with <i class='fas fa-heart'></i> for your homes.</span></div>
     </div>
 </footer>
 </div>
@@ -184,7 +182,7 @@ include("includes/header.php");
 
 <script>
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip()
 })
 
 
@@ -206,5 +204,4 @@ $(document).ready(function() {
     });
 });
 </script>
-
 </html>
