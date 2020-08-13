@@ -6,7 +6,7 @@ if (isset($_SESSION['uname'])) {
     # code...
     $check=($_SESSION['uname']);
     print_r($check);
-    header("Location:https://homesinfra.com/interact/".$check);
+    header("Location:https://homesinfra.com/".$check);
     // header("Location:http://localhost/interaction_bootstrap/".$check);
     unset($_SESSION["uname"]);
 }
@@ -79,7 +79,7 @@ $row = mysqli_fetch_array($result);
                                                 processData: false,
                                                 beforeSend: function() {
                                                     $('#uploaded_image img').attr('src',
-                                                        'http://localhost/interaction_bootstrap/assets/images/icons/uploadcloud.gif'
+                                                        './assets/images/icons/uploadcloud.gif'
                                                     );
                                                 },
                                                 success: function(data) {
