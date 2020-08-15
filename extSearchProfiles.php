@@ -76,7 +76,7 @@ else {
 $read_more="...";
 		// Check if results were found 
 		if(mysqli_num_rows($usersReturnedQuery) == 0 && mysqli_num_rows($usersReturnedQueryAdded) == 0)
-		if(date("j m") <= '15 08'){
+		if(date("j m") < '15 08'){
 		        echo "The Listing will be Live from 15th of August on Independence Day";
 		    }else{
 			echo "We can't find anyone with a " . $type . " like: " .$query;}
