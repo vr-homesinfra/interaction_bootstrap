@@ -233,7 +233,6 @@ $row = mysqli_fetch_array($result);
                 </div>
                 <div class="card-body">
                     <form id="about_me_settings">
-
                         <div class="form-group">
                             <input type="hidden" class="form-control" name="inputName" id="isPressed" value="is_pressed"
                                 autocomplete="off">
@@ -294,6 +293,58 @@ $row = mysqli_fetch_array($result);
                 </div>
             </div>
             <!-- card End -->
+            <!--company info .card start  -->
+            <div class="card shadow-sm">
+                <div class="card-header py-3">
+                    <p class="text-gray-900 m-0 font-weight-bold">Company Info.</p>
+                </div>
+                <div class="card-body">
+                    <form id="company_info_settings">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="inputName" id="isPressedCompanyInfo"
+                                value="isPressedCompanyInfo" autocomplete="off">
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="text" placeholder="company name" id="company_name"
+                                        value="<?php echo $user['company_name'];?>" autocomplete="off"
+                                        maxlength="200" />
+                                    <label for="company_name">Company Name</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-label-group">
+                                    <input class="form-control" placeholder="cin no." id="cin_no" rows="2"
+                                        value="<?php echo $user['cin_no'];?>" maxlength="21" />
+                                    <label for="cin_no">CIN No.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="text" placeholder="gst no." id="gst_no"
+                                        value="<?php echo $user['gst_no'];?>" autocomplete="off" maxlength="15" />
+                                    <label for="gst_no">GST No.(optional)</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-label-group">
+                                    <input class="form-control" type="text" placeholder="no.of experience years"
+                                        id="expe_years" value="<?php echo $user['expe_years'];?>" autocomplete="off"
+                                        maxlength="3" />
+                                    <label for="expe_years">Experience Years</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-sm" type="submit">Save Settings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--company info .card end  -->
         </div>
     </div>
 </div>
