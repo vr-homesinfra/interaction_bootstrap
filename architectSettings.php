@@ -227,7 +227,7 @@ $row = mysqli_fetch_array($result);
                     </form>
                 </div>
             </div>
-            <div class="card shadow-sm">
+            <div class="card shadow-sm mb-3">
                 <div class="card-header py-3">
                     <p class="text-gray-900 m-0 font-weight-bold">About Me</p>
                 </div>
