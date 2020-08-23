@@ -241,7 +241,7 @@ $row = mysqli_fetch_array($result);
                             <div class="col">
                                 <div class="form-label-group">
                                     <input class="form-control" type="text" placeholder="COA No." id="coa_no"
-                                        value="<?php echo $user['coa_no'];?>" autocomplete="off" />
+                                        value="<?php echo $user['coa_no'];?>" autocomplete="off" maxlength="13" />
                                     <label for="coa_no">COA Number</label>
                                 </div>
                             </div>
@@ -433,6 +433,38 @@ $(document).ready(function() {
     });
 });
 </script>
+
+<script>
+$(document).ready(function() {
+    $('#company_info_settings').on('submit', function(e) {
+        //Stop the form from submitting itself to the server.
+        e.preventDefault();
+        var isPressedCompanyInfo = $('#isPressedCompanyInfo').val();
+        var company_name = $('#company_name').val();
+        var cin_no = $('#cin_no').val();
+        var gst_no = $('#gst_no').val();
+        var expe_years = $('#expe_years').val();
+
+
+        $.ajax({
+            type: "POST",
+            url: 'architectSettingsSubmit.php',
+            data: {
+                isPressedCompanyInfo: isPressedCompanyInfo,
+                company_name: company_name,
+                cin_no: cin_no,
+                gst_no: gst_no,
+                expe_years: expe_years
+            },
+            success: function(data) {
+                alert("updated successfully");
+            }
+        });
+    });
+});
+</script>
+
+
 </body>
 
 </html>
